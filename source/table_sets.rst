@@ -1,0 +1,82 @@
+Table Sets
+===========
+
+A ``TableSet`` instance contains a Python list of individual instances of the ``Table`` class. The advantage of using a ``TableSet`` instead of building a Python list of ``Table`` instances manually is that ATpy allows reading and writing of groups of tables to file formats that support it (e.g. FITS and VO table files or SQL databases).
+
+Quick start
+-----------
+
+Initialization
+^^^^^^^^^^^^^^
+
+The easiest way to create a table set object is to call the ``TableSet`` class with no arguments::
+
+    tset = TableSet()
+    
+    
+Manually adding a table to a set
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+An instance of the ``Table`` class can be added to a set by using the ``append()`` method::
+
+    tset.append(t)
+
+where ``t`` is an instance of the ``Table()`` class. 
+
+Reading in tables from a file or database
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``read()`` method can be used to read in multiple tables from a file or database. This method automatically determines the file or database type and reads in the tables. For example, all the tables in a VO table can be read in using::
+
+    tset.read('somedata.xml')
+
+while all the tables in a FITS file can be read in using::
+
+    tset.read('somedata.fits')
+
+As for the ``Table()`` class, in some cases, ``read()`` will fail to determine the input type. In this case, or to override the automatically selected type, the input type can be specified using the type argument::
+
+    tset.read('somedata.fits.gz',type='fits')
+
+
+Any arguments passed to ``TableSet()`` when creating a table instance are passed to the ``read()`` method. This can be used to create a ``TableSet()`` instance and fill it with data in a single line. For example, the following::
+
+    tset = TableSet('somedata.xml')
+
+is equivalent to::
+
+    tset = TableSet()
+    tset.read('somedata.xml')
+
+Accessing a single table
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Single tables can be accessed through the ``TableSet.tables`` python list. For example, the first table in a set can be accessed with::
+
+    tset.tables[0]
+    
+And all methods associated with single tables are then available. For example, the following shows how to run the ``describe`` method of the first table in a set::
+
+    tset.tables[0].describe()
+
+Full API
+--------
+
+The following methods are available:
+
+.. automodule:: atpy
+
+Input/Output
+^^^^^^^^^^^^
+
+.. automethod:: TableSet.read
+.. automethod:: TableSet.write
+
+To browse the API of the ``read()`` and ``write()`` methods for the different table types, see :doc:`formats`.
+
+Table Set manipulation
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. automethod:: TableSet.append
+.. automethod:: TableSet.describe
+

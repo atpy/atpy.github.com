@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Table Sets &mdash; ATpy v0.9.0 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.9.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="ATpy v0.9.0 documentation" href="index.html" />
+    <link rel="next" title="Supported Table Formats" href="formats.html" />
+    <link rel="prev" title="Single Tables" href="single_tables.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="formats.html" title="Supported Table Formats"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="single_tables.html" title="Single Tables"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">ATpy v0.9.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="table-sets">
+<h1>Table Sets<a class="headerlink" href="#table-sets" title="Permalink to this headline">¶</a></h1>
+<p>A <tt class="docutils literal"><span class="pre">TableSet</span></tt> instance contains a Python list of individual instances of the <tt class="docutils literal"><span class="pre">Table</span></tt> class. The advantage of using a <tt class="docutils literal"><span class="pre">TableSet</span></tt> instead of building a Python list of <tt class="docutils literal"><span class="pre">Table</span></tt> instances manually is that ATpy allows reading and writing of groups of tables to file formats that support it (e.g. FITS and VO table files or SQL databases).</p>
+<div class="section" id="quick-start">
+<h2>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="initialization">
+<h3>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h3>
+<p>The easiest way to create a table set object is to call the <tt class="docutils literal"><span class="pre">TableSet</span></tt> class with no arguments:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tset</span> <span class="o">=</span> <span class="n">TableSet</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="manually-adding-a-table-to-a-set">
+<h3>Manually adding a table to a set<a class="headerlink" href="#manually-adding-a-table-to-a-set" title="Permalink to this headline">¶</a></h3>
+<p>An instance of the <tt class="docutils literal"><span class="pre">Table</span></tt> class can be added to a set by using the <tt class="docutils literal"><span class="pre">append()</span></tt> method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tset</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">t</span></tt> is an instance of the <tt class="docutils literal"><span class="pre">Table()</span></tt> class.</p>
+</div>
+<div class="section" id="reading-in-tables-from-a-file-or-database">
+<h3>Reading in tables from a file or database<a class="headerlink" href="#reading-in-tables-from-a-file-or-database" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">read()</span></tt> method can be used to read in multiple tables from a file or database. This method automatically determines the file or database type and reads in the tables. For example, all the tables in a VO table can be read in using:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tset</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;somedata.xml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>while all the tables in a FITS file can be read in using:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tset</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;somedata.fits&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As for the <tt class="docutils literal"><span class="pre">Table()</span></tt> class, in some cases, <tt class="docutils literal"><span class="pre">read()</span></tt> will fail to determine the input type. In this case, or to override the automatically selected type, the input type can be specified using the type argument:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tset</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;somedata.fits.gz&#39;</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;fits&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Any arguments passed to <tt class="docutils literal"><span class="pre">TableSet()</span></tt> when creating a table instance are passed to the <tt class="docutils literal"><span class="pre">read()</span></tt> method. This can be used to create a <tt class="docutils literal"><span class="pre">TableSet()</span></tt> instance and fill it with data in a single line. For example, the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tset</span> <span class="o">=</span> <span class="n">TableSet</span><span class="p">(</span><span class="s">&#39;somedata.xml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>is equivalent to:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tset</span> <span class="o">=</span> <span class="n">TableSet</span><span class="p">()</span>
+<span class="n">tset</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;somedata.xml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="accessing-a-single-table">
+<h3>Accessing a single table<a class="headerlink" href="#accessing-a-single-table" title="Permalink to this headline">¶</a></h3>
+<p>Single tables can be accessed through the <tt class="docutils literal"><span class="pre">TableSet.tables</span></tt> python list. For example, the first table in a set can be accessed with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tset</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>And all methods associated with single tables are then available. For example, the following shows how to run the <tt class="docutils literal"><span class="pre">describe</span></tt> method of the first table in a set:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">tset</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="module-atpy">
+<h2>Full API<a class="headerlink" href="#module-atpy" title="Permalink to this headline">¶</a></h2>
+<p>The following methods are available:</p>
+<div class="section" id="input-output">
+<h3>Input/Output<a class="headerlink" href="#input-output" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="atpy.TableSet.read">
+<tt class="descclassname">TableSet.</tt><tt class="descname">read</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.TableSet.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read in a table or table set from a file/database.</p>
+<p>This method attempts to automatically guess the file/database format
+based on the arguments supplied. The type can be overridden by
+specifying type=string where string can be one of:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fits</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ipac</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sql</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">vo</span></tt></li>
+</ul>
+</blockquote>
+<p>The arguments to supply to <tt class="docutils literal"><span class="pre">read()</span></tt> depend on the type of the input.
+For more information, see the help pages for the following methods:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fits_read</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ipac_read</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sql_read</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">vo_read</span></tt></li>
+</ul>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.TableSet.write">
+<tt class="descclassname">TableSet.</tt><tt class="descname">write</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.TableSet.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write out a table or table set to a file/database.</p>
+<p>This method attempts to automatically guess the file/database format
+based on the arguments supplied. The type can be overridden by
+specifying type=string where string can be one of:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fits</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ipac</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sql</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">vo</span></tt></li>
+</ul>
+</blockquote>
+<p>The arguments to supply to <tt class="docutils literal"><span class="pre">write()</span></tt> depend on the type of the
+output. For more information, see the help pages for the following
+methods:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fits_write</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ipac_write</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sql_write</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">vo_write</span></tt></li>
+</ul>
+</blockquote>
+</dd></dl>
+
+<p>To browse the API of the <tt class="docutils literal"><span class="pre">read()</span></tt> and <tt class="docutils literal"><span class="pre">write()</span></tt> methods for the different table types, see <a class="reference external" href="formats.html"><em>Supported Table Formats</em></a>.</p>
+</div>
+<div class="section" id="table-set-manipulation">
+<h3>Table Set manipulation<a class="headerlink" href="#table-set-manipulation" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="atpy.TableSet.append">
+<tt class="descclassname">TableSet.</tt><tt class="descname">append</tt><big>(</big><em>table</em><big>)</big><a class="headerlink" href="#atpy.TableSet.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append a table to the table set</p>
+<p>Required Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>table</em>: [ a table instance ]</dt>
+<dd>This can be a table of any type, which will be converted
+to a table of the same type as the parent set (e.g. adding
+a single VOTable to a FITSTableSet will convert the VOTable
+to a FITSTable inside the set)</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.TableSet.describe">
+<tt class="descclassname">TableSet.</tt><tt class="descname">describe</tt><big>(</big><big>)</big><a class="headerlink" href="#atpy.TableSet.describe" title="Permalink to this definition">¶</a></dt>
+<dd>Describe all the tables in the set</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Table Sets</a><ul>
+<li><a class="reference external" href="#quick-start">Quick start</a><ul>
+<li><a class="reference external" href="#initialization">Initialization</a></li>
+<li><a class="reference external" href="#manually-adding-a-table-to-a-set">Manually adding a table to a set</a></li>
+<li><a class="reference external" href="#reading-in-tables-from-a-file-or-database">Reading in tables from a file or database</a></li>
+<li><a class="reference external" href="#accessing-a-single-table">Accessing a single table</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#module-atpy">Full API</a><ul>
+<li><a class="reference external" href="#input-output">Input/Output</a></li>
+<li><a class="reference external" href="#table-set-manipulation">Table Set manipulation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="single_tables.html"
+                                  title="previous chapter">Single Tables</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="formats.html"
+                                  title="next chapter">Supported Table Formats</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/table_sets.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="formats.html" title="Supported Table Formats"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="single_tables.html" title="Single Tables"
+             >previous</a> |</li>
+        <li><a href="index.html">ATpy v0.9.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>

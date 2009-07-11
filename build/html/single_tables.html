@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Single Tables &mdash; ATpy v0.9.0 documentation</title>
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.9.0',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="ATpy v0.9.0 documentation" href="index.html" />
+    <link rel="next" title="Table Sets" href="table_sets.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="table_sets.html" title="Table Sets"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">ATpy v0.9.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="single-tables">
+<h1>Single Tables<a class="headerlink" href="#single-tables" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="quick-start">
+<h2>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="initialization">
+<h3>Initialization<a class="headerlink" href="#initialization" title="Permalink to this headline">¶</a></h3>
+<p>The easiest way to create a single table object is to call the <tt class="docutils literal"><span class="pre">Table</span></tt> class with no arguments:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="manually-filling-a-table">
+<h3>Manually filling a table<a class="headerlink" href="#manually-filling-a-table" title="Permalink to this headline">¶</a></h3>
+<p>A table can be filled manually using the <tt class="docutils literal"><span class="pre">add_column</span></tt> method. For example, the following can be used to add a column named <cite>time</cite> where the variable <cite>time_array</cite> is a numpy array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span><span class="n">time_array</span><span class="p">,</span><span class="n">unit</span><span class="o">=</span><span class="s">&#39;seconds&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reading-in-data-from-a-file-or-database">
+<h3>Reading in data from a file or database<a class="headerlink" href="#reading-in-data-from-a-file-or-database" title="Permalink to this headline">¶</a></h3>
+<p>Alternatively, the <tt class="docutils literal"><span class="pre">read()</span></tt> method can be used to read in data from a file or database. This method automatically determines the file or database type and reads in the data. For example, a VO table can be read in using:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;somedata.xml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>while a FITS table can be read in using:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;somedata.fits&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In some cases, <tt class="docutils literal"><span class="pre">read()</span></tt> will fail to determine the input type. In this case, or to override the automatically selected type, the input type can be specified using the type argument:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;somedata.fits.gz&#39;</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;fits&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reading-in-data-when-creating-a-table">
+<h3>Reading in data when creating a table<a class="headerlink" href="#reading-in-data-when-creating-a-table" title="Permalink to this headline">¶</a></h3>
+<p>Any arguments passed to <tt class="docutils literal"><span class="pre">Table()</span></tt> when creating a table instance are passed to the <tt class="docutils literal"><span class="pre">read()</span></tt> method. This can be used to create a <tt class="docutils literal"><span class="pre">Table()</span></tt> instance and fill it with data in a single line. For example, the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">&#39;somedata.xml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>is equivalent to:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span>
+<span class="n">t</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;somedata.xml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="writing-a-table-to-a-file-or-database">
+<h3>Writing a table to a file or database<a class="headerlink" href="#writing-a-table-to-a-file-or-database" title="Permalink to this headline">¶</a></h3>
+<p>Similarly, data can be output to a file or database using the <tt class="docutils literal"><span class="pre">write()</span></tt> method. As for <tt class="docutils literal"><span class="pre">read</span></tt>, the output type is automatically determined, but if this fails or to override the automatic choice, the <tt class="docutils literal"><span class="pre">type</span></tt> argument should be used:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;somedata.xml&#39;</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;somedata&#39;</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;ipac&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="accessing-table-data">
+<h3>Accessing table data<a class="headerlink" href="#accessing-table-data" title="Permalink to this headline">¶</a></h3>
+<p>Data is stored in dictionary named <tt class="docutils literal"><span class="pre">data</span></tt>. Each element in the dictionary is a 1-D array (or 2-D in the case of vector columns). Therefore, the data is accessed using <tt class="docutils literal"><span class="pre">Table.data[column_name][element]</span></tt> where <tt class="docutils literal"><span class="pre">column_name</span></tt> is a string and <tt class="docutils literal"><span class="pre">element</span></tt> is an integer denoting the row. To access the fifth row of a column named <tt class="docutils literal"><span class="pre">wavelength</span></tt>, one would then use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;wavelength&#39;</span><span class="p">][</span><span class="mf">4</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>For column names that are considered acceptable python variable names can also by calling the table with the column name as a table attribute, so that the above can also be written:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">wavelength</span><span class="p">[</span><span class="mf">4</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Only column names consisting of letters (uppercase or lowercase), numbers, and the underscore symbol are acceptable. Column names with spaces, starting with a number, or containing other symbols cannot be called in this way.</p>
+</div>
+<div class="section" id="manipulating-tables">
+<h3>Manipulating tables<a class="headerlink" href="#manipulating-tables" title="Permalink to this headline">¶</a></h3>
+<p>A number of methods are available to manipulate tables, for example to add or remove columns, to select rows from a table and create a new table, to rename columns, or to add comments and keywords. The full API for the <tt class="docutils literal"><span class="pre">Table</span></tt> class methods is given below.</p>
+</div>
+</div>
+<div class="section" id="module-atpy">
+<h2>Full API<a class="headerlink" href="#module-atpy" title="Permalink to this headline">¶</a></h2>
+<p>The following methods are available:</p>
+<div class="section" id="input-output">
+<h3>Input/Output<a class="headerlink" href="#input-output" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="atpy.Table.read">
+<tt class="descclassname">Table.</tt><tt class="descname">read</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.Table.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read in a table or table set from a file/database.</p>
+<p>This method attempts to automatically guess the file/database format
+based on the arguments supplied. The type can be overridden by
+specifying type=string where string can be one of:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fits</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ipac</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sql</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">vo</span></tt></li>
+</ul>
+</blockquote>
+<p>The arguments to supply to <tt class="docutils literal"><span class="pre">read()</span></tt> depend on the type of the input.
+For more information, see the help pages for the following methods:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fits_read</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ipac_read</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sql_read</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">vo_read</span></tt></li>
+</ul>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.write">
+<tt class="descclassname">Table.</tt><tt class="descname">write</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.Table.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write out a table or table set to a file/database.</p>
+<p>This method attempts to automatically guess the file/database format
+based on the arguments supplied. The type can be overridden by
+specifying type=string where string can be one of:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fits</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ipac</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sql</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">vo</span></tt></li>
+</ul>
+</blockquote>
+<p>The arguments to supply to <tt class="docutils literal"><span class="pre">write()</span></tt> depend on the type of the
+output. For more information, see the help pages for the following
+methods:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fits_write</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ipac_write</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sql_write</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">vo_write</span></tt></li>
+</ul>
+</blockquote>
+</dd></dl>
+
+<p>To browse the API of the <tt class="docutils literal"><span class="pre">read()</span></tt> and <tt class="docutils literal"><span class="pre">write()</span></tt> methods for the different table types, see <a class="reference external" href="formats.html"><em>Supported Table Formats</em></a>.</p>
+</div>
+<div class="section" id="column-manipulation">
+<h3>Column manipulation<a class="headerlink" href="#column-manipulation" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="atpy.Table.add_column">
+<tt class="descclassname">Table.</tt><tt class="descname">add_column</tt><big>(</big><em>name</em>, <em>data</em>, <em>unit=''</em>, <em>null=''</em>, <em>description=''</em>, <em>format=None</em><big>)</big><a class="headerlink" href="#atpy.Table.add_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a column to the table</p>
+<p>Required Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>name</em>: [ string ]</dt>
+<dd>The name of the column to add</dd>
+<dt><em>data</em>: [ numpy array ]</dt>
+<dd>The column data</dd>
+</dl>
+</blockquote>
+<p>Optional Keyword Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>unit</em>: [ string ]</dt>
+<dd>The unit of the values in the column</dd>
+<dt><em>null</em>: [ same type as data ]</dt>
+<dd>The values corresponding to &#8216;null&#8217;, if not NaN</dd>
+<dt><em>description</em>: [ string ]</dt>
+<dd>A description of the content of the column</dd>
+<dt><em>format</em>: [ string ]</dt>
+<dd>The format to use for ASCII printing</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.remove_column">
+<tt class="descclassname">Table.</tt><tt class="descname">remove_column</tt><big>(</big><em>remove_name</em><big>)</big><a class="headerlink" href="#atpy.Table.remove_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a column from the table</p>
+<p>Required Argument:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>remove_name</em>: [ string ]</dt>
+<dd>The name of the column to remove</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.remove_columns">
+<tt class="descclassname">Table.</tt><tt class="descname">remove_columns</tt><big>(</big><em>remove_names</em><big>)</big><a class="headerlink" href="#atpy.Table.remove_columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove several columns from the table</p>
+<p>Required Argument:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>remove_names</em>: [ list of strings ]</dt>
+<dd>A list containing the names of the columns to remove</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.keep_columns">
+<tt class="descclassname">Table.</tt><tt class="descname">keep_columns</tt><big>(</big><em>keep_names</em><big>)</big><a class="headerlink" href="#atpy.Table.keep_columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keep only specific columns in the table (remove the others)</p>
+<p>Required Argument:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>keep_names</em>: [ list of strings ]</dt>
+<dd>A list containing the names of the columns to keep.
+All other columns will be removed.</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.rename_column">
+<tt class="descclassname">Table.</tt><tt class="descname">rename_column</tt><big>(</big><em>old_name</em>, <em>new_name</em><big>)</big><a class="headerlink" href="#atpy.Table.rename_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename a column from the table</p>
+<p>Require Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>old_name</em>: [ string ]</dt>
+<dd>The current name of the column.</dd>
+<dt><em>new_name</em>: [ string ]</dt>
+<dd>The new name for the column</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="meta-data">
+<h3>Meta-data<a class="headerlink" href="#meta-data" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="atpy.Table.add_comment">
+<tt class="descclassname">Table.</tt><tt class="descname">add_comment</tt><big>(</big><em>comment</em><big>)</big><a class="headerlink" href="#atpy.Table.add_comment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a comment to the table</p>
+<p>Required Argument:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>comment</em>: [ string ]</dt>
+<dd>The comment to add to the table</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.add_keyword">
+<tt class="descclassname">Table.</tt><tt class="descname">add_keyword</tt><big>(</big><em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#atpy.Table.add_keyword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a keyword/value pair to the table</p>
+<p>Required Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>key</em>: [ string ]</dt>
+<dd>The name of the keyword</dd>
+<dt><em>value</em>: [ string | float | integer | bool ]</dt>
+<dd>The value of the keyword</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.describe">
+<tt class="descclassname">Table.</tt><tt class="descname">describe</tt><big>(</big><big>)</big><a class="headerlink" href="#atpy.Table.describe" title="Permalink to this definition">¶</a></dt>
+<dd>Prints a description of the table</dd></dl>
+
+</div>
+<div class="section" id="row-selection">
+<h3>Row selection<a class="headerlink" href="#row-selection" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="atpy.Table.where">
+<tt class="descclassname">Table.</tt><tt class="descname">where</tt><big>(</big><em>mask</em><big>)</big><a class="headerlink" href="#atpy.Table.where" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select certain rows from the table and return a new table instance</p>
+<p>Required Argument:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>mask</em>: [ np.bool array ]</dt>
+<dd>A boolean array with the same length as the table.</dd>
+</dl>
+</blockquote>
+<p>Returns:</p>
+<blockquote>
+A new table instance, containing only the rows selected</blockquote>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Single Tables</a><ul>
+<li><a class="reference external" href="#quick-start">Quick start</a><ul>
+<li><a class="reference external" href="#initialization">Initialization</a></li>
+<li><a class="reference external" href="#manually-filling-a-table">Manually filling a table</a></li>
+<li><a class="reference external" href="#reading-in-data-from-a-file-or-database">Reading in data from a file or database</a></li>
+<li><a class="reference external" href="#reading-in-data-when-creating-a-table">Reading in data when creating a table</a></li>
+<li><a class="reference external" href="#writing-a-table-to-a-file-or-database">Writing a table to a file or database</a></li>
+<li><a class="reference external" href="#accessing-table-data">Accessing table data</a></li>
+<li><a class="reference external" href="#manipulating-tables">Manipulating tables</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#module-atpy">Full API</a><ul>
+<li><a class="reference external" href="#input-output">Input/Output</a></li>
+<li><a class="reference external" href="#column-manipulation">Column manipulation</a></li>
+<li><a class="reference external" href="#meta-data">Meta-data</a></li>
+<li><a class="reference external" href="#row-selection">Row selection</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="installation.html"
+                                  title="previous chapter">Installation</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="table_sets.html"
+                                  title="next chapter">Table Sets</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/single_tables.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="table_sets.html" title="Table Sets"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             >previous</a> |</li>
+        <li><a href="index.html">ATpy v0.9.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>
