@@ -1,17 +1,20 @@
 Installation
 ------------
 
+ATpy
+^^^^^^^^^^^^^^^
 ATpy relies on a number of different packages to support different table formats. To install ATpy itself, run::
 
     easy_install atpy
     
-or manually installing using::
+or manually installing ATpy using setup.py will be sufficient.::
 
     python setup.py install
-    
-will be sufficient.
 
- 
+Below is a table to show what ATpy depends on for full functionality and what may need to be installed. We suggest that the user employs Python 2.5 at the minimum for this module. Python 2.6 is preferred as SQLite is included by default. 
+
+
+
                                              
 =============    ================================
   Format         Required Package                
@@ -26,7 +29,7 @@ will be sufficient.
    
 
 NumPy
------------
+^^^^^^^^^^^^^^^
 ATpy requires NumPy-1.3.0 or later. There are three different ways to install NumPy_.
 
 If you are starting off with python, you should consider using the Enthought Python Distribution (EPD), which is an easy-to-install python distribution that contains many packages including the NumPy, SciPy (a bonus), and Matplotlib modules (another bonus!). 
@@ -43,7 +46,7 @@ Finally, a third alternative, if you have easy_install installed, is::
 
 
 PyFITS
------------
+^^^^^^^^^^^^^^^
 In order to read/write FITS files, APLpy requires pyfits-2.1 or later to be installed. The pyfits_ module is developed at the Space Telescope Science Institute (STScI). Once you have the tar file downloaded, you can either install it using the standard installation method:: 
 
     tar xvzf pyfits-2.1.1.tar.gz
@@ -56,13 +59,13 @@ or using easy_install::
 
 
 vo
------------
+^^^^^^^^^^^^^^^
 To read/write VO tables you need to have STScI's vo_ package installed (version 0.3 or greater). The vo-0.3.tar.gz package is broken at the moment, so it's suggested to install the vo_ package from subversion:: 
 
     easy_install https://www.stsci.edu/svn/ssb/astrolib/trunk/vo
 
 SQL
------------
+^^^^^^^^^^^^^^^
 In the SQL domain ATpy supports three database types: MySQL, PostgreSQL, and SQLite. The first two are typical SQL database managers. SQLite_ falls into its own category as does not need special access or installation to get it working. As of Python 2.6 or above, SQLite_ is installed by default. If you are working from Python 2.5 and do not have it installed you can use easy_install:: 
 
     easy_install pysqlite
