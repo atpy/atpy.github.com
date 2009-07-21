@@ -19,12 +19,12 @@ Below is a table to show what ATpy depends on for full functionality and what ma
 =============    ================================
   Format         Required Package                
 =============    ================================
-   IPAC           none                            
-   FITS           pyfits_                         
-   VO             vo_                      
-   SQLite         sqlite3 (built into Python 2.6) 
-   MySQL          mysql_                          
-   PostGreSQL     pygresql_                     
+   IPAC          none                            
+   FITS          pyfits_                         
+   VO            vo_                      
+   SQLite        sqlite3 (built into Python 2.6) 
+   MySQL         mysql_                          
+   PostGreSQL    pygresql_                     
 =============    ================================
    
 

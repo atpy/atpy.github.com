@@ -14,7 +14,7 @@ Example code for reading, converting, and writing a data file from FITS table to
     tbl.write('new_ipactable.tbl')
     
     # If you would prefer, you can tell ATpy what type you want to write. 
-    tbl.write('new_sqlitetable',type='sql')
+    tbl.write('new_sqlitetable.db',type='sql')
 
 
 .. toctree::

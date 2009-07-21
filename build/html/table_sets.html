@@ -31,6 +31,9 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
           <a href="formats.html" title="Supported Table Formats"
              accesskey="N">next</a> |</li>
         <li class="right" >
@@ -54,7 +57,7 @@
 <li><a class="reference external" href="#accessing-a-single-table">Accessing a single table</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#full-api">Full API</a><ul>
+<li><a class="reference external" href="#module-atpy">Full API</a><ul>
 <li><a class="reference external" href="#input-output">Input/Output</a></li>
 <li><a class="reference external" href="#table-set-manipulation">Table Set manipulation</a></li>
 </ul>
@@ -151,15 +154,91 @@
 </div>
 </div>
 </div>
-<div class="section" id="full-api">
-<h2>Full API<a class="headerlink" href="#full-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-atpy">
+<h2>Full API<a class="headerlink" href="#module-atpy" title="Permalink to this headline">¶</a></h2>
 <p>The following methods are available:</p>
 <div class="section" id="input-output">
 <h3>Input/Output<a class="headerlink" href="#input-output" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="atpy.TableSet.read">
+<tt class="descclassname">TableSet.</tt><tt class="descname">read</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.TableSet.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read in a table or table set from a file/database.</p>
+<p>This method attempts to automatically guess the file/database format
+based on the arguments supplied. The type can be overridden by
+specifying type=string where string can be one of:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fits</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ipac</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sql</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">vo</span></tt></li>
+</ul>
+</blockquote>
+<p>The arguments to supply to <tt class="docutils literal"><span class="pre">read()</span></tt> depend on the type of the input.
+For more information, see the help pages for the following methods:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fits_read</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ipac_read</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sql_read</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">vo_read</span></tt></li>
+</ul>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.TableSet.write">
+<tt class="descclassname">TableSet.</tt><tt class="descname">write</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.TableSet.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write out a table or table set to a file/database.</p>
+<p>This method attempts to automatically guess the file/database format
+based on the arguments supplied. The type can be overridden by
+specifying type=string where string can be one of:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fits</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ipac</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sql</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">vo</span></tt></li>
+</ul>
+</blockquote>
+<p>The arguments to supply to <tt class="docutils literal"><span class="pre">write()</span></tt> depend on the type of the
+output. For more information, see the help pages for the following
+methods:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fits_write</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ipac_write</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sql_write</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">vo_write</span></tt></li>
+</ul>
+</blockquote>
+</dd></dl>
+
 <p>To browse the API of the <tt class="docutils literal"><span class="pre">read()</span></tt> and <tt class="docutils literal"><span class="pre">write()</span></tt> methods for the different table types, see <a class="reference external" href="formats.html"><em>Supported Table Formats</em></a>.</p>
 </div>
 <div class="section" id="table-set-manipulation">
 <h3>Table Set manipulation<a class="headerlink" href="#table-set-manipulation" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="atpy.TableSet.append">
+<tt class="descclassname">TableSet.</tt><tt class="descname">append</tt><big>(</big><em>table</em><big>)</big><a class="headerlink" href="#atpy.TableSet.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append a table to the table set</p>
+<p>Required Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>table</em>: [ a table instance ]</dt>
+<dd>This can be a table of any type, which will be converted
+to a table of the same type as the parent set (e.g. adding
+a single VOTable to a FITSTableSet will convert the VOTable
+to a FITSTable inside the set)</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.TableSet.describe">
+<tt class="descclassname">TableSet.</tt><tt class="descname">describe</tt><big>(</big><big>)</big><a class="headerlink" href="#atpy.TableSet.describe" title="Permalink to this definition">¶</a></dt>
+<dd>Describe all the tables in the set</dd></dl>
+
 </div>
 </div>
 </div>
@@ -176,6 +255,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
         <li class="right" >
           <a href="formats.html" title="Supported Table Formats"
              >next</a> |</li>

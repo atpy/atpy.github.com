@@ -31,6 +31,9 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
           <a href="table_sets.html" title="Table Sets"
              accesskey="N">next</a> |</li>
         <li class="right" >
@@ -57,7 +60,7 @@
 <li><a class="reference external" href="#manipulating-tables">Manipulating tables</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#full-api">Full API</a><ul>
+<li><a class="reference external" href="#module-atpy">Full API</a><ul>
 <li><a class="reference external" href="#input-output">Input/Output</a></li>
 <li><a class="reference external" href="#column-manipulation">Column manipulation</a></li>
 <li><a class="reference external" href="#meta-data">Meta-data</a></li>
@@ -170,21 +173,208 @@
 <p>A number of methods are available to manipulate tables, for example to add or remove columns, to select rows from a table and create a new table, to rename columns, or to add comments and keywords. The full API for the <tt class="docutils literal"><span class="pre">Table</span></tt> class methods is given below.</p>
 </div>
 </div>
-<div class="section" id="full-api">
-<h2>Full API<a class="headerlink" href="#full-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-atpy">
+<h2>Full API<a class="headerlink" href="#module-atpy" title="Permalink to this headline">¶</a></h2>
 <p>The following methods are available:</p>
 <div class="section" id="input-output">
 <h3>Input/Output<a class="headerlink" href="#input-output" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="atpy.Table.read">
+<tt class="descclassname">Table.</tt><tt class="descname">read</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.Table.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read in a table or table set from a file/database.</p>
+<p>This method attempts to automatically guess the file/database format
+based on the arguments supplied. The type can be overridden by
+specifying type=string where string can be one of:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fits</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ipac</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sql</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">vo</span></tt></li>
+</ul>
+</blockquote>
+<p>The arguments to supply to <tt class="docutils literal"><span class="pre">read()</span></tt> depend on the type of the input.
+For more information, see the help pages for the following methods:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fits_read</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ipac_read</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sql_read</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">vo_read</span></tt></li>
+</ul>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.write">
+<tt class="descclassname">Table.</tt><tt class="descname">write</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.Table.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write out a table or table set to a file/database.</p>
+<p>This method attempts to automatically guess the file/database format
+based on the arguments supplied. The type can be overridden by
+specifying type=string where string can be one of:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fits</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ipac</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sql</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">vo</span></tt></li>
+</ul>
+</blockquote>
+<p>The arguments to supply to <tt class="docutils literal"><span class="pre">write()</span></tt> depend on the type of the
+output. For more information, see the help pages for the following
+methods:</p>
+<blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">fits_write</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">ipac_write</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">sql_write</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">vo_write</span></tt></li>
+</ul>
+</blockquote>
+</dd></dl>
+
 <p>To browse the API of the <tt class="docutils literal"><span class="pre">read()</span></tt> and <tt class="docutils literal"><span class="pre">write()</span></tt> methods for the different table types, see <a class="reference external" href="formats.html"><em>Supported Table Formats</em></a>.</p>
 </div>
 <div class="section" id="column-manipulation">
 <h3>Column manipulation<a class="headerlink" href="#column-manipulation" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="atpy.Table.add_column">
+<tt class="descclassname">Table.</tt><tt class="descname">add_column</tt><big>(</big><em>name</em>, <em>data</em>, <em>unit=''</em>, <em>null=''</em>, <em>description=''</em>, <em>format=None</em><big>)</big><a class="headerlink" href="#atpy.Table.add_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a column to the table</p>
+<p>Required Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>name</em>: [ string ]</dt>
+<dd>The name of the column to add</dd>
+<dt><em>data</em>: [ numpy array ]</dt>
+<dd>The column data</dd>
+</dl>
+</blockquote>
+<p>Optional Keyword Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>unit</em>: [ string ]</dt>
+<dd>The unit of the values in the column</dd>
+<dt><em>null</em>: [ same type as data ]</dt>
+<dd>The values corresponding to &#8216;null&#8217;, if not NaN</dd>
+<dt><em>description</em>: [ string ]</dt>
+<dd>A description of the content of the column</dd>
+<dt><em>format</em>: [ string ]</dt>
+<dd>The format to use for ASCII printing</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.remove_column">
+<tt class="descclassname">Table.</tt><tt class="descname">remove_column</tt><big>(</big><em>remove_name</em><big>)</big><a class="headerlink" href="#atpy.Table.remove_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a column from the table</p>
+<p>Required Argument:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>remove_name</em>: [ string ]</dt>
+<dd>The name of the column to remove</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.remove_columns">
+<tt class="descclassname">Table.</tt><tt class="descname">remove_columns</tt><big>(</big><em>remove_names</em><big>)</big><a class="headerlink" href="#atpy.Table.remove_columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove several columns from the table</p>
+<p>Required Argument:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>remove_names</em>: [ list of strings ]</dt>
+<dd>A list containing the names of the columns to remove</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.keep_columns">
+<tt class="descclassname">Table.</tt><tt class="descname">keep_columns</tt><big>(</big><em>keep_names</em><big>)</big><a class="headerlink" href="#atpy.Table.keep_columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keep only specific columns in the table (remove the others)</p>
+<p>Required Argument:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>keep_names</em>: [ list of strings ]</dt>
+<dd>A list containing the names of the columns to keep.
+All other columns will be removed.</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.rename_column">
+<tt class="descclassname">Table.</tt><tt class="descname">rename_column</tt><big>(</big><em>old_name</em>, <em>new_name</em><big>)</big><a class="headerlink" href="#atpy.Table.rename_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename a column from the table</p>
+<p>Require Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>old_name</em>: [ string ]</dt>
+<dd>The current name of the column.</dd>
+<dt><em>new_name</em>: [ string ]</dt>
+<dd>The new name for the column</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
 </div>
 <div class="section" id="meta-data">
 <h3>Meta-data<a class="headerlink" href="#meta-data" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="atpy.Table.add_comment">
+<tt class="descclassname">Table.</tt><tt class="descname">add_comment</tt><big>(</big><em>comment</em><big>)</big><a class="headerlink" href="#atpy.Table.add_comment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a comment to the table</p>
+<p>Required Argument:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>comment</em>: [ string ]</dt>
+<dd>The comment to add to the table</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.add_keyword">
+<tt class="descclassname">Table.</tt><tt class="descname">add_keyword</tt><big>(</big><em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#atpy.Table.add_keyword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a keyword/value pair to the table</p>
+<p>Required Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>key</em>: [ string ]</dt>
+<dd>The name of the keyword</dd>
+<dt><em>value</em>: [ string | float | integer | bool ]</dt>
+<dd>The value of the keyword</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.describe">
+<tt class="descclassname">Table.</tt><tt class="descname">describe</tt><big>(</big><big>)</big><a class="headerlink" href="#atpy.Table.describe" title="Permalink to this definition">¶</a></dt>
+<dd>Prints a description of the table</dd></dl>
+
 </div>
 <div class="section" id="row-selection">
 <h3>Row selection<a class="headerlink" href="#row-selection" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="atpy.Table.where">
+<tt class="descclassname">Table.</tt><tt class="descname">where</tt><big>(</big><em>mask</em><big>)</big><a class="headerlink" href="#atpy.Table.where" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select certain rows from the table and return a new table instance</p>
+<p>Required Argument:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>mask</em>: [ np.bool array ]</dt>
+<dd>A boolean array with the same length as the table.</dd>
+</dl>
+</blockquote>
+<p>Returns:</p>
+<blockquote>
+A new table instance, containing only the rows selected</blockquote>
+</dd></dl>
+
 </div>
 </div>
 </div>
@@ -201,6 +391,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
         <li class="right" >
           <a href="table_sets.html" title="Table Sets"
              >next</a> |</li>
