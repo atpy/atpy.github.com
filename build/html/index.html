@@ -74,38 +74,75 @@
             
   <div class="section" id="atpy-astronomical-tables-in-python">
 <h1>ATpy - Astronomical Tables in Python<a class="headerlink" href="#atpy-astronomical-tables-in-python" title="Permalink to this headline">¶</a></h1>
-<p>ATpy is a high-level package providing a way to treat tables of astronomical data with a uniform and consistent API. A table is defined by any number of columns of data, each characterized by a column name, unit, null value, and description (the last three being optional), and can be supplemented with metadata in the form of keywords or comments. ATpy can be used to manipulate single tables as well as sets of tables.</p>
-<p>Example code for reading, converting, and writing a data file from FITS table to VO table, IPAC table, and SQLite:</p>
+<p>ATpy is a high-level package providing a way to treat tables of astronomical
+data in a uniform and consistent way. A table is defined by any number of
+columns of data, each characterized by a column name, unit, null value, and
+description (the last three being optional), and can be supplemented with
+metadata in the form of keywords or comments. ATpy can be used to manipulate
+single tables as well as sets of tables.</p>
+<p>Example code for reading, converting, and writing a data file from FITS table
+to VO table, IPAC table, and SQLite:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">atpy</span>
 <span class="n">tbl</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">()</span>
 <span class="n">tbl</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;some_fits_table_file.fits&#39;</span><span class="p">)</span>
 
 <span class="c"># ATpy will automatically try to detect which type of file you&#39;re writing.</span>
-<span class="n">tbl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;new_votable.xml&#39;</span><span class="p">)</span>
-<span class="n">tbl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;new_ipactable.tbl&#39;</span><span class="p">)</span>
+<span class="n">tbl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;new_votable.xml&#39;</span><span class="p">)</span>                 <span class="c"># VO Table</span>
+<span class="n">tbl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;new_ipactable.tbl&#39;</span><span class="p">)</span>               <span class="c"># IPAC table</span>
+<span class="n">tbl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;sqlite&#39;</span><span class="p">,</span><span class="s">&#39;new_sqlitetable.db&#39;</span><span class="p">)</span>     <span class="c"># SQLite database</span>
 
-<span class="c"># If you would prefer, you can tell ATpy what type you want to write.</span>
-<span class="n">tbl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;new_sqlitetable.db&#39;</span><span class="p">,</span><span class="nb">type</span><span class="o">=</span><span class="s">&#39;sql&#39;</span><span class="p">)</span>
+<span class="c"># You can easily access and modify data in the table:</span>
+<span class="n">tbl</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;some_column&#39;</span><span class="p">][</span><span class="mf">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">4.5</span>
+<span class="n">tbl</span><span class="o">.</span><span class="n">remove_column</span><span class="p">(</span><span class="s">&#39;some_other_column&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>It is also possible for example to create tables from scratch, add columns,
+select rows from the table, override the automatically detected input/output
+type, read/write tables in table sets rather than individual tables, etc. For
+more details see the documentation below.</p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference external" href="installation.html#atpy">ATpy</a></li>
-<li class="toctree-l2"><a class="reference external" href="installation.html#testing-atpy-installation">Testing ATpy Installation</a></li>
 <li class="toctree-l2"><a class="reference external" href="installation.html#numpy">NumPy</a></li>
 <li class="toctree-l2"><a class="reference external" href="installation.html#pyfits">PyFITS</a></li>
 <li class="toctree-l2"><a class="reference external" href="installation.html#vo">vo</a></li>
 <li class="toctree-l2"><a class="reference external" href="installation.html#sql">SQL</a></li>
+<li class="toctree-l2"><a class="reference external" href="installation.html#testing-your-atpy-installation">Testing your ATpy Installation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="single_tables.html">Single Tables</a><ul>
-<li class="toctree-l2"><a class="reference external" href="single_tables.html#quick-start">Quick start</a></li>
-<li class="toctree-l2"><a class="reference external" href="single_tables.html#module-atpy">Full API</a></li>
+<li class="toctree-l2"><a class="reference external" href="single_tables.html#quick-start">Quick start</a><ul>
+<li class="toctree-l3"><a class="reference external" href="single_tables.html#initialization">Initialization</a></li>
+<li class="toctree-l3"><a class="reference external" href="single_tables.html#manually-filling-a-table">Manually filling a table</a></li>
+<li class="toctree-l3"><a class="reference external" href="single_tables.html#reading-in-data-from-a-file-or-database">Reading in data from a file or database</a></li>
+<li class="toctree-l3"><a class="reference external" href="single_tables.html#reading-in-data-when-creating-a-table">Reading in data when creating a table</a></li>
+<li class="toctree-l3"><a class="reference external" href="single_tables.html#writing-a-table-to-a-file-or-database">Writing a table to a file or database</a></li>
+<li class="toctree-l3"><a class="reference external" href="single_tables.html#accessing-table-data">Accessing table data</a></li>
+<li class="toctree-l3"><a class="reference external" href="single_tables.html#manipulating-tables">Manipulating tables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference external" href="single_tables.html#module-atpy">Full API</a><ul>
+<li class="toctree-l3"><a class="reference external" href="single_tables.html#input-output">Input/Output</a></li>
+<li class="toctree-l3"><a class="reference external" href="single_tables.html#column-manipulation">Column manipulation</a></li>
+<li class="toctree-l3"><a class="reference external" href="single_tables.html#meta-data">Meta-data</a></li>
+<li class="toctree-l3"><a class="reference external" href="single_tables.html#row-selection">Row selection</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="table_sets.html">Table Sets</a><ul>
-<li class="toctree-l2"><a class="reference external" href="table_sets.html#quick-start">Quick start</a></li>
-<li class="toctree-l2"><a class="reference external" href="table_sets.html#module-atpy">Full API</a></li>
+<li class="toctree-l2"><a class="reference external" href="table_sets.html#quick-start">Quick start</a><ul>
+<li class="toctree-l3"><a class="reference external" href="table_sets.html#initialization">Initialization</a></li>
+<li class="toctree-l3"><a class="reference external" href="table_sets.html#manually-adding-a-table-to-a-set">Manually adding a table to a set</a></li>
+<li class="toctree-l3"><a class="reference external" href="table_sets.html#reading-in-tables-from-a-file-or-database">Reading in tables from a file or database</a></li>
+<li class="toctree-l3"><a class="reference external" href="table_sets.html#accessing-a-single-table">Accessing a single table</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference external" href="table_sets.html#module-atpy">Full API</a><ul>
+<li class="toctree-l3"><a class="reference external" href="table_sets.html#input-output">Input/Output</a></li>
+<li class="toctree-l3"><a class="reference external" href="table_sets.html#table-set-manipulation">Table Set manipulation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="formats.html">Supported Table Formats</a><ul>

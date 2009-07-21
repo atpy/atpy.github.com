@@ -1,24 +1,36 @@
 ATpy - Astronomical Tables in Python 
 ======================
 
-ATpy is a high-level package providing a way to treat tables of astronomical data with a uniform and consistent API. A table is defined by any number of columns of data, each characterized by a column name, unit, null value, and description (the last three being optional), and can be supplemented with metadata in the form of keywords or comments. ATpy can be used to manipulate single tables as well as sets of tables.
+ATpy is a high-level package providing a way to treat tables of astronomical
+data in a uniform and consistent way. A table is defined by any number of
+columns of data, each characterized by a column name, unit, null value, and
+description (the last three being optional), and can be supplemented with
+metadata in the form of keywords or comments. ATpy can be used to manipulate
+single tables as well as sets of tables.
 
-Example code for reading, converting, and writing a data file from FITS table to VO table, IPAC table, and SQLite::
+Example code for reading, converting, and writing a data file from FITS table
+to VO table, IPAC table, and SQLite::
 
     import atpy
     tbl = atpy.Table()
     tbl.read('some_fits_table_file.fits')
     
     # ATpy will automatically try to detect which type of file you're writing.
-    tbl.write('new_votable.xml')
-    tbl.write('new_ipactable.tbl')
+    tbl.write('new_votable.xml')                 # VO Table
+    tbl.write('new_ipactable.tbl')               # IPAC table
+    tbl.write('sqlite','new_sqlitetable.db')     # SQLite database
     
-    # If you would prefer, you can tell ATpy what type you want to write. 
-    tbl.write('new_sqlitetable.db',type='sql')
+    # You can easily access and modify data in the table:
+    tbl.data['some_column'][3] = 4.5
+    tbl.remove_column('some_other_column')
 
+It is also possible for example to create tables from scratch, add columns,
+select rows from the table, override the automatically detected input/output
+type, read/write tables in table sets rather than individual tables, etc. For
+more details see the documentation below.
 
 .. toctree::
-  :maxdepth: 2
+  :maxdepth: 3
 
   installation.rst
   single_tables.rst

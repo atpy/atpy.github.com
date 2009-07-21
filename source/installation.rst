@@ -1,18 +1,19 @@
+.. toctree::
+  :maxdepth: 2
+  
 Installation
 ------------
 
-ATpy
-^^^^^^^^^^^^^^^
-ATpy relies on a number of different packages to support different table formats. To install ATpy itself, run::
+ATpy relies on a number of different packages to support reading and writing to
+different file or database formats. However, the only compulsory package is
+NumPy. All other requirements are optional - if they are not present, the
+relevant read/write methods will be disabled but will not otherwise prevent
+ATpy from functioning.
 
-    easy_install atpy
-    
-or manually installing ATpy using setup.py will be sufficient.::
-
-    cd ATpy-X.X.X/
-    python setup.py install
-
-Below is a table showing what ATpy depends on for full functionality and what may need to be installed. We suggest that the user employs Python 2.5 at the minimum for this module. Python 2.6 is preferred as SQLite is included by default. 
+Below is a table showing what ATpy depends on for full functionality and what
+may need to be installed. We suggest that the user employs Python 2.5 at the
+minimum for this module. Python 2.6 is preferred as SQLite is included by
+default.
 
 =============    ================================
   Format         Required Package                
@@ -25,11 +26,99 @@ Below is a table showing what ATpy depends on for full functionality and what ma
    PostGreSQL    pygresql_                     
 =============    ================================
 
-Testing ATpy Installation
+ATpy
+^^^^
+
+To install ATpy itself, run::
+
+    easy_install atpy
+
+or, if easy_install is not available::
+
+    tar xvzf ATpy-X-X.X.tar.gz
+    cd ATpy-X.X.X/
+    python setup.py install
+
+NumPy
+^^^^^
+
+ATpy requires numpy-1.3.0 or later. There are three different ways to install numpy_.
+
+If you are starting off with python, you should consider using the Enthought
+Python Distribution (EPD_), which is an easy-to-install python distribution
+that contains many packages including the NumPy, SciPy (a bonus), and
+Matplotlib modules (another bonus!).
+
+Alternatively, you can download the required packages from the numpy_ website
+and install it the standard way::
+
+    tar xvzf numpy-1.3.0.tar.gz
+    cd numpy-1.3.0
+    python setup.py install
+
+Finally, a third alternative, if you have easy_install installed, is::
+
+    easy_install numpy
+
+PyFITS
+^^^^^^
+
+In order to read/write FITS files, APLpy requires pyfits-2.1 or later to be
+installed. The pyfits_ module is developed at the Space Telescope Science
+Institute (STScI). Once you have the tar file downloaded, you can either
+install it using the standard installation method::
+
+    tar xvzf pyfits-2.1.1.tar.gz
+    cd pyfits-2.1.1
+    python setup.py install
+
+or using easy_install::
+
+     easy_install pyfits-2.1.1.tar.gz 
+
+vo
+^^
+
+To read/write VO tables you need to have STScI's vo_ package installed (version
+0.3 or greater). The vo-0.3.tar.gz package is broken at the moment, so it's
+suggested to install the vo_ package from subversion::
+
+    easy_install https://www.stsci.edu/svn/ssb/astrolib/trunk/vo
+
+or alternatively::
+
+    svn co https://www.stsci.edu/svn/ssb/astrolib/trunk/vo
+    cd vo
+    python setup.py install
+
+SQL
+^^^
+
+In the SQL domain ATpy supports three database types: MySQL, PostgreSQL, and
+SQLite. The first two are typical SQL database managers. SQLite_ falls into its
+own category as does not need special access or installation to get it working.
+As of Python 2.6 or above, SQLite_ is installed by default. If you are working
+from Python 2.5 and do not have it installed you can use easy_install::
+
+    easy_install pysqlite
+
+If you have MySQL already installed and want to access the DB manager with ATpy
+you will need to have MySQL-python (1.2.2 or greater) installed. Using
+easy_install you can do the following::
+
+    easy_install mysql-python
+
+Similarly, if PostgreSQL is installed you will need to install PyGreSQL_
+(version 4.0 or greater)::
+
+    easy_install pygresql
+
+Testing your ATpy Installation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you have ATpy and the desired dependencies installed you can run a smoke test to verify that the features are working. 
-Here's how you test your ATpy installation::
+If you have ATpy and the desired dependencies installed you can run a smoke
+test to verify that the features are working. Here's how you test your ATpy
+installation::
 
     cd ATpy-X.X.X/
     python test/test.py
@@ -52,72 +141,11 @@ The output should look like the following::
     Converting to SQLite database ...  passed
     Converting to MySQL database ...  failed
 
-The "WARNING" messages should correlate to the "failed" tests. For example, the output from above states that the MySQL-python and PyGreSQL requirements are not met. Hence these features are disabled and the tests using these modules will naturally fail. If the "passed" tests correlate to your desired ATpy features, then you're all set. 
-
-
-
-NumPy
-^^^^^^^^^^^^^^^
-ATpy requires numpy-1.3.0 or later. There are three different ways to install numpy_.
-
-If you are starting off with python, you should consider using the Enthought Python Distribution (EPD), which is an easy-to-install python distribution that contains many packages including the numpy, SciPy (a bonus), and Matplotlib modules (another bonus!). 
-
-Alternatively, you can download the required packages from the numpy_ and install it the standard way::
-
-    tar xvzf numpy-1.3.0.tar.gz
-    cd numpy-1.3.0
-    python setup.py install
-
-Finally, a third alternative, if you have easy_install installed, is:: 
-
-    easy_install numpy
-
-
-PyFITS
-^^^^^^^^^^^^^^^
-In order to read/write FITS files, APLpy requires pyfits-2.1 or later to be installed. The pyfits_ module is developed at the Space Telescope Science Institute (STScI). Once you have the tar file downloaded, you can either install it using the standard installation method:: 
-
-    tar xvzf pyfits-2.1.1.tar.gz
-    cd pyfits-2.1.1
-    python setup.py install
-
-or using easy_install::
-
-     easy_install pyfits-2.1.1.tar.gz 
-
-
-vo
-^^^^^^^^^^^^^^^
-To read/write VO tables you need to have STScI's vo_ package installed (version 0.3 or greater). The vo-0.3.tar.gz package is broken at the moment, so it's suggested to install the vo_ package from subversion:: 
-
-    easy_install https://www.stsci.edu/svn/ssb/astrolib/trunk/vo
-
-SQL
-^^^^^^^^^^^^^^^
-In the SQL domain ATpy supports three database types: MySQL, PostgreSQL, and SQLite. The first two are typical SQL database managers. SQLite_ falls into its own category as does not need special access or installation to get it working. As of Python 2.6 or above, SQLite_ is installed by default. If you are working from Python 2.5 and do not have it installed you can use easy_install:: 
-
-    easy_install pysqlite
-
-If you have MySQL already installed and want to access the DB manager with ATpy you will need to have MySQL-python (1.2.2 or greater) installed. Using easy_install you can do the following::
-
-    easy_install mysql-python
-
-Similarly, if PostgreSQL is installed you will need to install PyGreSQL_ (version 4.0 or greater):: 
-
-    easy_install pygresql
-
-
-
-
-
-
-
-
-
-
-
-
-
+The "WARNING" messages should correlate to the "failed" tests. For example, the
+output from above states that the MySQL-python and PyGreSQL requirements are
+not met. Hence these features are disabled and the tests using these modules
+will naturally fail. If the "passed" tests correlate to your desired ATpy
+features, then you're all set.
 
 .. _pyfits: http://www.stsci.edu/resources/software_hardware/pyfits
 .. _vo: http://www.stsci.edu/trac/ssb/astrolib
@@ -126,4 +154,5 @@ Similarly, if PostgreSQL is installed you will need to install PyGreSQL_ (versio
 .. _PyGreSQL: http://www.pygresql.org/
 .. _NumPy: http://numpy.scipy.org/
 .. _SQLite: http://docs.python.org/library/sqlite3.html
+.. _EPD: http://www.enthought.com/products/epd.php
 
