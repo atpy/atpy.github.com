@@ -14,8 +14,22 @@ or manually installing ATpy using setup.py will be sufficient.::
 
 Below is a table showing what ATpy depends on for full functionality and what may need to be installed. We suggest that the user employs Python 2.5 at the minimum for this module. Python 2.6 is preferred as SQLite is included by default. 
 
+=============    ================================
+  Format         Required Package                
+=============    ================================
+   IPAC          none                            
+   FITS          pyfits_                         
+   VO            vo_                      
+   SQLite        sqlite3 (built into Python 2.6) 
+   MySQL         mysql_                          
+   PostGreSQL    pygresql_                     
+=============    ================================
+
+Testing ATpy Installation
+^^^^^^^^^^^^^^^
+
 If you have ATpy and the desired dependencies installed you can run a smoke test to verify that the features are working. 
-Here's how you run test your ATpy installation::
+Here's how you test your ATpy installation::
 
     cd ATpy-X.X.X/
     python test/test.py
@@ -33,25 +47,14 @@ The output should look like the following::
     Reading in FITS Table set ...  passed
     Writing VO Table ...  passed
     Writing FITS Table ...  passed
-    Writing IPAC Table ...  failed
+    Writing IPAC Table ...  passed
     Converting to PostGreSQL database ...  failed
     Converting to SQLite database ...  passed
     Converting to MySQL database ...  failed
 
-The "WARNING" messages should correlate to the "failed" tests. For example, the output from above states that the MySQL-python and PyGreSQL requirements are not meant. Hence these features are disabled and the tests using these modules will naturally fail. If the "passed" tests correlate to what you want to work for ATpy, then you're all set. 
+The "WARNING" messages should correlate to the "failed" tests. For example, the output from above states that the MySQL-python and PyGreSQL requirements are not met. Hence these features are disabled and the tests using these modules will naturally fail. If the "passed" tests correlate to your desired ATpy features, then you're all set. 
 
-                                         
-=============    ================================
-  Format         Required Package                
-=============    ================================
-   IPAC          none                            
-   FITS          pyfits_                         
-   VO            vo_                      
-   SQLite        sqlite3 (built into Python 2.6) 
-   MySQL         mysql_                          
-   PostGreSQL    pygresql_                     
-=============    ================================
-   
+
 
 NumPy
 ^^^^^^^^^^^^^^^

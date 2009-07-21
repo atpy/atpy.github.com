@@ -51,6 +51,7 @@
             <ul>
 <li><a class="reference external" href="">Installation</a><ul>
 <li><a class="reference external" href="#atpy">ATpy</a></li>
+<li><a class="reference external" href="#testing-atpy-installation">Testing ATpy Installation</a></li>
 <li><a class="reference external" href="#numpy">NumPy</a></li>
 <li><a class="reference external" href="#pyfits">PyFITS</a></li>
 <li><a class="reference external" href="#vo">vo</a></li>
@@ -103,29 +104,6 @@
 python setup.py install</pre>
 </div>
 <p>Below is a table showing what ATpy depends on for full functionality and what may need to be installed. We suggest that the user employs Python 2.5 at the minimum for this module. Python 2.6 is preferred as SQLite is included by default.</p>
-<p>If you have ATpy and the desired dependencies installed you can run a smoke test to verify that the features are working.
-Here&#8217;s how you run test your ATpy installation:</p>
-<div class="highlight-python"><pre>cd ATpy-X.X.X/
-python test/test.py</pre>
-</div>
-<p>The output should look like the following:</p>
-<div class="highlight-python"><pre>WARNING - MySQL-python 1.2.2 or later required. MySQL table reading/writing has been disabled
-WARNING - PyGreSQL 3.8.1 or later required. PostGreSQL table reading/writing has been disabled
-Reading IPAC Table ...  passed
-Writing VO Table ...  passed
-Writing FITS Table ...  passed
-...
-...
-...
-Reading in FITS Table set ...  passed
-Writing VO Table ...  passed
-Writing FITS Table ...  passed
-Writing IPAC Table ...  failed
-Converting to PostGreSQL database ...  failed
-Converting to SQLite database ...  passed
-Converting to MySQL database ...  failed</pre>
-</div>
-<p>The &#8220;WARNING&#8221; messages should correlate to the &#8220;failed&#8221; tests. For example, the output from above states that the MySQL-python and PyGreSQL requirements are not meant. Hence these features are disabled and the tests using these modules will naturally fail. If the &#8220;passed&#8221; tests correlate to what you want to work for ATpy, then you&#8217;re all set.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="29%" />
@@ -157,6 +135,32 @@ Converting to MySQL database ...  failed</pre>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="section" id="testing-atpy-installation">
+<h2>Testing ATpy Installation<a class="headerlink" href="#testing-atpy-installation" title="Permalink to this headline">¶</a></h2>
+<p>If you have ATpy and the desired dependencies installed you can run a smoke test to verify that the features are working.
+Here&#8217;s how you test your ATpy installation:</p>
+<div class="highlight-python"><pre>cd ATpy-X.X.X/
+python test/test.py</pre>
+</div>
+<p>The output should look like the following:</p>
+<div class="highlight-python"><pre>WARNING - MySQL-python 1.2.2 or later required. MySQL table reading/writing has been disabled
+WARNING - PyGreSQL 3.8.1 or later required. PostGreSQL table reading/writing has been disabled
+Reading IPAC Table ...  passed
+Writing VO Table ...  passed
+Writing FITS Table ...  passed
+...
+...
+...
+Reading in FITS Table set ...  passed
+Writing VO Table ...  passed
+Writing FITS Table ...  passed
+Writing IPAC Table ...  passed
+Converting to PostGreSQL database ...  failed
+Converting to SQLite database ...  passed
+Converting to MySQL database ...  failed</pre>
+</div>
+<p>The &#8220;WARNING&#8221; messages should correlate to the &#8220;failed&#8221; tests. For example, the output from above states that the MySQL-python and PyGreSQL requirements are not met. Hence these features are disabled and the tests using these modules will naturally fail. If the &#8220;passed&#8221; tests correlate to your desired ATpy features, then you&#8217;re all set.</p>
 </div>
 <div class="section" id="numpy">
 <h2>NumPy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h2>
