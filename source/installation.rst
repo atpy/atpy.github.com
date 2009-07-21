@@ -164,5 +164,5 @@ features, then you're all set.
 .. _NumPy: http://numpy.scipy.org/
 .. _SQLite: http://docs.python.org/library/sqlite3.html
 .. _EPD: http://www.enthought.com/products/epd.php
-.. _setuptools: http://pypi.python.org/pypi/setuptools/0.6c9
+.. _setuptools: http://pypi.python.org/pypi/setuptools/
 
