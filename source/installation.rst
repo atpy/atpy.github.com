@@ -26,6 +26,12 @@ default.
    PostGreSQL    pygresql_                     
 =============    ================================
 
+Setuptools
+^^^^^^^^^^
+Before installing ATpy, you will need setuptools_ installed. This is a Python package that many users now use to install packages. If you're already using the easy_install command to install Python packages on your computer, then setuptools is already installed! Visit the setuptools_ page on the Python Cheese shop if want directions on downloading and installing setuptools.  
+
+Aside from making Python packages easier to install with setuptools we use a robust program (pkg_resources) in setuptools. The program rigorously checks ATpy dependencies to make sure they are correctly installed and up to date. This will save ATpy users a lot of headaches if ATpy is not behaving as expected.  
+
 ATpy
 ^^^^
 
@@ -38,6 +44,9 @@ or, if easy_install is not available::
     tar xvzf ATpy-X-X.X.tar.gz
     cd ATpy-X.X.X/
     python setup.py install
+
+
+
 
 NumPy
 ^^^^^
@@ -155,4 +164,5 @@ features, then you're all set.
 .. _NumPy: http://numpy.scipy.org/
 .. _SQLite: http://docs.python.org/library/sqlite3.html
 .. _EPD: http://www.enthought.com/products/epd.php
+.. _setuptools: http://pypi.python.org/pypi/setuptools/0.6c9
 
