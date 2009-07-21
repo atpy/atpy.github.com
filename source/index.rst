@@ -21,7 +21,7 @@ ATpy can be used to:
      * Create an empty table and populate it.
      * Create a new table from a selection of rows.
      * Add keywords and comments.
-     * Seamlessly read and write sets of tables.
+     * Read and write sets of tables.
 
 Example code for reading, converting, and writing a data file from FITS table
 to VO table, IPAC table, and SQLite::
