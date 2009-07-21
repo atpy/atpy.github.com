@@ -26,7 +26,7 @@ Below is a table showing what ATpy depends on for full functionality and what ma
 =============    ================================
 
 Testing ATpy Installation
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you have ATpy and the desired dependencies installed you can run a smoke test to verify that the features are working. 
 Here's how you test your ATpy installation::
@@ -58,19 +58,19 @@ The "WARNING" messages should correlate to the "failed" tests. For example, the 
 
 NumPy
 ^^^^^^^^^^^^^^^
-ATpy requires NumPy-1.3.0 or later. There are three different ways to install NumPy_.
+ATpy requires numpy-1.3.0 or later. There are three different ways to install numpy_.
 
-If you are starting off with python, you should consider using the Enthought Python Distribution (EPD), which is an easy-to-install python distribution that contains many packages including the NumPy, SciPy (a bonus), and Matplotlib modules (another bonus!). 
+If you are starting off with python, you should consider using the Enthought Python Distribution (EPD), which is an easy-to-install python distribution that contains many packages including the numpy, SciPy (a bonus), and Matplotlib modules (another bonus!). 
 
-Alternatively, you can download the required packages from the NumPy_ and install it the standard way::
+Alternatively, you can download the required packages from the numpy_ and install it the standard way::
 
-    tar xvzf NumPy-1.3.0.tar.gz
-    cd NumPy-1.3.0
-    sudo python setup.py install
+    tar xvzf numpy-1.3.0.tar.gz
+    cd numpy-1.3.0
+    python setup.py install
 
 Finally, a third alternative, if you have easy_install installed, is:: 
 
-    easy_install NumPy
+    easy_install numpy
 
 
 PyFITS
@@ -79,7 +79,7 @@ In order to read/write FITS files, APLpy requires pyfits-2.1 or later to be inst
 
     tar xvzf pyfits-2.1.1.tar.gz
     cd pyfits-2.1.1
-    sudo python setup.py install
+    python setup.py install
 
 or using easy_install::
 
