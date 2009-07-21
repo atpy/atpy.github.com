@@ -1,6 +1,8 @@
 ATpy - Astronomical Tables in Python 
 ======================
 
+`Sourceforge <http://sourceforge.net/projects/atpy/>`_ - `Download <https://sourceforge.net/projects/atpy/files/>`_ - `Mailing List <http://lists.sourceforge.net/lists/listinfo/atpy-announce>`_ - `Forums <http://sourceforge.net/apps/phpbb/atpy/>`_
+
 ATpy is a high-level package providing a way to treat tables of astronomical
 data in a uniform and consistent way. A table is defined by any number of
 columns of data, each characterized by a column name, unit, null value, and
@@ -36,3 +38,4 @@ more details see the documentation below.
   single_tables.rst
   table_sets.rst
   formats.rst
+
