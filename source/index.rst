@@ -3,12 +3,25 @@ ATpy - Astronomical Tables in Python
 
 `Sourceforge <http://sourceforge.net/projects/atpy/>`_ - `Download <https://sourceforge.net/projects/atpy/files/>`_ - `Mailing List <http://lists.sourceforge.net/lists/listinfo/atpy-announce>`_ - `Twitter <http://twitter.com/astropython/>`_ - `Forums <http://sourceforge.net/apps/phpbb/atpy/>`_ 
 
-ATpy is a high-level package providing a way to treat tables of astronomical
-data in a uniform and consistent way. A table is defined by any number of
-columns of data, each characterized by a column name, unit, null value, and
-description (the last three being optional), and can be supplemented with
-metadata in the form of keywords or comments. ATpy can be used to manipulate
-single tables as well as sets of tables.
+ATpy is a high-level package providing a way to manipulate tables of
+astronomical data in a uniform way. A table is defined by any number
+of columns of data, each characterized by a column name, unit, null
+value, and description (the last three being optional), and can be
+supplemented with metadata in the form of keywords or comments. ATpy
+can be used to manipulate single tables as well as sets of tables.
+
+ATpy can be used to:
+
+     * Seamlessly read and write table data to a number of table
+       formats (FITS, VO, and IPAC tables, and
+       SQLite/MySQL/PostgreSQL databases), building on existing
+       python modules. More formats will be supported in future.
+     * Remove, add, or rename columns.
+     * Access and modify individual table cells.
+     * Create an empty table and populate it.
+     * Create a new table from a selection of rows.
+     * Add keywords and comments.
+     * Seamlessly read and write sets of tables.
 
 Example code for reading, converting, and writing a data file from FITS table
 to VO table, IPAC table, and SQLite::
@@ -26,10 +39,7 @@ to VO table, IPAC table, and SQLite::
     tbl.data['some_column'][3] = 4.5
     tbl.remove_column('some_other_column')
 
-It is also possible for example to create tables from scratch, add columns,
-select rows from the table, override the automatically detected input/output
-type, read/write tables in table sets rather than individual tables, etc. For
-more details see the documentation below.
+For more details see the documentation below.
 
 .. toctree::
   :maxdepth: 3

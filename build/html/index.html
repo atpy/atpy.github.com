@@ -75,12 +75,27 @@
   <div class="section" id="atpy-astronomical-tables-in-python">
 <h1>ATpy - Astronomical Tables in Python<a class="headerlink" href="#atpy-astronomical-tables-in-python" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="http://sourceforge.net/projects/atpy/">Sourceforge</a> - <a class="reference external" href="https://sourceforge.net/projects/atpy/files/">Download</a> - <a class="reference external" href="http://lists.sourceforge.net/lists/listinfo/atpy-announce">Mailing List</a> - <a class="reference external" href="http://twitter.com/astropython/">Twitter</a> - <a class="reference external" href="http://sourceforge.net/apps/phpbb/atpy/">Forums</a></p>
-<p>ATpy is a high-level package providing a way to treat tables of astronomical
-data in a uniform and consistent way. A table is defined by any number of
-columns of data, each characterized by a column name, unit, null value, and
-description (the last three being optional), and can be supplemented with
-metadata in the form of keywords or comments. ATpy can be used to manipulate
-single tables as well as sets of tables.</p>
+<p>ATpy is a high-level package providing a way to manipulate tables of
+astronomical data in a uniform way. A table is defined by any number
+of columns of data, each characterized by a column name, unit, null
+value, and description (the last three being optional), and can be
+supplemented with metadata in the form of keywords or comments. ATpy
+can be used to manipulate single tables as well as sets of tables.</p>
+<p>ATpy can be used to:</p>
+<blockquote>
+<ul class="simple">
+<li>Seamlessly read and write table data to a number of table
+formats (FITS, VO, and IPAC tables, and
+SQLite/MySQL/PostgreSQL databases), building on existing
+python modules. More formats will be supported in future.</li>
+<li>Remove, add, or rename columns.</li>
+<li>Access and modify individual table cells.</li>
+<li>Create an empty table and populate it.</li>
+<li>Create a new table from a selection of rows.</li>
+<li>Add keywords and comments.</li>
+<li>Seamlessly read and write sets of tables.</li>
+</ul>
+</blockquote>
 <p>Example code for reading, converting, and writing a data file from FITS table
 to VO table, IPAC table, and SQLite:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">atpy</span>
@@ -97,10 +112,7 @@ to VO table, IPAC table, and SQLite:</p>
 <span class="n">tbl</span><span class="o">.</span><span class="n">remove_column</span><span class="p">(</span><span class="s">&#39;some_other_column&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>It is also possible for example to create tables from scratch, add columns,
-select rows from the table, override the automatically detected input/output
-type, read/write tables in table sets rather than individual tables, etc. For
-more details see the documentation below.</p>
+<p>For more details see the documentation below.</p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference external" href="installation.html#atpy">ATpy</a></li>
