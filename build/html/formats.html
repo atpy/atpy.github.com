@@ -5,13 +5,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Supported Table Formats &mdash; ATpy v0.9.0 documentation</title>
+    <title>Supported Table Formats &mdash; ATpy v0.9.1 documentation</title>
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.9.0',
+        VERSION:     '0.9.1',
         COLLAPSE_MODINDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -19,7 +19,7 @@
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="ATpy v0.9.0 documentation" href="index.html" />
+    <link rel="top" title="ATpy v0.9.1 documentation" href="index.html" />
     <link rel="prev" title="Table Sets" href="table_sets.html" /> 
   </head>
   <body>
@@ -35,7 +35,7 @@
         <li class="right" >
           <a href="table_sets.html" title="Table Sets"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">ATpy v0.9.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">ATpy v0.9.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -190,8 +190,8 @@ first pipe symbol belong to the first column.</dd>
 <p>Optional arguments (only for Table.read() class):</p>
 <blockquote>
 <dl class="docutils">
-<dt><em>tid</em>: [ integer ]</dt>
-<dd>The ID of the table to read from the database (this is only
+<dt><em>table</em>: [ string ]</dt>
+<dd>The name of the table to read from the database (this is only
 required if there are more than one table in the database)</dd>
 </dl>
 </blockquote>
@@ -276,8 +276,8 @@ main arguments are listed below.</p>
 <p>Optional arguments (only for Table.read() class):</p>
 <blockquote>
 <dl class="docutils">
-<dt><em>tid</em>: [ integer ]</dt>
-<dd>The ID of the table to read from the database (this is only
+<dt><em>table</em>: [ string ]</dt>
+<dd>The name of the table to read from the database (this is only
 required if there are more than one table in the database)</dd>
 </dl>
 </blockquote>
@@ -354,7 +354,7 @@ main arguments are listed below.</p>
 <h2>VO Tables<a class="headerlink" href="#vo-tables" title="Permalink to this headline">¶</a></h2>
 <dl class="method">
 <dt id="atpy.Table.vo_read">
-<tt class="descclassname">Table.</tt><tt class="descname">vo_read</tt><big>(</big><em>filename</em>, <em>tid=-1</em><big>)</big><a class="headerlink" href="#atpy.Table.vo_read" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Table.</tt><tt class="descname">vo_read</tt><big>(</big><em>filename</em>, <em>pedantic=False</em>, <em>tid=-1</em><big>)</big><a class="headerlink" href="#atpy.Table.vo_read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read a table from a VOT file</p>
 <p>Required Arguments:</p>
 <blockquote>
@@ -369,6 +369,9 @@ main arguments are listed below.</p>
 <dt><em>tid</em>: [ integer ]</dt>
 <dd>The ID of the table to read from the VO file (this is
 only required if there are more than one table in the VO file)</dd>
+<dt><em>pendantic</em>: [ True | False ]</dt>
+<dd>When <em>pedantic</em> is True, raise an error when the file violates
+the VO Table specification, otherwise issue a warning.</dd>
 </dl>
 </blockquote>
 </dd></dl>
@@ -414,12 +417,12 @@ only required if there are more than one table in the VO file)</dd>
         <li class="right" >
           <a href="table_sets.html" title="Table Sets"
              >previous</a> |</li>
-        <li><a href="index.html">ATpy v0.9.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">ATpy v0.9.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
       &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
     </div>
   </body>
 </html>
