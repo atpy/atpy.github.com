@@ -30,9 +30,6 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="modindex.html" title="Global Module Index"
-             accesskey="M">modules</a> |</li>
-        <li class="right" >
           <a href="table_sets.html" title="Table Sets"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">ATpy v0.9.1 documentation</a> &raquo;</li> 
@@ -90,7 +87,7 @@
 <h2>FITS Tables<a class="headerlink" href="#fits-tables" title="Permalink to this headline">¶</a></h2>
 <dl class="method">
 <dt id="atpy.Table.fits_read">
-<tt class="descclassname">Table.</tt><tt class="descname">fits_read</tt><big>(</big><em>filename</em>, <em>hdu=None</em><big>)</big><a class="headerlink" href="#atpy.Table.fits_read" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Table.</tt><tt class="descname">fits_read</tt><big>(</big><em>filename</em>, <em>hdu=None</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#atpy.Table.fits_read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read a table from a FITS file</p>
 <p>Required Arguments:</p>
 <blockquote>
@@ -134,7 +131,7 @@ if there are more than one table in the FITS file)</dd>
 <h2>IPAC Tables<a class="headerlink" href="#ipac-tables" title="Permalink to this headline">¶</a></h2>
 <dl class="method">
 <dt id="atpy.Table.ipac_read">
-<tt class="descclassname">Table.</tt><tt class="descname">ipac_read</tt><big>(</big><em>filename</em>, <em>definition=3</em><big>)</big><a class="headerlink" href="#atpy.Table.ipac_read" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Table.</tt><tt class="descname">ipac_read</tt><big>(</big><em>filename</em>, <em>definition=3</em>, <em>verbose=True</em>, <em>smart_typing=False</em><big>)</big><a class="headerlink" href="#atpy.Table.ipac_read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read a table from a IPAC file</p>
 <p>Required Arguments:</p>
 <blockquote>
@@ -158,12 +155,20 @@ first pipe symbol belong to the first column.</dd>
 <dd>symbols (default).</dd>
 </dl>
 </blockquote>
+<p><em>smart_typing</em>: [ True | False ]</p>
+<blockquote>
+Whether to try and save memory by using the smallest
+integer type that can contain a column. For example,
+a column containing only values between 0 and 255 can
+be stored as an unsigned 8-bit integer column. The
+default is false, so that all integer columns are
+stored as 64-bit integers.</blockquote>
 </blockquote>
 </dd></dl>
 
 <dl class="method">
 <dt id="atpy.Table.ipac_write">
-<tt class="descclassname">Table.</tt><tt class="descname">ipac_write</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#atpy.Table.ipac_write" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Table.</tt><tt class="descname">ipac_write</tt><big>(</big><em>filename</em>, <em>overwrite=False</em><big>)</big><a class="headerlink" href="#atpy.Table.ipac_write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the table to an IPAC file</p>
 <p>Required Arguments:</p>
 <blockquote>
@@ -354,7 +359,7 @@ main arguments are listed below.</p>
 <h2>VO Tables<a class="headerlink" href="#vo-tables" title="Permalink to this headline">¶</a></h2>
 <dl class="method">
 <dt id="atpy.Table.vo_read">
-<tt class="descclassname">Table.</tt><tt class="descname">vo_read</tt><big>(</big><em>filename</em>, <em>pedantic=False</em>, <em>tid=-1</em><big>)</big><a class="headerlink" href="#atpy.Table.vo_read" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Table.</tt><tt class="descname">vo_read</tt><big>(</big><em>filename</em>, <em>pedantic=False</em>, <em>tid=-1</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#atpy.Table.vo_read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read a table from a VOT file</p>
 <p>Required Arguments:</p>
 <blockquote>
@@ -411,9 +416,6 @@ the VO Table specification, otherwise issue a warning.</dd>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
-        <li class="right" >
-          <a href="modindex.html" title="Global Module Index"
-             >modules</a> |</li>
         <li class="right" >
           <a href="table_sets.html" title="Table Sets"
              >previous</a> |</li>

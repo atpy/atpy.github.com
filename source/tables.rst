@@ -1,7 +1,7 @@
 Tables
 ======
 
-The ``Table`` class is the basic entity. It consists of table data and metadata. The data is stored using a Numpy record array. The metadata includes units, null values, and column descriptions.
+The ``Table`` class is the basic entity. It consists of table data and metadata. The data is stored using a Numpy record array. The metadata includes units, null values, and column descriptions, as well as general comments and keywords.
 
 Data can be stored in the table using many of the Numpy types, including booleans, 8, 16, 32, and 64-bit signed and unsigned integers, 32 and 64-bit floats, and strings. Not all file formats and databases support reading and writing all of these types -- for more information, see :ref:`File Formats and Numeric Types <formats>`.
 
@@ -39,6 +39,8 @@ In some cases, ``read()`` will fail to determine the input type. In this case, o
 
 The ``read`` method supports additional file-format-dependent options. These are described in more detail in the :ref:`Full API <api>`.
 
+In cases where multiple tables are available in a table file, ATpy will display a message to the screen with instructions of how to specify which table to read in. Alternatively, see the TableSet chapter for information on how to read all tables into a single TableSet instance.
+
 Reading data from a database
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -52,7 +54,9 @@ The remaining arguments depend on the database type. For example, an SQLite data
 
   >>> t.read('sqlite','example.db')
 
-For MySQL and PostGreSQL databases, it is possible to specify the database, authentication, and host parameters. The various options are descried in more detail in the :ref:`Full API <api>`. As for files, the ``verbose`` and ``type`` arguments can be used.
+For MySQL and PostGreSQL databases, it is possible to specify the database, table, authentication, and host parameters. The various options are descried in more detail in the :ref:`Full API <api>`. As for files, the ``verbose`` and ``type`` arguments can be used.
+
+It is possible to specify a full SQL query using the ``query`` argument. Any valid SQL is allowed. If this is used, the table name should nevertheless be specified using the ``table`` argument.
 
 Adding data to a table
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -128,14 +132,18 @@ The attributes of this object are ``dtype``, ``unit``, ``description``, ``null``
 
 Note: while the unit, description and format for a column can be modified using the columns attribute, the dtype and null values should not be modified in this way as the changes will not propagate to the data array.
 
+It is also possible to view a description of the table by using the ``describe`` method of the ``Table`` instance.
+
+In addition to the column metadata, overall comments and keywords are available via the ``keywords`` and ``comments`` attributes of the ``Table`` instance. Additional keywords and comments can be added using the ``add_comment`` and ``add_keyword`` methods.
+
 Manipulating table columns
 --------------------------
 
-Columns can also be renamed and removed. To do this, one can use the ``remove_column``, ``remove_columns``, and ``rename_column`` methods. For example, to rename a column ``time`` to ``space``, one can use::
+Columns can also be renamed and removed. To do this, one can use the ``remove_column``, ``remove_columns``, ``keep_columns`` and ``rename_column`` methods. For example, to rename a column ``time`` to ``space``, one can use::
 
   >>> t.rename_column('time','space')
 
-For more information, see the full API.
+The ``keep_columns`` essentially acts in the opposite way to ``remove_columns`` - it is used to specify which subset of the columns to not remove, which can be useful for extracting specific columns from a large table. For more information, see the full API.
 
 Accessing table rows
 --------------------
@@ -167,7 +175,12 @@ In addition, the number of rows and columns can also be accessed with the ``shap
 
   >>> t.shape
   
-where the first number is the number of rows, and the second is the number of columns (note that a vector column counts as a single column)
+where the first number is the number of rows, and the second is the number of columns (note that a vector column counts as a single column).
+
+Combining tables
+----------------
+
+Given two ``Table`` instances with the same column metadata, and the same number of columns, one table can be added to the other via the ``append`` method.
 
 Writing the data to a file
 --------------------------
