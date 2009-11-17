@@ -88,8 +88,11 @@ Vector Columns
 
 As well as using one-dimensional columns is also possible to specify so-called vector columns, which are essentially two-dimensional arrays. Only FITS and VO tables support reading and writing these. The ``add_column`` method accepts two-dimensional arrays as input, and uses these to define vector columns. Empty vector columns can be created by using the ``add_empty_column`` method along with the ``shape`` argument to specify the full shape of the column. This should be a tuple of the form ``(n_rows, n_elements)``.
 
+Table contents
+--------------
+
 Accessing the data
-------------------
+^^^^^^^^^^^^^^^^^^
 
 The table data is stored in a Numpy record array, which can be accessed using the ``data`` attribute with the column name passed as a key. This returns the column in question as a Numpy array::
 
@@ -118,7 +121,7 @@ and::
 are equivalent, and will set the element at ``row_number`` to 1
 
 Accessing the metadata
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 The metadata is stored in the ``columns`` attribute. To see an overview of the metadata, simply use::
 
@@ -136,17 +139,44 @@ It is also possible to view a description of the table by using the ``describe``
 
 In addition to the column metadata, overall comments and keywords are available via the ``keywords`` and ``comments`` attributes of the ``Table`` instance. Additional keywords and comments can be added using the ``add_comment`` and ``add_keyword`` methods.
 
-Manipulating table columns
---------------------------
-
-Columns can also be renamed and removed. To do this, one can use the ``remove_column``, ``remove_columns``, ``keep_columns`` and ``rename_column`` methods. For example, to rename a column ``time`` to ``space``, one can use::
-
-  >>> t.rename_column('time','space')
-
-The ``keep_columns`` essentially acts in the opposite way to ``remove_columns`` - it is used to specify which subset of the columns to not remove, which can be useful for extracting specific columns from a large table. For more information, see the full API.
-
 Accessing table rows
---------------------
+^^^^^^^^^^^^^^^^^^^^
+
+The ``row(...)`` method can be used to access a specific row in a table::
+
+  row = t.row(row_number)
+  
+This returns the row as a Numpy record. The row can instead be returned as a tuple of elements with python types, by using the ``python_types`` argument:
+
+  row = t.row(row_number, python_types=True)
+  
+Two more powerful methods are available: ``rows`` and ``where``. The ``rows`` method can be used to retrieve specific rows from a table as a new ``Table`` instance::
+
+  t_new = t.rows([1,3,5,2,7,8])
+  
+Alternatively, the ``where`` method can be given a boolean array to determine which rows should be selected. This is in fact very powerful as the boolean array can actually be written as selection conditions::
+
+  t_new = t.where((t.id > 10) & (t.ra < 45.4) & (t.flag == 'ok'))
+  
+
+Global Table properties
+^^^^^^^^^^^^^^^^^^^^^^^
+
+One can access the number of rows in a table by using the python ``len`` function::
+
+  >>> len(t)
+
+In addition, the number of rows and columns can also be accessed with the ``shape`` attribute:
+
+  >>> t.shape
+
+where the first number is the number of rows, and the second is the number of columns (note that a vector column counts as a single column).
+  
+Modifying tables
+----------------
+
+Manipulating table columns
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``row(...)`` method can be used to access a specific row in a table::
 
@@ -164,23 +194,18 @@ Alternatively, the ``where`` method can be given a boolean array to determine wh
 
   t_new = t.where((t.id > 10) & (t.ra < 45.4) & (t.flag == 'ok'))
 
-Global Table properties
------------------------
+Columns can also be renamed and removed. To do this, one can use the ``remove_column``, ``remove_columns``, ``keep_columns`` and ``rename_column`` methods. For example, to rename a column ``time`` to ``space``, one can use::
 
-One can access the number of rows in a table by using the python ``len`` function::
+  >>> t.rename_column('time','space')
 
-  >>> len(t)
-  
-In addition, the number of rows and columns can also be accessed with the ``shape`` attribute:
-
-  >>> t.shape
-  
-where the first number is the number of rows, and the second is the number of columns (note that a vector column counts as a single column).
+The ``keep_columns`` essentially acts in the opposite way to ``remove_columns`` - it is used to specify which subset of the columns to not remove, which can be useful for extracting specific columns from a large table. For more information, see the full API.
 
 Combining tables
-----------------
+^^^^^^^^^^^^^^^^
 
 Given two ``Table`` instances with the same column metadata, and the same number of columns, one table can be added to the other via the ``append`` method.
+
+
 
 Writing the data to a file
 --------------------------

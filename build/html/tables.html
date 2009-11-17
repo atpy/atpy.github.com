@@ -50,12 +50,18 @@
 <li><a class="reference external" href="#vector-columns">Vector Columns</a></li>
 </ul>
 </li>
+<li><a class="reference external" href="#table-contents">Table contents</a><ul>
 <li><a class="reference external" href="#accessing-the-data">Accessing the data</a></li>
 <li><a class="reference external" href="#accessing-the-metadata">Accessing the metadata</a></li>
-<li><a class="reference external" href="#manipulating-table-columns">Manipulating table columns</a></li>
 <li><a class="reference external" href="#accessing-table-rows">Accessing table rows</a></li>
 <li><a class="reference external" href="#global-table-properties">Global Table properties</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#modifying-tables">Modifying tables</a><ul>
+<li><a class="reference external" href="#manipulating-table-columns">Manipulating table columns</a></li>
 <li><a class="reference external" href="#combining-tables">Combining tables</a></li>
+</ul>
+</li>
 <li><a class="reference external" href="#writing-the-data-to-a-file">Writing the data to a file</a></li>
 </ul>
 </li>
@@ -166,8 +172,10 @@
 <p id="id1">As well as using one-dimensional columns is also possible to specify so-called vector columns, which are essentially two-dimensional arrays. Only FITS and VO tables support reading and writing these. The <tt class="docutils literal"><span class="pre">add_column</span></tt> method accepts two-dimensional arrays as input, and uses these to define vector columns. Empty vector columns can be created by using the <tt class="docutils literal"><span class="pre">add_empty_column</span></tt> method along with the <tt class="docutils literal"><span class="pre">shape</span></tt> argument to specify the full shape of the column. This should be a tuple of the form <tt class="docutils literal"><span class="pre">(n_rows,</span> <span class="pre">n_elements)</span></tt>.</p>
 </div>
 </div>
+<div class="section" id="table-contents">
+<h2>Table contents<a class="headerlink" href="#table-contents" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="accessing-the-data">
-<h2>Accessing the data<a class="headerlink" href="#accessing-the-data" title="Permalink to this headline">¶</a></h2>
+<h3>Accessing the data<a class="headerlink" href="#accessing-the-data" title="Permalink to this headline">¶</a></h3>
 <p>The table data is stored in a Numpy record array, which can be accessed using the <tt class="docutils literal"><span class="pre">data</span></tt> attribute with the column name passed as a key. This returns the column in question as a Numpy array:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;column_name&#39;</span><span class="p">]</span>
 </pre></div>
@@ -195,7 +203,7 @@
 <p>are equivalent, and will set the element at <tt class="docutils literal"><span class="pre">row_number</span></tt> to 1</p>
 </div>
 <div class="section" id="accessing-the-metadata">
-<h2>Accessing the metadata<a class="headerlink" href="#accessing-the-metadata" title="Permalink to this headline">¶</a></h2>
+<h3>Accessing the metadata<a class="headerlink" href="#accessing-the-metadata" title="Permalink to this headline">¶</a></h3>
 <p>The metadata is stored in the <tt class="docutils literal"><span class="pre">columns</span></tt> attribute. To see an overview of the metadata, simply use:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
@@ -209,16 +217,8 @@
 <p>It is also possible to view a description of the table by using the <tt class="docutils literal"><span class="pre">describe</span></tt> method of the <tt class="docutils literal"><span class="pre">Table</span></tt> instance.</p>
 <p>In addition to the column metadata, overall comments and keywords are available via the <tt class="docutils literal"><span class="pre">keywords</span></tt> and <tt class="docutils literal"><span class="pre">comments</span></tt> attributes of the <tt class="docutils literal"><span class="pre">Table</span></tt> instance. Additional keywords and comments can be added using the <tt class="docutils literal"><span class="pre">add_comment</span></tt> and <tt class="docutils literal"><span class="pre">add_keyword</span></tt> methods.</p>
 </div>
-<div class="section" id="manipulating-table-columns">
-<h2>Manipulating table columns<a class="headerlink" href="#manipulating-table-columns" title="Permalink to this headline">¶</a></h2>
-<p>Columns can also be renamed and removed. To do this, one can use the <tt class="docutils literal"><span class="pre">remove_column</span></tt>, <tt class="docutils literal"><span class="pre">remove_columns</span></tt>, <tt class="docutils literal"><span class="pre">keep_columns</span></tt> and <tt class="docutils literal"><span class="pre">rename_column</span></tt> methods. For example, to rename a column <tt class="docutils literal"><span class="pre">time</span></tt> to <tt class="docutils literal"><span class="pre">space</span></tt>, one can use:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">rename_column</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span><span class="s">&#39;space&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>The <tt class="docutils literal"><span class="pre">keep_columns</span></tt> essentially acts in the opposite way to <tt class="docutils literal"><span class="pre">remove_columns</span></tt> - it is used to specify which subset of the columns to not remove, which can be useful for extracting specific columns from a large table. For more information, see the full API.</p>
-</div>
 <div class="section" id="accessing-table-rows">
-<h2>Accessing table rows<a class="headerlink" href="#accessing-table-rows" title="Permalink to this headline">¶</a></h2>
+<h3>Accessing table rows<a class="headerlink" href="#accessing-table-rows" title="Permalink to this headline">¶</a></h3>
 <p>The <tt class="docutils literal"><span class="pre">row(...)</span></tt> method can be used to access a specific row in a table:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">row</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="n">row_number</span><span class="p">)</span>
 </pre></div>
@@ -236,7 +236,7 @@ row = t.row(row_number, python_types=True)</blockquote>
 </div>
 </div>
 <div class="section" id="global-table-properties">
-<h2>Global Table properties<a class="headerlink" href="#global-table-properties" title="Permalink to this headline">¶</a></h2>
+<h3>Global Table properties<a class="headerlink" href="#global-table-properties" title="Permalink to this headline">¶</a></h3>
 <p>One can access the number of rows in a table by using the python <tt class="docutils literal"><span class="pre">len</span></tt> function:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 </pre></div>
@@ -247,9 +247,36 @@ row = t.row(row_number, python_types=True)</blockquote>
 </div>
 <p>where the first number is the number of rows, and the second is the number of columns (note that a vector column counts as a single column).</p>
 </div>
+</div>
+<div class="section" id="modifying-tables">
+<h2>Modifying tables<a class="headerlink" href="#modifying-tables" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="manipulating-table-columns">
+<h3>Manipulating table columns<a class="headerlink" href="#manipulating-table-columns" title="Permalink to this headline">¶</a></h3>
+<p>The <tt class="docutils literal"><span class="pre">row(...)</span></tt> method can be used to access a specific row in a table:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">row</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="n">row_number</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This returns the row as a Numpy record. The row can instead be returned as a tuple of elements with python types, by using the <tt class="docutils literal"><span class="pre">python_types</span></tt> argument:</p>
+<blockquote>
+row = t.row(row_number, python_types=True)</blockquote>
+<p>Two more powerful methods are available: <tt class="docutils literal"><span class="pre">rows</span></tt> and <tt class="docutils literal"><span class="pre">where</span></tt>. The <tt class="docutils literal"><span class="pre">rows</span></tt> method can be used to retrieve specific rows from a table as a new <tt class="docutils literal"><span class="pre">Table</span></tt> instance:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t_new</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">rows</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Alternatively, the <tt class="docutils literal"><span class="pre">where</span></tt> method can be given a boolean array to determine which rows should be selected. This is in fact very powerful as the boolean array can actually be written as selection conditions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t_new</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">t</span><span class="o">.</span><span class="n">id</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">ra</span> <span class="o">&lt;</span> <span class="mf">45.4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">flag</span> <span class="o">==</span> <span class="s">&#39;ok&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Columns can also be renamed and removed. To do this, one can use the <tt class="docutils literal"><span class="pre">remove_column</span></tt>, <tt class="docutils literal"><span class="pre">remove_columns</span></tt>, <tt class="docutils literal"><span class="pre">keep_columns</span></tt> and <tt class="docutils literal"><span class="pre">rename_column</span></tt> methods. For example, to rename a column <tt class="docutils literal"><span class="pre">time</span></tt> to <tt class="docutils literal"><span class="pre">space</span></tt>, one can use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">rename_column</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span><span class="s">&#39;space&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">keep_columns</span></tt> essentially acts in the opposite way to <tt class="docutils literal"><span class="pre">remove_columns</span></tt> - it is used to specify which subset of the columns to not remove, which can be useful for extracting specific columns from a large table. For more information, see the full API.</p>
+</div>
 <div class="section" id="combining-tables">
-<h2>Combining tables<a class="headerlink" href="#combining-tables" title="Permalink to this headline">¶</a></h2>
+<h3>Combining tables<a class="headerlink" href="#combining-tables" title="Permalink to this headline">¶</a></h3>
 <p>Given two <tt class="docutils literal"><span class="pre">Table</span></tt> instances with the same column metadata, and the same number of columns, one table can be added to the other via the <tt class="docutils literal"><span class="pre">append</span></tt> method.</p>
+</div>
 </div>
 <div class="section" id="writing-the-data-to-a-file">
 <h2>Writing the data to a file<a class="headerlink" href="#writing-the-data-to-a-file" title="Permalink to this headline">¶</a></h2>

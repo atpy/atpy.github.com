@@ -18,10 +18,10 @@ atpy.Table.write method single_tables.html
 atpy.Table.read method single_tables.html
 atpy.Table.describe method single_tables.html
 atpy.Table.add_comment method single_tables.html
-atpy.Table.vo_read method formats.html
 atpy.Table.ipac_read method formats.html
 atpy.Table.vo_write method formats.html
 atpy.Table.where method single_tables.html
+atpy.Table.vo_read method formats.html
 atpy.Table.rename_column method single_tables.html
 atpy.Table.sql_read method formats.html
 atpy.Table.fits_write method formats.html
