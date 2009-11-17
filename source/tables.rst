@@ -109,7 +109,7 @@ or::
   
 Both notations can be used to set data in the table, for example::
 
-  t.knigths[row_number] = 1
+  t.column_name[row_number] = 1
   
 and::
 
