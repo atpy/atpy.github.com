@@ -1,5 +1,5 @@
 ATpy - Astronomical Tables in Python 
-======================
+====================================
 
 `Sourceforge <http://sourceforge.net/projects/atpy/>`_ - `Download <https://sourceforge.net/projects/atpy/files/>`_ - `Mailing List <http://lists.sourceforge.net/lists/listinfo/atpy-announce>`_ - `Twitter <http://twitter.com/astropython/>`_ - `Forums <http://sourceforge.net/apps/phpbb/atpy/>`_ 
 
@@ -46,6 +46,7 @@ For more details see the documentation below.
 
   installation.rst
   single_tables.rst
+  constructing_tables.rst
   table_sets.rst
   formats.rst
 
