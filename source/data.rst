@@ -34,7 +34,7 @@ are equivalent, and will set the element at ``row_number`` to 1
 Accessing the metadata
 ======================
 
-The metadata is stored in the ``columns`` attribute. To see an overview of the metadata, simply use::
+The column metadata is stored in the ``columns`` attribute. To see an overview of the metadata, simply use::
 
   >>> t.columns
   
@@ -57,7 +57,11 @@ It is also possible to view a description of the table by using the ``describe``
 
    >>> t.describe()
 
-In addition to the column metadata, overall comments and keywords are available via the ``keywords`` and ``comments`` attributes of the ``Table`` instance. Additional keywords and comments can be added using the ``add_comment`` and ``add_keyword`` methods.
+In addition to the column metadata, the comments and keywords are available via the ``keywords`` and ``comments`` attributes of the ``Table`` instance, for example::
+
+   >>> instrument = t.keywords['instrument']
+
+The ``keywords`` attribute is a dictionary, and the ``comments`` attribute is a list.
 
 Accessing table rows
 ====================

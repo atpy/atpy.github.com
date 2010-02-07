@@ -109,3 +109,11 @@ Writing the data to a file
 
 Writing data to files or databases is done through the ``write`` method. The arguments to this method are very similar to that of the ``read`` data. The only main difference is that the ``write`` method can take an ``overwrite`` argument that specifies whether or not to overwrite existing files.
 
+Adding meta-data
+================
+
+Comments and keywords can be added to a table using the ``add_comment()`` and ``add_keyword()`` methods::
+
+  >>> t.add_comment("This is a great table")
+  >>> t.add_keyword("meaning", 42)
+  

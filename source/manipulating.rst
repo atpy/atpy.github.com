@@ -16,6 +16,13 @@ The ``keep_columns`` essentially acts in the opposite way to
 remove, which can be useful for extracting specific columns from a large
 table. For more information, see the :ref:`api`.
 
+Sorting tables
+==============
+
+To sort a table, use the ``sort()`` method, along with the name of the column to sort by::
+
+  >>> t.sort('time')
+
 Combining tables
 ================
 

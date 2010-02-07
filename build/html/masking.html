@@ -47,6 +47,15 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/atpy_logo.png" alt="Logo"/>
             </a></p>
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Masking and null values</a><ul>
+<li><a class="reference external" href="#null-values">Null values</a></li>
+<li><a class="reference external" href="#masking">Masking</a></li>
+</ul>
+</li>
+</ul>
+
             <h4>Previous topic</h4>
             <p class="topless"><a href="table_sets.html"
                                   title="previous chapter">Table Sets</a></p>
@@ -81,6 +90,38 @@
             
   <div class="section" id="masking-and-null-values">
 <h1>Masking and null values<a class="headerlink" href="#masking-and-null-values" title="Permalink to this headline">¶</a></h1>
+<p>It is often useful to be able to define missing or invalid values in a table. There are currently two ways to do this in ATpy, <a class="reference internal" href="#null"><em>Null values</em></a>, and <a class="reference internal" href="#masking"><em>Masking</em></a>. The preferred way is to use Masking, but this requires at least NumPy 1.4.0 in most cases, and the latest svn version of NumPy for SQL database input/output. Therefore, for version 0.9.2 of ATpy, the default is to use the Null value method. To opt-in to using masked arrays, specify the <tt class="docutils literal"><span class="pre">masked=True</span></tt> argument when creating a <tt class="docutils literal"><span class="pre">Table</span></tt> instance:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">&#39;example.fits.gz&#39;</span><span class="p">,</span> <span class="n">masked</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In future, once NumPy 1.5.0 is out, we will switch over to using masked arrays by default, and will slowly phase out the Null value method.</p>
+<div class="section" id="null-values">
+<span id="null"></span><h2>Null values<a class="headerlink" href="#null-values" title="Permalink to this headline">¶</a></h2>
+<p>The basic idea behind this method is to specify a special value in each column that will signify missing or invalid data. To specify the Null value for a column, use the <tt class="docutils literal"><span class="pre">null</span></tt> argument in <tt class="docutils literal"><span class="pre">add_column</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">null</span><span class="o">=-</span><span class="mf">999.</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Following this, if the table is written out to a file or database, this null value will be stored.</p>
+<p>This method is generally unreliable, especially for floating point values, and does not allow users to easily distinguish between invalid and missing values.</p>
+</div>
+<div class="section" id="masking">
+<span id="id1"></span><h2>Masking<a class="headerlink" href="#masking" title="Permalink to this headline">¶</a></h2>
+<p>NumPy supports masked arrays, where specific elements of an array can be properly masked by using a <tt class="docutils literal"><span class="pre">mask</span></tt> - a boolean array. There are several advantages to using this:</p>
+<ul class="simple">
+<li>The mask is unrelated to the value in the cell - any cell can be masked, not
+just all cells with a specific value</li>
+<li>It is possible to distinguish between invalid (e.g. NaN) and missing values</li>
+<li>Values can easily be unmasked (although when writing to a file/database, the
+&#8216;old&#8217; values are lost for masked elements).</li>
+<li>NumPy provides masked versions of many functions, for example <tt class="docutils literal"><span class="pre">sum</span></tt>,
+<tt class="docutils literal"><span class="pre">mean</span></tt>, or <tt class="docutils literal"><span class="pre">median</span></tt>, which means that it is easy to correctly compute
+statistics on masked arrays, ignoring the masked values.</li>
+</ul>
+<p>To specify the mask of a column, use the <tt class="docutils literal"><span class="pre">mask</span></tt> argument in <tt class="docutils literal"><span class="pre">add_column</span></tt>. To do the equivalent to the example in <a class="reference internal" href="#null"><em>Null values</em></a>, use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">time</span><span class="o">==-</span><span class="mf">999.</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 

@@ -1,7 +1,7 @@
 # Sphinx inventory version 1
 # Project: ATpy
 # Version: 0.9
-atpy mod formats.html
+atpy mod api_tableset.html
 atpy.sqltable.read function formats.html
 atpy.sqltable.write function formats.html
 atpy.Table.row method api_table.html
