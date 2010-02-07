@@ -122,7 +122,7 @@
 </div>
 <div class="section" id="accessing-the-metadata">
 <h2>Accessing the metadata<a class="headerlink" href="#accessing-the-metadata" title="Permalink to this headline">¶</a></h2>
-<p>The metadata is stored in the <tt class="docutils literal"><span class="pre">columns</span></tt> attribute. To see an overview of the metadata, simply use:</p>
+<p>The column metadata is stored in the <tt class="docutils literal"><span class="pre">columns</span></tt> attribute. To see an overview of the metadata, simply use:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
@@ -145,7 +145,11 @@ this way as the changes will not propagate to the data array.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>In addition to the column metadata, overall comments and keywords are available via the <tt class="docutils literal"><span class="pre">keywords</span></tt> and <tt class="docutils literal"><span class="pre">comments</span></tt> attributes of the <tt class="docutils literal"><span class="pre">Table</span></tt> instance. Additional keywords and comments can be added using the <tt class="docutils literal"><span class="pre">add_comment</span></tt> and <tt class="docutils literal"><span class="pre">add_keyword</span></tt> methods.</p>
+<p>In addition to the column metadata, the comments and keywords are available via the <tt class="docutils literal"><span class="pre">keywords</span></tt> and <tt class="docutils literal"><span class="pre">comments</span></tt> attributes of the <tt class="docutils literal"><span class="pre">Table</span></tt> instance, for example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">instrument</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">keywords</span><span class="p">[</span><span class="s">&#39;instrument&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">keywords</span></tt> attribute is a dictionary, and the <tt class="docutils literal"><span class="pre">comments</span></tt> attribute is a list.</p>
 </div>
 <div class="section" id="accessing-table-rows">
 <h2>Accessing table rows<a class="headerlink" href="#accessing-table-rows" title="Permalink to this headline">¶</a></h2>
