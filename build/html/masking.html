@@ -89,7 +89,7 @@
           <div class="body">
             
   <div class="section" id="masking-and-null-values">
-<h1>Masking and null values<a class="headerlink" href="#masking-and-null-values" title="Permalink to this headline">¶</a></h1>
+<span id="maskingandnull"></span><h1>Masking and null values<a class="headerlink" href="#masking-and-null-values" title="Permalink to this headline">¶</a></h1>
 <p>It is often useful to be able to define missing or invalid values in a table. There are currently two ways to do this in ATpy, <a class="reference internal" href="#null"><em>Null values</em></a>, and <a class="reference internal" href="#masking"><em>Masking</em></a>. The preferred way is to use Masking, but this requires at least NumPy 1.4.0 in most cases, and the latest svn version of NumPy for SQL database input/output. Therefore, for version 0.9.2 of ATpy, the default is to use the Null value method. To opt-in to using masked arrays, specify the <tt class="docutils literal"><span class="pre">masked=True</span></tt> argument when creating a <tt class="docutils literal"><span class="pre">Table</span></tt> instance:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">&#39;example.fits.gz&#39;</span><span class="p">,</span> <span class="n">masked</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>

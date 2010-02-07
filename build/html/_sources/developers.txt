@@ -14,6 +14,21 @@ One of the new features introduced in ATpy 0.9.2 is the ability for users to wri
 * The function should not return anything, but rather should operate directly
   on the table or table set instance passed as the first argument
   
+* If the file format supports masking/null values, the function should take
+  into account that there are two ways to mask values (see
+  :ref:`maskingandnull`). The ``Table`` instance has a ``_masked`` attribute
+  that specifies whether the user wants a Table with masked arrays, or with a
+  null value. The function should take this into account. For example, in the
+  built-in FITS reader, the table is populated with ``add_column`` in the
+  following way::
+
+    if self._masked:
+        self.add_column(name, data, unit=columns.units[i], \
+            mask=data==columns.nulls[i])
+    else:
+        self.add_column(name, data, unit=columns.units[i], \
+            null=columns.nulls[i])
+  
 The reader/writer function can then fill the table by using the ``Table`` methods described in :ref:`api` (for a single table reader/writer) or :ref:`apiset` (for a table set reader/writer). In particular, a single table reader will likely contain calls to ``add_column``, while a single table writer will likely contain references to the ``data`` attribute of ``Table``.
 
 Once a custom function is available, the user can register it using one of the four ATpy functions:
@@ -46,3 +61,4 @@ One can then read in an HDF5 table without specifying the type::
     >>> t = atpy.Table('mytable.hdf5')
     
 We encourage users to send us examples of reader/writer functions for various formats, and would be happy in future to include readers and writers for commonly used formats in ATpy.
+

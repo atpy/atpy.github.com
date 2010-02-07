@@ -82,14 +82,33 @@
   <div class="section" id="custom-reading-writing">
 <h1>Custom reading/writing<a class="headerlink" href="#custom-reading-writing" title="Permalink to this headline">¶</a></h1>
 <p>One of the new features introduced in ATpy 0.9.2 is the ability for users to write their own read/write functions and <em>register</em> them with ATpy. A read or write function needs to satisfy the following requirements:</p>
-<ul class="simple">
-<li>The first argument should be a <tt class="docutils literal"><span class="pre">Table</span></tt> instance (in the case of a single
+<ul>
+<li><p class="first">The first argument should be a <tt class="docutils literal"><span class="pre">Table</span></tt> instance (in the case of a single
 table reader/writer) or a <tt class="docutils literal"><span class="pre">TableSet</span></tt> instance (in the case of a table set
-reader/writer)</li>
-<li>The function can take any other arguments, with the exception of the keyword
-arguments <tt class="docutils literal"><span class="pre">verbose</span></tt> and <tt class="docutils literal"><span class="pre">type</span></tt>.</li>
-<li>The function should not return anything, but rather should operate directly
-on the table or table set instance passed as the first argument</li>
+reader/writer)</p>
+</li>
+<li><p class="first">The function can take any other arguments, with the exception of the keyword
+arguments <tt class="docutils literal"><span class="pre">verbose</span></tt> and <tt class="docutils literal"><span class="pre">type</span></tt>.</p>
+</li>
+<li><p class="first">The function should not return anything, but rather should operate directly
+on the table or table set instance passed as the first argument</p>
+</li>
+<li><p class="first">If the file format supports masking/null values, the function should take
+into account that there are two ways to mask values (see
+<a class="reference external" href="masking.html#maskingandnull"><em>Masking and null values</em></a>). The <tt class="docutils literal"><span class="pre">Table</span></tt> instance has a <tt class="docutils literal"><span class="pre">_masked</span></tt> attribute
+that specifies whether the user wants a Table with masked arrays, or with a
+null value. The function should take this into account. For example, in the
+built-in FITS reader, the table is populated with <tt class="docutils literal"><span class="pre">add_column</span></tt> in the
+following way:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_masked</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="n">columns</span><span class="o">.</span><span class="n">units</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> \
+        <span class="n">mask</span><span class="o">=</span><span class="n">data</span><span class="o">==</span><span class="n">columns</span><span class="o">.</span><span class="n">nulls</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="n">columns</span><span class="o">.</span><span class="n">units</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> \
+        <span class="n">null</span><span class="o">=</span><span class="n">columns</span><span class="o">.</span><span class="n">nulls</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
 </ul>
 <p>The reader/writer function can then fill the table by using the <tt class="docutils literal"><span class="pre">Table</span></tt> methods described in <a class="reference external" href="api_table.html#api"><em>Full API for Table class</em></a> (for a single table reader/writer) or <a class="reference external" href="api_tableset.html#apiset"><em>Full API for TableSet class</em></a> (for a table set reader/writer). In particular, a single table reader will likely contain calls to <tt class="docutils literal"><span class="pre">add_column</span></tt>, while a single table writer will likely contain references to the <tt class="docutils literal"><span class="pre">data</span></tt> attribute of <tt class="docutils literal"><span class="pre">Table</span></tt>.</p>
 <p>Once a custom function is available, the user can register it using one of the four ATpy functions:</p>
