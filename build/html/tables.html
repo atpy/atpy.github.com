@@ -5,13 +5,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Tables &mdash; ATpy v0.9.1 documentation</title>
+    <title>Constructing a table &mdash; ATpy v0.9.2 documentation</title>
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.9.1',
+        VERSION:     '0.9.2',
         COLLAPSE_MODINDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -19,7 +19,9 @@
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="ATpy v0.9.1 documentation" href="index.html" /> 
+    <link rel="top" title="ATpy v0.9.2 documentation" href="index.html" />
+    <link rel="next" title="Accessing Table Data" href="data.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
   </head>
   <body>
     <div class="related">
@@ -31,7 +33,13 @@
         <li class="right" >
           <a href="modindex.html" title="Global Module Index"
              accesskey="M">modules</a> |</li>
-        <li><a href="index.html">ATpy v0.9.1 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="data.html" title="Accessing Table Data"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -41,32 +49,26 @@
             </a></p>
             <h3><a href="index.html">Table Of Contents</a></h3>
             <ul>
-<li><a class="reference external" href="">Tables</a><ul>
+<li><a class="reference external" href="">Constructing a table</a><ul>
 <li><a class="reference external" href="#creating-a-table">Creating a table</a></li>
 <li><a class="reference external" href="#populating-the-table">Populating the table</a><ul>
 <li><a class="reference external" href="#reading-data-from-a-file">Reading data from a file</a></li>
 <li><a class="reference external" href="#reading-data-from-a-database">Reading data from a database</a></li>
-<li><a class="reference external" href="#adding-data-to-a-table">Adding data to a table</a></li>
+<li><a class="reference external" href="#adding-columns-to-a-table">Adding columns to a table</a></li>
 <li><a class="reference external" href="#vector-columns">Vector Columns</a></li>
-</ul>
-</li>
-<li><a class="reference external" href="#table-contents">Table contents</a><ul>
-<li><a class="reference external" href="#accessing-the-data">Accessing the data</a></li>
-<li><a class="reference external" href="#accessing-the-metadata">Accessing the metadata</a></li>
-<li><a class="reference external" href="#accessing-table-rows">Accessing table rows</a></li>
-<li><a class="reference external" href="#global-table-properties">Global Table properties</a></li>
-</ul>
-</li>
-<li><a class="reference external" href="#modifying-tables">Modifying tables</a><ul>
-<li><a class="reference external" href="#manipulating-table-columns">Manipulating table columns</a></li>
-<li><a class="reference external" href="#combining-tables">Combining tables</a></li>
-</ul>
-</li>
 <li><a class="reference external" href="#writing-the-data-to-a-file">Writing the data to a file</a></li>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="installation.html"
+                                  title="previous chapter">Installation</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="data.html"
+                                  title="next chapter">Accessing Table Data</a></p>
             <h3>This Page</h3>
             <ul class="this-page-menu">
               <li><a href="_sources/tables.txt"
@@ -93,10 +95,10 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="tables">
-<h1>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h1>
-<p>The <tt class="docutils literal"><span class="pre">Table</span></tt> class is the basic entity. It consists of table data and metadata. The data is stored using a Numpy record array. The metadata includes units, null values, and column descriptions, as well as general comments and keywords.</p>
-<p>Data can be stored in the table using many of the Numpy types, including booleans, 8, 16, 32, and 64-bit signed and unsigned integers, 32 and 64-bit floats, and strings. Not all file formats and databases support reading and writing all of these types &#8211; for more information, see <em class="xref">File Formats and Numeric Types</em>.</p>
+  <div class="section" id="constructing-a-table">
+<h1>Constructing a table<a class="headerlink" href="#constructing-a-table" title="Permalink to this headline">¶</a></h1>
+<p>The <tt class="docutils literal"><span class="pre">Table</span></tt> class is the basic entity in ATpy. It consists of table data and metadata. The data is stored using a <a class="reference external" href="http://numpy.scipy.org/">NumPy</a> structured array. The metadata includes units, null values, and column descriptions, as well as comments and keywords.</p>
+<p>Data can be stored in the table using many of the <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/arrays.scalars.html#built-in-scalar-types">NumPy types</a>, including booleans, 8, 16, 32, and 64-bit signed and unsigned integers, 32 and 64-bit floats, and strings. Not all file formats and databases support reading and writing all of these types &#8211; for more information, see <a class="reference external" href="formats.html#formats"><em>Supported Formats</em></a>.</p>
 <div class="section" id="creating-a-table">
 <h2>Creating a table<a class="headerlink" href="#creating-a-table" title="Permalink to this headline">¶</a></h2>
 <p>The simplest way to create an instance of the <tt class="docutils literal"><span class="pre">Table</span></tt> is to call the class with no arguments:</p>
@@ -109,12 +111,12 @@
 <p>A table can be populated either manually or by reading data from a file or database. Reading data into a table erases previous content. Data can be manually added once a table has been read in from a file.</p>
 <div class="section" id="reading-data-from-a-file">
 <h3>Reading data from a file<a class="headerlink" href="#reading-data-from-a-file" title="Permalink to this headline">¶</a></h3>
-<p>The <tt class="docutils literal"><span class="pre">read(...)</span></tt> method can be used to read in a table from a file. To date, <tt class="docutils literal"><span class="pre">ATpy</span></tt> supports the following file formats:</p>
+<p>The <tt class="docutils literal"><span class="pre">read(...)</span></tt> method can be used to read in a table from a file. To date, ATpy supports the following file formats:</p>
 <blockquote>
 <ul class="simple">
-<li>FITS tables (<tt class="docutils literal"><span class="pre">fits</span></tt>)</li>
-<li>VO tables (<tt class="docutils literal"><span class="pre">vo</span></tt>)</li>
-<li>IPAC tables (<tt class="docutils literal"><span class="pre">ipac</span></tt>)</li>
+<li><a class="reference external" href="http://archive.stsci.edu/fits/fits_standard/">FITS</a> tables (<tt class="docutils literal"><span class="pre">fits</span></tt>)</li>
+<li><a class="reference external" href="http://www.ivoa.net/Documents/VOTable/">VO</a> tables (<tt class="docutils literal"><span class="pre">vo</span></tt>)</li>
+<li><a class="reference external" href="http://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html">IPAC</a> tables (<tt class="docutils literal"><span class="pre">ipac</span></tt>)</li>
 </ul>
 </blockquote>
 <p>When reading a table from a file, the only required argument is the filename. For example, to read a VO table called <tt class="docutils literal"><span class="pre">example.xml</span></tt>, the following should be used:</p>
@@ -127,12 +129,21 @@
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;example.xml&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&#39;vo&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <tt class="docutils literal"><span class="pre">read</span></tt> method supports additional file-format-dependent options. These are described in more detail in the <em class="xref">Full API</em>.</p>
-<p>In cases where multiple tables are available in a table file, ATpy will display a message to the screen with instructions of how to specify which table to read in. Alternatively, see the TableSet chapter for information on how to read all tables into a single TableSet instance.</p>
+<p>The <tt class="docutils literal"><span class="pre">read</span></tt> method supports additional file-format-dependent options. These are described in more detail in <a class="reference external" href="formats.html#formats"><em>Supported Formats</em></a>.</p>
+<p>In cases where multiple tables are available in a table file, ATpy will display a message to the screen with instructions of how to specify which table to read in. Alternatively, see <a class="reference external" href="table_sets.html#tablesets"><em>Table Sets</em></a> for information on how to read all tables into a single <tt class="docutils literal"><span class="pre">TableSet</span></tt> instance.</p>
+<p>As a convenience, it is possible to create a <tt class="docutils literal"><span class="pre">Table</span></tt> instance and read in data in a single command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">&#39;example.xml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Any arguments given to <tt class="docutils literal"><span class="pre">Table</span></tt> are passed on to the <tt class="docutils literal"><span class="pre">read</span></tt> method, so the above is equivalent to:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;example.xml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="reading-data-from-a-database">
 <h3>Reading data from a database<a class="headerlink" href="#reading-data-from-a-database" title="Permalink to this headline">¶</a></h3>
-<p>Reading a table from a database is very similar to reading a table from a file. The main difference is that for databases, the first argument should be the database type, To date, <tt class="docutils literal"><span class="pre">ATpy</span></tt> supports the following database types:</p>
+<p>Reading a table from a database is very similar to reading a table from a file. The main difference is that for databases, the first argument should be the database type, To date, ATpy supports the following database types:</p>
 <blockquote>
 <ul class="simple">
 <li>SQLite (<tt class="docutils literal"><span class="pre">sqlite</span></tt>)</li>
@@ -144,143 +155,46 @@
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;sqlite&#39;</span><span class="p">,</span><span class="s">&#39;example.db&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For MySQL and PostGreSQL databases, it is possible to specify the database, table, authentication, and host parameters. The various options are descried in more detail in the <em class="xref">Full API</em>. As for files, the <tt class="docutils literal"><span class="pre">verbose</span></tt> and <tt class="docutils literal"><span class="pre">type</span></tt> arguments can be used.</p>
-<p>It is possible to specify a full SQL query using the <tt class="docutils literal"><span class="pre">query</span></tt> argument. Any valid SQL is allowed. If this is used, the table name should nevertheless be specified using the <tt class="docutils literal"><span class="pre">table</span></tt> argument.</p>
-</div>
-<div class="section" id="adding-data-to-a-table">
-<h3>Adding data to a table<a class="headerlink" href="#adding-data-to-a-table" title="Permalink to this headline">¶</a></h3>
-<p>It is possible to add data to an empty or an existing table. Two methods exist for this. The first, <tt class="docutils literal"><span class="pre">add_column</span></tt>, allows users to add an existing array to a column. For example, the following can be used to add a column named <tt class="docutils literal"><span class="pre">time</span></tt> where the variable <tt class="docutils literal"><span class="pre">time_array</span></tt> is a Numpy array:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span> <span class="n">time_array</span><span class="p">)</span>
+<p>For MySQL and PostGreSQL databases, it is possible to specify the database, table, authentication, and host parameters. The various options are descried in more detail in <a class="reference external" href="formats.html#formats"><em>Supported Formats</em></a>. As for files, the <tt class="docutils literal"><span class="pre">verbose</span></tt> and <tt class="docutils literal"><span class="pre">type</span></tt> arguments can be used.</p>
+<p>As for reading in from files, one can read in data from a database while initializing the <tt class="docutils literal"><span class="pre">Table</span></tt> object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">&#39;sqlite&#39;</span><span class="p">,</span><span class="s">&#39;example.db&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <tt class="docutils literal"><span class="pre">add_column</span></tt> method also optionally takes metadata about the column, such as units, null values, and a description. For example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span> <span class="n">time_array</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s">&#39;seconds&#39;</span><span class="p">,</span> <span class="n">null</span><span class="o">=-</span><span class="mf">999.</span><span class="p">)</span>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It is possible to specify a full SQL query using the <tt class="docutils literal"><span class="pre">query</span></tt> argument.
+Any valid SQL is allowed. If this is used, the table name should
+nevertheless be specified using the <tt class="docutils literal"><span class="pre">table</span></tt> argument.</p>
+</div>
+</div>
+<div class="section" id="adding-columns-to-a-table">
+<h3>Adding columns to a table<a class="headerlink" href="#adding-columns-to-a-table" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to add columns to an empty or an existing table. Two methods exist for this. The first, <tt class="docutils literal"><span class="pre">add_column</span></tt>, allows users to add an existing array to a column. For example, the following can be used to add a column named <tt class="docutils literal"><span class="pre">time</span></tt> where the variable <tt class="docutils literal"><span class="pre">time_array</span></tt> is a NumPy array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span> <span class="n">time_array</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>indicates that the units of the column are seconds, and that values of -999. should be treated as NULL. It is also possible to convert the datatype of an array while adding it to a table by using the <tt class="docutils literal"><span class="pre">dtype</span></tt> argument. For example, the following stores the column from the above examples as 32-bit floating point values:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span> <span class="n">time_array</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s">&#39;seconds&#39;</span><span class="p">,</span> <span class="n">null</span><span class="o">=-</span><span class="mf">999.</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<p>The <tt class="docutils literal"><span class="pre">add_column</span></tt> method also optionally takes metadata about the column, such as units, or a description. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span> <span class="n">time_array</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s">&#39;seconds&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>indicates that the units of the column are seconds. It is also possible to convert the datatype of an array while adding it to a table by using the <tt class="docutils literal"><span class="pre">dtype</span></tt> argument. For example, the following stores the column from the above examples as 32-bit floating point values:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span> <span class="n">time_array</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s">&#39;seconds&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In some cases, it is desirable to add an empty column to a table, and populate it element by element. This can be done using the <tt class="docutils literal"><span class="pre">add_empty_column</span></tt> method. The only required arguments for this method are the name and the data type of the column:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">add_empty_column</span><span class="p">(</span><span class="s">&#39;id&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">add_empty_column</span><span class="p">(</span><span class="s">&#39;id&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>If the column is the first one being added to an empty table, the <tt class="docutils literal"><span class="pre">shape</span></tt> argument should be used to specify the number of rows. This should either be an integer giving the number of rows, or a tuple in the case of vector columns (see <a class="reference internal" href="#id1"><em>Vector Columns</em></a> for more details)</p>
+<p>If the column is the first one being added to an empty table, the <tt class="docutils literal"><span class="pre">shape</span></tt> argument should be used to specify the number of rows. This should either be an integer giving the number of rows, or a tuple in the case of vector columns (see <a class="reference internal" href="#vectorcolumns"><em>Vector Columns</em></a> for more details)</p>
 </div>
 <div class="section" id="vector-columns">
-<h3>Vector Columns<a class="headerlink" href="#vector-columns" title="Permalink to this headline">¶</a></h3>
-<p id="id1">As well as using one-dimensional columns is also possible to specify so-called vector columns, which are essentially two-dimensional arrays. Only FITS and VO tables support reading and writing these. The <tt class="docutils literal"><span class="pre">add_column</span></tt> method accepts two-dimensional arrays as input, and uses these to define vector columns. Empty vector columns can be created by using the <tt class="docutils literal"><span class="pre">add_empty_column</span></tt> method along with the <tt class="docutils literal"><span class="pre">shape</span></tt> argument to specify the full shape of the column. This should be a tuple of the form <tt class="docutils literal"><span class="pre">(n_rows,</span> <span class="pre">n_elements)</span></tt>.</p>
-</div>
-</div>
-<div class="section" id="table-contents">
-<h2>Table contents<a class="headerlink" href="#table-contents" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="accessing-the-data">
-<h3>Accessing the data<a class="headerlink" href="#accessing-the-data" title="Permalink to this headline">¶</a></h3>
-<p>The table data is stored in a Numpy record array, which can be accessed using the <tt class="docutils literal"><span class="pre">data</span></tt> attribute with the column name passed as a key. This returns the column in question as a Numpy array:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;column_name&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>For convenience, columns with names that satisfy the python variable name requirements (essentially starting with a letter and containing no symbols apart from underscores) can be accessed directly as attributes of the table:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">column_name</span>
-</pre></div>
-</div>
-<p>Since the returned data is a Numpy array, individual elements can be accessed using:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;column_name&#39;</span><span class="p">][</span><span class="n">row_number</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>or:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">column_name</span><span class="p">[</span><span class="n">row_number</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Both notations can be used to set data in the table, for example:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">column_name</span><span class="p">[</span><span class="n">row_number</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-<p>and:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;column_name&#39;</span><span class="p">][</span><span class="n">row_number</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-<p>are equivalent, and will set the element at <tt class="docutils literal"><span class="pre">row_number</span></tt> to 1</p>
-</div>
-<div class="section" id="accessing-the-metadata">
-<h3>Accessing the metadata<a class="headerlink" href="#accessing-the-metadata" title="Permalink to this headline">¶</a></h3>
-<p>The metadata is stored in the <tt class="docutils literal"><span class="pre">columns</span></tt> attribute. To see an overview of the metadata, simply use:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-</div>
-<p>The metadata for a specific column can then be accessed by specifying the column name as a key:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="s">&#39;some_column&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>The attributes of this object are <tt class="docutils literal"><span class="pre">dtype</span></tt>, <tt class="docutils literal"><span class="pre">unit</span></tt>, <tt class="docutils literal"><span class="pre">description</span></tt>, <tt class="docutils literal"><span class="pre">null</span></tt>, and <tt class="docutils literal"><span class="pre">format</span></tt>.</p>
-<p>Note: while the unit, description and format for a column can be modified using the columns attribute, the dtype and null values should not be modified in this way as the changes will not propagate to the data array.</p>
-<p>It is also possible to view a description of the table by using the <tt class="docutils literal"><span class="pre">describe</span></tt> method of the <tt class="docutils literal"><span class="pre">Table</span></tt> instance.</p>
-<p>In addition to the column metadata, overall comments and keywords are available via the <tt class="docutils literal"><span class="pre">keywords</span></tt> and <tt class="docutils literal"><span class="pre">comments</span></tt> attributes of the <tt class="docutils literal"><span class="pre">Table</span></tt> instance. Additional keywords and comments can be added using the <tt class="docutils literal"><span class="pre">add_comment</span></tt> and <tt class="docutils literal"><span class="pre">add_keyword</span></tt> methods.</p>
-</div>
-<div class="section" id="accessing-table-rows">
-<h3>Accessing table rows<a class="headerlink" href="#accessing-table-rows" title="Permalink to this headline">¶</a></h3>
-<p>The <tt class="docutils literal"><span class="pre">row(...)</span></tt> method can be used to access a specific row in a table:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">row</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="n">row_number</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>This returns the row as a Numpy record. The row can instead be returned as a tuple of elements with python types, by using the <tt class="docutils literal"><span class="pre">python_types</span></tt> argument:</p>
-<blockquote>
-row = t.row(row_number, python_types=True)</blockquote>
-<p>Two more powerful methods are available: <tt class="docutils literal"><span class="pre">rows</span></tt> and <tt class="docutils literal"><span class="pre">where</span></tt>. The <tt class="docutils literal"><span class="pre">rows</span></tt> method can be used to retrieve specific rows from a table as a new <tt class="docutils literal"><span class="pre">Table</span></tt> instance:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t_new</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">rows</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
-</pre></div>
-</div>
-<p>Alternatively, the <tt class="docutils literal"><span class="pre">where</span></tt> method can be given a boolean array to determine which rows should be selected. This is in fact very powerful as the boolean array can actually be written as selection conditions:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t_new</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">t</span><span class="o">.</span><span class="n">id</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">ra</span> <span class="o">&lt;</span> <span class="mf">45.4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">flag</span> <span class="o">==</span> <span class="s">&#39;ok&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="global-table-properties">
-<h3>Global Table properties<a class="headerlink" href="#global-table-properties" title="Permalink to this headline">¶</a></h3>
-<p>One can access the number of rows in a table by using the python <tt class="docutils literal"><span class="pre">len</span></tt> function:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>In addition, the number of rows and columns can also be accessed with the <tt class="docutils literal"><span class="pre">shape</span></tt> attribute:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-<p>where the first number is the number of rows, and the second is the number of columns (note that a vector column counts as a single column).</p>
-</div>
-</div>
-<div class="section" id="modifying-tables">
-<h2>Modifying tables<a class="headerlink" href="#modifying-tables" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="manipulating-table-columns">
-<h3>Manipulating table columns<a class="headerlink" href="#manipulating-table-columns" title="Permalink to this headline">¶</a></h3>
-<p>The <tt class="docutils literal"><span class="pre">row(...)</span></tt> method can be used to access a specific row in a table:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">row</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="n">row_number</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>This returns the row as a Numpy record. The row can instead be returned as a tuple of elements with python types, by using the <tt class="docutils literal"><span class="pre">python_types</span></tt> argument:</p>
-<blockquote>
-row = t.row(row_number, python_types=True)</blockquote>
-<p>Two more powerful methods are available: <tt class="docutils literal"><span class="pre">rows</span></tt> and <tt class="docutils literal"><span class="pre">where</span></tt>. The <tt class="docutils literal"><span class="pre">rows</span></tt> method can be used to retrieve specific rows from a table as a new <tt class="docutils literal"><span class="pre">Table</span></tt> instance:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t_new</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">rows</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
-</pre></div>
-</div>
-<p>Alternatively, the <tt class="docutils literal"><span class="pre">where</span></tt> method can be given a boolean array to determine which rows should be selected. This is in fact very powerful as the boolean array can actually be written as selection conditions:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t_new</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">t</span><span class="o">.</span><span class="n">id</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">ra</span> <span class="o">&lt;</span> <span class="mf">45.4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">flag</span> <span class="o">==</span> <span class="s">&#39;ok&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-<p>Columns can also be renamed and removed. To do this, one can use the <tt class="docutils literal"><span class="pre">remove_column</span></tt>, <tt class="docutils literal"><span class="pre">remove_columns</span></tt>, <tt class="docutils literal"><span class="pre">keep_columns</span></tt> and <tt class="docutils literal"><span class="pre">rename_column</span></tt> methods. For example, to rename a column <tt class="docutils literal"><span class="pre">time</span></tt> to <tt class="docutils literal"><span class="pre">space</span></tt>, one can use:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">rename_column</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span><span class="s">&#39;space&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>The <tt class="docutils literal"><span class="pre">keep_columns</span></tt> essentially acts in the opposite way to <tt class="docutils literal"><span class="pre">remove_columns</span></tt> - it is used to specify which subset of the columns to not remove, which can be useful for extracting specific columns from a large table. For more information, see the full API.</p>
-</div>
-<div class="section" id="combining-tables">
-<h3>Combining tables<a class="headerlink" href="#combining-tables" title="Permalink to this headline">¶</a></h3>
-<p>Given two <tt class="docutils literal"><span class="pre">Table</span></tt> instances with the same column metadata, and the same number of columns, one table can be added to the other via the <tt class="docutils literal"><span class="pre">append</span></tt> method.</p>
-</div>
+<span id="vectorcolumns"></span><h3>Vector Columns<a class="headerlink" href="#vector-columns" title="Permalink to this headline">¶</a></h3>
+<p>As well as using one-dimensional columns is also possible to specify so-called vector columns, which are essentially two-dimensional arrays. Only FITS and VO tables support reading and writing these. The <tt class="docutils literal"><span class="pre">add_column</span></tt> method accepts two-dimensional arrays as input, and uses these to define vector columns. Empty vector columns can be created by using the <tt class="docutils literal"><span class="pre">add_empty_column</span></tt> method along with the <tt class="docutils literal"><span class="pre">shape</span></tt> argument to specify the full shape of the column. This should be a tuple of the form <tt class="docutils literal"><span class="pre">(n_rows,</span> <span class="pre">n_elements)</span></tt>.</p>
 </div>
 <div class="section" id="writing-the-data-to-a-file">
-<h2>Writing the data to a file<a class="headerlink" href="#writing-the-data-to-a-file" title="Permalink to this headline">¶</a></h2>
+<h3>Writing the data to a file<a class="headerlink" href="#writing-the-data-to-a-file" title="Permalink to this headline">¶</a></h3>
 <p>Writing data to files or databases is done through the <tt class="docutils literal"><span class="pre">write</span></tt> method. The arguments to this method are very similar to that of the <tt class="docutils literal"><span class="pre">read</span></tt> data. The only main difference is that the <tt class="docutils literal"><span class="pre">write</span></tt> method can take an <tt class="docutils literal"><span class="pre">overwrite</span></tt> argument that specifies whether or not to overwrite existing files.</p>
+</div>
 </div>
 </div>
 
@@ -299,7 +213,13 @@ row = t.row(row_number, python_types=True)</blockquote>
         <li class="right" >
           <a href="modindex.html" title="Global Module Index"
              >modules</a> |</li>
-        <li><a href="index.html">ATpy v0.9.1 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="data.html" title="Accessing Table Data"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             >previous</a> |</li>
+        <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>ATpy - Astronomical Tables in Python &mdash; ATpy v0.9.2 documentation</title>
+    <title>Table of Contents &mdash; ATpy v0.9.2 documentation</title>
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -19,8 +19,7 @@
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="ATpy v0.9.2 documentation" href="" />
-    <link rel="next" title="Installation" href="installation.html" /> 
+    <link rel="top" title="ATpy v0.9.2 documentation" href="index.html" /> 
   </head>
   <body>
     <div class="related">
@@ -32,23 +31,17 @@
         <li class="right" >
           <a href="modindex.html" title="Global Module Index"
              accesskey="M">modules</a> |</li>
-        <li class="right" >
-          <a href="installation.html" title="Installation"
-             accesskey="N">next</a> |</li>
-        <li><a href="">ATpy v0.9.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-            <p class="logo"><a href="">
+            <p class="logo"><a href="index.html">
               <img class="logo" src="_static/atpy_logo.png" alt="Logo"/>
             </a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="installation.html"
-                                  title="next chapter">Installation</a></p>
             <h3>This Page</h3>
             <ul class="this-page-menu">
-              <li><a href="_sources/index.txt"
+              <li><a href="_sources/contents.txt"
                      rel="nofollow">Show Source</a></li>
             </ul>
           <div id="searchbox" style="display: none">
@@ -72,39 +65,10 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="atpy-astronomical-tables-in-python">
-<h1>ATpy - Astronomical Tables in Python<a class="headerlink" href="#atpy-astronomical-tables-in-python" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="http://sourceforge.net/projects/atpy/">Sourceforge</a> - <a class="reference external" href="https://sourceforge.net/projects/atpy/files/">Download</a> - <a class="reference external" href="http://lists.sourceforge.net/lists/listinfo/atpy-announce">Mailing List</a> - <a class="reference external" href="http://twitter.com/astropython/">Twitter</a> - <a class="reference external" href="http://sourceforge.net/apps/phpbb/atpy/">Forums</a></p>
-<p>ATpy is a high-level Python package providing a way to manipulate tables of
-astronomical data in a uniform way. The two main features of ATpy are:</p>
-<ul class="simple">
-<li>It provides a Table class that contains data stored in a NumPy structured
-array, along with meta-data to describe the columns, and methods to
-manipulate the table (e.g. adding/removing/renaming columns, selecting rows,
-changing values, sorting, ...).</li>
-<li>It provides built-in support for reading and writing to several common
-file/database formats, including FITS, VO, and IPAC tables, and SQLite,
-MySQL and PostgreSQL databases, with a very simple API.</li>
-</ul>
-<p>In addition, ATpy provides a TableSet class that can be used to contain multiple tables, and supports reading and writing to file/database formats that support this (FITS, VO, and SQL databases).</p>
-<p>Finally, ATpy provides support for user-written read/write functions for file/database formats not supported by default. We encourage users to send us custom read/write functions to read commonly used formats, and would be happy to integrate them into the main distribution.</p>
-<p>The following example shows how ATpy can be used to read, convert, and write a
-data file from FITS format to VO, IPAC, and SQLite formats:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">atpy</span>
-<span class="n">tbl</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s">&#39;some_fits_table_file.fits&#39;</span><span class="p">)</span>
-
-<span class="c"># ATpy will automatically try to detect which type of file you&#39;re writing.</span>
-<span class="n">tbl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;new_votable.xml&#39;</span><span class="p">)</span>                 <span class="c"># VO Table</span>
-<span class="n">tbl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;new_ipactable.tbl&#39;</span><span class="p">)</span>               <span class="c"># IPAC table</span>
-<span class="n">tbl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;sqlite&#39;</span><span class="p">,</span><span class="s">&#39;new_sqlitetable.db&#39;</span><span class="p">)</span>     <span class="c"># SQLite database</span>
-
-<span class="c"># You can easily access and modify data in the table:</span>
-<span class="n">tbl</span><span class="o">.</span><span class="n">some_column</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">4.5</span>
-<span class="n">tbl</span><span class="o">.</span><span class="n">remove_column</span><span class="p">(</span><span class="s">&#39;some_other_column&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>This is only a small fraction of ATpy&#8217;s functionality. We strongly recommend that users read through the documentation, which is available below.</p>
+  <div class="section" id="table-of-contents">
+<span id="contents"></span><h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
 <ul>
+<li class="toctree-l1"><a class="reference external" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference external" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference external" href="tables.html">Constructing a table</a><ul>
 <li class="toctree-l2"><a class="reference external" href="tables.html#creating-a-table">Creating a table</a></li>
@@ -173,10 +137,7 @@ data file from FITS format to VO, IPAC, and SQLite formats:</p>
         <li class="right" >
           <a href="modindex.html" title="Global Module Index"
              >modules</a> |</li>
-        <li class="right" >
-          <a href="installation.html" title="Installation"
-             >next</a> |</li>
-        <li><a href="">ATpy v0.9.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

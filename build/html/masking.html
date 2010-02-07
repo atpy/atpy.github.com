@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installation &mdash; ATpy v0.9.2 documentation</title>
+    <title>Masking and null values &mdash; ATpy v0.9.2 documentation</title>
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -20,8 +20,8 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="ATpy v0.9.2 documentation" href="index.html" />
-    <link rel="next" title="Constructing a table" href="tables.html" />
-    <link rel="prev" title="ATpy - Astronomical Tables in Python" href="index.html" /> 
+    <link rel="next" title="Custom reading/writing" href="developers.html" />
+    <link rel="prev" title="Table Sets" href="table_sets.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,10 +34,10 @@
           <a href="modindex.html" title="Global Module Index"
              accesskey="M">modules</a> |</li>
         <li class="right" >
-          <a href="tables.html" title="Constructing a table"
+          <a href="developers.html" title="Custom reading/writing"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="ATpy - Astronomical Tables in Python"
+          <a href="table_sets.html" title="Table Sets"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
       </ul>
@@ -48,14 +48,14 @@
               <img class="logo" src="_static/atpy_logo.png" alt="Logo"/>
             </a></p>
             <h4>Previous topic</h4>
-            <p class="topless"><a href="index.html"
-                                  title="previous chapter">ATpy - Astronomical Tables in Python</a></p>
+            <p class="topless"><a href="table_sets.html"
+                                  title="previous chapter">Table Sets</a></p>
             <h4>Next topic</h4>
-            <p class="topless"><a href="tables.html"
-                                  title="next chapter">Constructing a table</a></p>
+            <p class="topless"><a href="developers.html"
+                                  title="next chapter">Custom reading/writing</a></p>
             <h3>This Page</h3>
             <ul class="this-page-menu">
-              <li><a href="_sources/installation.txt"
+              <li><a href="_sources/masking.txt"
                      rel="nofollow">Show Source</a></li>
             </ul>
           <div id="searchbox" style="display: none">
@@ -79,28 +79,8 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>ATpy relies on a number of different packages to support reading and writing
-to different file or database formats. However, the only compulsory package is
-<a class="reference external" href="http://numpy.scipy.org/">NumPy</a>. All other requirements are optional - if
-they are not present, the relevant read/write methods will be disabled but
-will not otherwise prevent ATpy from functioning.</p>
-<p>Python 2.5 is required, and Python 2.6 is recommended (as SQLite is included by default).</p>
-<p>To install ATpy, use the standard installation procedure:</p>
-<div class="highlight-python"><pre>tar xvzf ATpy-X-X.X.tar.gz
-cd ATpy-X.X.X/
-python setup.py install</pre>
-</div>
-<p>Below is a list of the optional packages that ATpy depends on to support reading and writing to various table types:</p>
-<ul class="simple">
-<li><a class="reference external" href="http://www.stsci.edu/resources/software_hardware/pyfits">pyfits</a> (FITS
-tables)</li>
-<li><a class="reference external" href="http://www.stsci.edu/trac/ssb/astrolib">vo</a> (VO tables)</li>
-<li><a class="reference external" href="http://sourceforge.net/projects/mysql-python">MySQL-python</a> (MySQL
-databases)</li>
-<li><a class="reference external" href="http://www.pygresql.org/">PyGreSQL</a> (PostGreSQL databases)</li>
-</ul>
+  <div class="section" id="masking-and-null-values">
+<h1>Masking and null values<a class="headerlink" href="#masking-and-null-values" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -119,10 +99,10 @@ databases)</li>
           <a href="modindex.html" title="Global Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="tables.html" title="Constructing a table"
+          <a href="developers.html" title="Custom reading/writing"
              >next</a> |</li>
         <li class="right" >
-          <a href="index.html" title="ATpy - Astronomical Tables in Python"
+          <a href="table_sets.html" title="Table Sets"
              >previous</a> |</li>
         <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
       </ul>

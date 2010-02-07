@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Full API for Table class &mdash; ATpy v0.9.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.9.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="ATpy v0.9.2 documentation" href="index.html" />
+    <link rel="next" title="Full API for TableSet class" href="api_tableset.html" />
+    <link rel="prev" title="Supported Formats" href="formats.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="api_tableset.html" title="Full API for TableSet class"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="formats.html" title="Supported Formats"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/atpy_logo.png" alt="Logo"/>
+            </a></p>
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Full API for Table class</a><ul>
+<li><a class="reference external" href="#table-initialization-and-i-o">Table initialization and I/O</a></li>
+<li><a class="reference external" href="#meta-data">Meta-data</a></li>
+<li><a class="reference external" href="#column-manipulation">Column manipulation</a></li>
+<li><a class="reference external" href="#table-manipulation-and-selection">Table manipulation and selection</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="formats.html"
+                                  title="previous chapter">Supported Formats</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="api_tableset.html"
+                                  title="next chapter">Full API for TableSet class</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/api_table.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-atpy">
+<span id="api"></span><h1>Full API for Table class<a class="headerlink" href="#module-atpy" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="table-initialization-and-i-o">
+<h2>Table initialization and I/O<a class="headerlink" href="#table-initialization-and-i-o" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="atpy.Table.reset">
+<tt class="descclassname">Table.</tt><tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#atpy.Table.reset" title="Permalink to this definition">¶</a></dt>
+<dd>Empty the table</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.read">
+<tt class="descclassname">Table.</tt><tt class="descname">read</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.Table.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read in a table from a file/database.</p>
+<p>Optional Keyword Arguments (independent of table type):</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>verbose</em>: [ True | False ]</dt>
+<dd>Whether to print out warnings when reading (default is True)</dd>
+<dt><em>type</em>: [ string ]</dt>
+<dd>The read method attempts to automatically guess the
+file/database format based on the arguments supplied. The type
+can be overridden by setting this argument.</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.write">
+<tt class="descclassname">Table.</tt><tt class="descname">write</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.Table.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write out a table to a file/database.</p>
+<p>Optional Keyword Arguments (independent of table type):</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>verbose</em>: [ True | False ]</dt>
+<dd>Whether to print out warnings when writing (default is True)</dd>
+<dt><em>type</em>: [ string ]</dt>
+<dd>The read method attempts to automatically guess the
+file/database format based on the arguments supplied. The type
+can be overridden by setting this argument.</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="meta-data">
+<h2>Meta-data<a class="headerlink" href="#meta-data" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="atpy.Table.add_comment">
+<tt class="descclassname">Table.</tt><tt class="descname">add_comment</tt><big>(</big><em>comment</em><big>)</big><a class="headerlink" href="#atpy.Table.add_comment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a comment to the table</p>
+<p>Required Argument:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>comment</em>: [ string ]</dt>
+<dd>The comment to add to the table</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.add_keyword">
+<tt class="descclassname">Table.</tt><tt class="descname">add_keyword</tt><big>(</big><em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#atpy.Table.add_keyword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a keyword/value pair to the table</p>
+<p>Required Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>key</em>: [ string ]</dt>
+<dd>The name of the keyword</dd>
+<dt><em>value</em>: [ string | float | integer | bool ]</dt>
+<dd>The value of the keyword</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.describe">
+<tt class="descclassname">Table.</tt><tt class="descname">describe</tt><big>(</big><big>)</big><a class="headerlink" href="#atpy.Table.describe" title="Permalink to this definition">¶</a></dt>
+<dd>Prints a description of the table</dd></dl>
+
+</div>
+<div class="section" id="column-manipulation">
+<h2>Column manipulation<a class="headerlink" href="#column-manipulation" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="atpy.Table.add_column">
+<tt class="descclassname">Table.</tt><tt class="descname">add_column</tt><big>(</big><em>name</em>, <em>data</em>, <em>unit=''</em>, <em>null=''</em>, <em>description=''</em>, <em>format=None</em>, <em>dtype=None</em>, <em>before=None</em>, <em>after=None</em>, <em>position=None</em>, <em>mask=None</em><big>)</big><a class="headerlink" href="#atpy.Table.add_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a column to the table</p>
+<p>Required Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>name</em>: [ string ]</dt>
+<dd>The name of the column to add</dd>
+<dt><em>data</em>: [ numpy array ]</dt>
+<dd>The column data</dd>
+</dl>
+</blockquote>
+<p>Optional Keyword Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>unit</em>: [ string ]</dt>
+<dd>The unit of the values in the column</dd>
+<dt><em>null</em>: [ same type as data ]</dt>
+<dd>The values corresponding to &#8216;null&#8217;, if not NaN</dd>
+<dt><em>description</em>: [ string ]</dt>
+<dd>A description of the content of the column</dd>
+<dt><em>format</em>: [ string ]</dt>
+<dd>The format to use for ASCII printing</dd>
+<dt><em>dtype</em>: [ numpy type ]</dt>
+<dd>Numpy type to convert the data to. This is the equivalent to
+the dtype= argument in numpy.array</dd>
+<dt><em>before</em>: [ string ]</dt>
+<dd>Column before which the new column should be inserted</dd>
+<dt><em>after</em>: [ string ]</dt>
+<dd>Column after which the new column should be inserted</dd>
+<dt><em>position</em>: [ integer ]</dt>
+<dd>Position at which the new column should be inserted (0 = first
+column)</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.add_empty_column">
+<tt class="descclassname">Table.</tt><tt class="descname">add_empty_column</tt><big>(</big><em>name</em>, <em>dtype</em>, <em>unit=''</em>, <em>null=''</em>, <em>description=''</em>, <em>format=None</em>, <em>shape=None</em>, <em>before=None</em>, <em>after=None</em>, <em>position=None</em><big>)</big><a class="headerlink" href="#atpy.Table.add_empty_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an empty column to the table. This only works if there
+are already existing columns in the table.</p>
+<p>Required Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>name</em>: [ string ]</dt>
+<dd>The name of the column to add</dd>
+<dt><em>dtype</em>: [ numpy type ]</dt>
+<dd>Numpy type of the column. This is the equivalent to
+the dtype= argument in numpy.array</dd>
+</dl>
+</blockquote>
+<p>Optional Keyword Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>unit</em>: [ string ]</dt>
+<dd>The unit of the values in the column</dd>
+<dt><em>null</em>: [ same type as data ]</dt>
+<dd>The values corresponding to &#8216;null&#8217;, if not NaN</dd>
+<dt><em>description</em>: [ string ]</dt>
+<dd>A description of the content of the column</dd>
+<dt><em>format</em>: [ string ]</dt>
+<dd>The format to use for ASCII printing</dd>
+<dt><em>shape</em>: [ tuple ]</dt>
+<dd>Tuple describing the shape of the empty column that is to be
+added. If a one element tuple is specified, it is the number
+of rows. If a two element tuple is specified, the first is the
+number of rows, and the second is the width of the column.</dd>
+<dt><em>before</em>: [ string ]</dt>
+<dd>Column before which the new column should be inserted</dd>
+<dt><em>after</em>: [ string ]</dt>
+<dd>Column after which the new column should be inserted</dd>
+<dt><em>position</em>: [ integer ]</dt>
+<dd>Position at which the new column should be inserted (0 = first
+column)</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.remove_columns">
+<tt class="descclassname">Table.</tt><tt class="descname">remove_columns</tt><big>(</big><em>remove_names</em><big>)</big><a class="headerlink" href="#atpy.Table.remove_columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove several columns from the table</p>
+<p>Required Argument:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>remove_names</em>: [ list of strings ]</dt>
+<dd>A list containing the names of the columns to remove</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.keep_columns">
+<tt class="descclassname">Table.</tt><tt class="descname">keep_columns</tt><big>(</big><em>keep_names</em><big>)</big><a class="headerlink" href="#atpy.Table.keep_columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keep only specific columns in the table (remove the others)</p>
+<p>Required Argument:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>keep_names</em>: [ list of strings ]</dt>
+<dd>A list containing the names of the columns to keep.
+All other columns will be removed.</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.rename_column">
+<tt class="descclassname">Table.</tt><tt class="descname">rename_column</tt><big>(</big><em>old_name</em>, <em>new_name</em><big>)</big><a class="headerlink" href="#atpy.Table.rename_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename a column from the table</p>
+<p>Require Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>old_name</em>: [ string ]</dt>
+<dd>The current name of the column.</dd>
+<dt><em>new_name</em>: [ string ]</dt>
+<dd>The new name for the column</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.set_primary_key">
+<tt class="descclassname">Table.</tt><tt class="descname">set_primary_key</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#atpy.Table.set_primary_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the name of the table column that should be used as a unique
+identifier for the record. This is the same as primary keys in SQL
+databases. A primary column cannot contain NULLs and must contain only
+unique quantities.</p>
+<p>Required Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>key</em>: [ string ]</dt>
+<dd>The column to use as a primary key</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="table-manipulation-and-selection">
+<h2>Table manipulation and selection<a class="headerlink" href="#table-manipulation-and-selection" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="atpy.Table.sort">
+<tt class="descclassname">Table.</tt><tt class="descname">sort</tt><big>(</big><em>keys</em><big>)</big><a class="headerlink" href="#atpy.Table.sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort the table according to one or more keys. This operates
+on the existing table (and does not return a new table).</p>
+<p>Required arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>keys</em>: [ string | list of strings ]</dt>
+<dd>The key(s) to order by</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.row">
+<tt class="descclassname">Table.</tt><tt class="descname">row</tt><big>(</big><em>row_number</em>, <em>python_types=False</em><big>)</big><a class="headerlink" href="#atpy.Table.row" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a single row</p>
+<p>Required arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>row_number</em>: [ integer ]</dt>
+<dd>The row number (the first row is 0)</dd>
+</dl>
+</blockquote>
+<p>Optional Keyword Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>python_types</em>: [ True | False ]</dt>
+<dd>Whether to return the row elements with python (True)
+or numpy (False) types.</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.rows">
+<tt class="descclassname">Table.</tt><tt class="descname">rows</tt><big>(</big><em>row_ids</em><big>)</big><a class="headerlink" href="#atpy.Table.rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select specific rows from the table and return a new table instance</p>
+<p>Required Argument:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>row_ids</em>: [ list | np.int array ]</dt>
+<dd>A python list or numpy array specifying which rows to select,
+and in what order.</dd>
+</dl>
+</blockquote>
+<p>Returns:</p>
+<blockquote>
+A new table instance, containing only the rows selected</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.Table.where">
+<tt class="descclassname">Table.</tt><tt class="descname">where</tt><big>(</big><em>mask</em><big>)</big><a class="headerlink" href="#atpy.Table.where" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select matching rows from the table and return a new table instance</p>
+<p>Required Argument:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>mask</em>: [ np.bool array ]</dt>
+<dd>A boolean array with the same length as the table.</dd>
+</dl>
+</blockquote>
+<p>Returns:</p>
+<blockquote>
+A new table instance, containing only the rows selected</blockquote>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api_tableset.html" title="Full API for TableSet class"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="formats.html" title="Supported Formats"
+             >previous</a> |</li>
+        <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>

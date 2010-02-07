@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Accessing Table Data &mdash; ATpy v0.9.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.9.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="ATpy v0.9.2 documentation" href="index.html" />
+    <link rel="next" title="Modifying tables" href="manipulating.html" />
+    <link rel="prev" title="Constructing a table" href="tables.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="manipulating.html" title="Modifying tables"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tables.html" title="Constructing a table"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/atpy_logo.png" alt="Logo"/>
+            </a></p>
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Accessing Table Data</a><ul>
+<li><a class="reference external" href="#accessing-the-data">Accessing the data</a></li>
+<li><a class="reference external" href="#accessing-the-metadata">Accessing the metadata</a></li>
+<li><a class="reference external" href="#accessing-table-rows">Accessing table rows</a></li>
+<li><a class="reference external" href="#global-table-properties">Global Table properties</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="tables.html"
+                                  title="previous chapter">Constructing a table</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="manipulating.html"
+                                  title="next chapter">Modifying tables</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/data.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="accessing-table-data">
+<h1>Accessing Table Data<a class="headerlink" href="#accessing-table-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="accessing-the-data">
+<h2>Accessing the data<a class="headerlink" href="#accessing-the-data" title="Permalink to this headline">¶</a></h2>
+<p>The table data is stored in a NumPy structured array, which can be accessed using the <tt class="docutils literal"><span class="pre">data</span></tt> attribute with the column name passed as a key. This returns the column in question as a NumPy array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;column_name&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>For convenience, columns with names that satisfy the python variable name requirements (essentially starting with a letter and containing no symbols apart from underscores) can be accessed directly as attributes of the table:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">column_name</span>
+</pre></div>
+</div>
+<p>Since the returned data is a NumPy array, individual elements can be accessed using:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;column_name&#39;</span><span class="p">][</span><span class="n">row_number</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">column_name</span><span class="p">[</span><span class="n">row_number</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Both notations can be used to set data in the table, for example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">column_name</span><span class="p">[</span><span class="n">row_number</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>and:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;column_name&#39;</span><span class="p">][</span><span class="n">row_number</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>are equivalent, and will set the element at <tt class="docutils literal"><span class="pre">row_number</span></tt> to 1</p>
+</div>
+<div class="section" id="accessing-the-metadata">
+<h2>Accessing the metadata<a class="headerlink" href="#accessing-the-metadata" title="Permalink to this headline">¶</a></h2>
+<p>The metadata is stored in the <tt class="docutils literal"><span class="pre">columns</span></tt> attribute. To see an overview of the metadata, simply use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+<p>The metadata for a specific column can then be accessed by specifying the column name as a key:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="s">&#39;some_column&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>or using the column number:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">column_number</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The attributes of a column object are <tt class="docutils literal"><span class="pre">dtype</span></tt>, <tt class="docutils literal"><span class="pre">unit</span></tt>, <tt class="docutils literal"><span class="pre">description</span></tt>, <tt class="docutils literal"><span class="pre">null</span></tt>, and <tt class="docutils literal"><span class="pre">format</span></tt>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">While the unit, description and format for a column can be modified using
+the columns attribute, the dtype and null values should not be modified in
+this way as the changes will not propagate to the data array.</p>
+</div>
+<p>It is also possible to view a description of the table by using the <tt class="docutils literal"><span class="pre">describe</span></tt> method of the <tt class="docutils literal"><span class="pre">Table</span></tt> instance:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In addition to the column metadata, overall comments and keywords are available via the <tt class="docutils literal"><span class="pre">keywords</span></tt> and <tt class="docutils literal"><span class="pre">comments</span></tt> attributes of the <tt class="docutils literal"><span class="pre">Table</span></tt> instance. Additional keywords and comments can be added using the <tt class="docutils literal"><span class="pre">add_comment</span></tt> and <tt class="docutils literal"><span class="pre">add_keyword</span></tt> methods.</p>
+</div>
+<div class="section" id="accessing-table-rows">
+<h2>Accessing table rows<a class="headerlink" href="#accessing-table-rows" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">row(...)</span></tt> method can be used to access a specific row in a table:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">row</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="n">row_number</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This returns the row as a NumPy record. The row can instead be returned as a tuple of elements with Python types, by using the <tt class="docutils literal"><span class="pre">python_types</span></tt> argument:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">row</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">row</span><span class="p">(</span><span class="n">row_number</span><span class="p">,</span> <span class="n">python_types</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Two more powerful methods are available: <tt class="docutils literal"><span class="pre">rows</span></tt> and <tt class="docutils literal"><span class="pre">where</span></tt>. The <tt class="docutils literal"><span class="pre">rows</span></tt> method can be used to retrieve specific rows from a table as a new <tt class="docutils literal"><span class="pre">Table</span></tt> instance:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t_new</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">rows</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Alternatively, the <tt class="docutils literal"><span class="pre">where</span></tt> method can be given a boolean array to determine which rows should be selected. This is in fact very powerful as the boolean array can actually be written as selection conditions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t_new</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">t</span><span class="o">.</span><span class="n">id</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">ra</span> <span class="o">&lt;</span> <span class="mf">45.4</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">flag</span> <span class="o">==</span> <span class="s">&#39;ok&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="global-table-properties">
+<h2>Global Table properties<a class="headerlink" href="#global-table-properties" title="Permalink to this headline">¶</a></h2>
+<p>One can access the number of rows in a table by using the python <tt class="docutils literal"><span class="pre">len</span></tt> function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In addition, the number of rows and columns can also be accessed with the <tt class="docutils literal"><span class="pre">shape</span></tt> attribute:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+<p>where the first number is the number of rows, and the second is the number of columns (note that a vector column counts as a single column).</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="manipulating.html" title="Modifying tables"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tables.html" title="Constructing a table"
+             >previous</a> |</li>
+        <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>

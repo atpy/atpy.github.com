@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Modifying tables &mdash; ATpy v0.9.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.9.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="ATpy v0.9.2 documentation" href="index.html" />
+    <link rel="next" title="Table Sets" href="table_sets.html" />
+    <link rel="prev" title="Accessing Table Data" href="data.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="table_sets.html" title="Table Sets"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="data.html" title="Accessing Table Data"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/atpy_logo.png" alt="Logo"/>
+            </a></p>
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Modifying tables</a><ul>
+<li><a class="reference external" href="#manipulating-table-columns">Manipulating table columns</a></li>
+<li><a class="reference external" href="#combining-tables">Combining tables</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="data.html"
+                                  title="previous chapter">Accessing Table Data</a></p>
+            <h4>Next topic</h4>
+            <p class="topless"><a href="table_sets.html"
+                                  title="next chapter">Table Sets</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/manipulating.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="modifying-tables">
+<h1>Modifying tables<a class="headerlink" href="#modifying-tables" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="manipulating-table-columns">
+<h2>Manipulating table columns<a class="headerlink" href="#manipulating-table-columns" title="Permalink to this headline">¶</a></h2>
+<p>Columns can be renamed or removed. To do this, one can use the
+<tt class="docutils literal"><span class="pre">remove_column</span></tt>, <tt class="docutils literal"><span class="pre">remove_columns</span></tt>, <tt class="docutils literal"><span class="pre">keep_columns</span></tt> and <tt class="docutils literal"><span class="pre">rename_column</span></tt>
+methods. For example, to rename a column <tt class="docutils literal"><span class="pre">time</span></tt> to <tt class="docutils literal"><span class="pre">space</span></tt>, one can use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">rename_column</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span><span class="s">&#39;space&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">keep_columns</span></tt> essentially acts in the opposite way to
+<tt class="docutils literal"><span class="pre">remove_columns</span></tt> - it is used to specify which subset of the columns to not
+remove, which can be useful for extracting specific columns from a large
+table. For more information, see the <a class="reference external" href="api_table.html#api"><em>Full API for Table class</em></a>.</p>
+</div>
+<div class="section" id="combining-tables">
+<h2>Combining tables<a class="headerlink" href="#combining-tables" title="Permalink to this headline">¶</a></h2>
+<p>Given two <tt class="docutils literal"><span class="pre">Table</span></tt> instances with the same column metadata, and the same number of columns, one table can be added to the other via the <tt class="docutils literal"><span class="pre">append</span></tt> method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t1</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t2</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="table_sets.html" title="Table Sets"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="data.html" title="Accessing Table Data"
+             >previous</a> |</li>
+        <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>

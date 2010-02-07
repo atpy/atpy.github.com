@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Full API for TableSet class &mdash; ATpy v0.9.2 documentation</title>
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.9.2',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="ATpy v0.9.2 documentation" href="index.html" />
+    <link rel="prev" title="Full API for Table class" href="api_table.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             accesskey="M">modules</a> |</li>
+        <li class="right" >
+          <a href="api_table.html" title="Full API for Table class"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/atpy_logo.png" alt="Logo"/>
+            </a></p>
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Full API for TableSet class</a><ul>
+<li><a class="reference external" href="#tableset-initialization-and-i-o">TableSet initialization and I/O</a></li>
+<li><a class="reference external" href="#meta-data">Meta-data</a></li>
+<li><a class="reference external" href="#tableset-manipulation-and-i-o">TableSet manipulation and I/O</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="api_table.html"
+                                  title="previous chapter">Full API for Table class</a></p>
+            <h3>This Page</h3>
+            <ul class="this-page-menu">
+              <li><a href="_sources/api_tableset.txt"
+                     rel="nofollow">Show Source</a></li>
+            </ul>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-atpy">
+<h1>Full API for TableSet class<a class="headerlink" href="#module-atpy" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="tableset-initialization-and-i-o">
+<h2>TableSet initialization and I/O<a class="headerlink" href="#tableset-initialization-and-i-o" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="atpy.TableSet.read">
+<tt class="descclassname">TableSet.</tt><tt class="descname">read</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.TableSet.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read in a table set from a file/database.</p>
+<p>Optional Keyword Arguments (independent of table type):</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>verbose</em>: [ True | False ]</dt>
+<dd>Whether to print out warnings when reading (default is True)</dd>
+<dt><em>type</em>: [ string ]</dt>
+<dd>The read method attempts to automatically guess the
+file/database format based on the arguments supplied. The type
+can be overridden by setting this argument.</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.TableSet.write">
+<tt class="descclassname">TableSet.</tt><tt class="descname">write</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.TableSet.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write out a table set to a file/database.</p>
+<p>Optional Keyword Arguments (independent of table type):</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>verbose</em>: [ True | False ]</dt>
+<dd>Whether to print out warnings when writing (default is True)</dd>
+<dt><em>type</em>: [ string ]</dt>
+<dd>The read method attempts to automatically guess the
+file/database format based on the arguments supplied. The type
+can be overridden by setting this argument.</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="meta-data">
+<h2>Meta-data<a class="headerlink" href="#meta-data" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="atpy.TableSet.add_comment">
+<tt class="descclassname">TableSet.</tt><tt class="descname">add_comment</tt><big>(</big><em>comment</em><big>)</big><a class="headerlink" href="#atpy.TableSet.add_comment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a comment to the table set</p>
+<p>Required Argument:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>comment</em>: [ string ]</dt>
+<dd>The comment to add to the table</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.TableSet.add_keyword">
+<tt class="descclassname">TableSet.</tt><tt class="descname">add_keyword</tt><big>(</big><em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#atpy.TableSet.add_keyword" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a keyword/value pair to the table set</p>
+<p>Required Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>key</em>: [ string ]</dt>
+<dd>The name of the keyword</dd>
+<dt><em>value</em>: [ string | float | integer | bool ]</dt>
+<dd>The value of the keyword</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="atpy.TableSet.describe">
+<tt class="descclassname">TableSet.</tt><tt class="descname">describe</tt><big>(</big><big>)</big><a class="headerlink" href="#atpy.TableSet.describe" title="Permalink to this definition">¶</a></dt>
+<dd>Describe all the tables in the set</dd></dl>
+
+</div>
+<div class="section" id="tableset-manipulation-and-i-o">
+<h2>TableSet manipulation and I/O<a class="headerlink" href="#tableset-manipulation-and-i-o" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="atpy.TableSet.append">
+<tt class="descclassname">TableSet.</tt><tt class="descname">append</tt><big>(</big><em>table</em><big>)</big><a class="headerlink" href="#atpy.TableSet.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append a table to the table set</p>
+<p>Required Arguments:</p>
+<blockquote>
+<dl class="docutils">
+<dt><em>table</em>: [ a table instance ]</dt>
+<dd>This can be a table of any type, which will be converted
+to a table of the same type as the parent set (e.g. adding
+a single VOTable to a FITSTableSet will convert the VOTable
+to a FITSTable inside the set)</dd>
+</dl>
+</blockquote>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="modindex.html" title="Global Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="api_table.html" title="Full API for Table class"
+             >previous</a> |</li>
+        <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+    </div>
+  </body>
+</html>
