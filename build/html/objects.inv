@@ -1,7 +1,7 @@
 # Sphinx inventory version 1
 # Project: ATpy
 # Version: 0.9
-atpy mod api_tableset.html
+atpy mod formats.html
 atpy.sqltable.read function formats.html
 atpy.sqltable.write function formats.html
 atpy.Table.row method api_table.html
@@ -17,7 +17,7 @@ atpy.fitstable.write_set function formats.html
 atpy.fitstable.read function formats.html
 atpy.TableSet.describe method api_tableset.html
 atpy.TableSet.add_comment method api_tableset.html
-atpy.votable.read function formats.html
+atpy.votable.write function formats.html
 atpy.Table.add_keyword method api_table.html
 atpy.TableSet.append method api_tableset.html
 atpy.TableSet.write method api_tableset.html
@@ -36,5 +36,5 @@ atpy.Table.rows method api_table.html
 atpy.votable.read_set function formats.html
 atpy.Table.rename_column method api_table.html
 atpy.fitstable.read_set function formats.html
-atpy.votable.write function formats.html
+atpy.votable.read function formats.html
 atpy.Table.sort method api_table.html

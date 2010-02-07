@@ -28,7 +28,7 @@ This method is generally unreliable, especially for floating point values, and d
 Masking
 =======
 
-NumPy supports masked arrays, where specific elements of an array can be properly masked by using a ``mask`` - a boolean array. There are several advantages to using this: 
+NumPy supports masked arrays, where specific elements of an array can be properly masked by using a *mask* - a boolean array. There are several advantages to using this: 
 
 * The mask is unrelated to the value in the cell - any cell can be masked, not
   just all cells with a specific value
@@ -46,4 +46,14 @@ To specify the mask of a column, use the ``mask`` argument in ``add_column``. To
 
    >>> t.add_column('time', time, mask=time==-999.)
 
+When writing out to certain file/database formats, a masked value has to be given a specific value - this is called a *fill* value. To set the fill value, simply use the ``fill`` argument when adding data to a column:
 
+    >>> t.add_column('time', time, mask=time==-999., fill=-999.)
+
+In the above example, if the table is written out to an IPAC table, the value of -999. will be used for masked values.
+
+.. note::
+    When implementing this in ATpy, we discovered a few bugs in the masked
+    structured implementation of NumPy, which have now been fixed. Therefore,
+    we recommend using the latest svn version of NumPy if you want to use
+    masked arrays.

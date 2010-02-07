@@ -106,7 +106,7 @@
 </div>
 <div class="section" id="masking">
 <span id="id1"></span><h2>Masking<a class="headerlink" href="#masking" title="Permalink to this headline">¶</a></h2>
-<p>NumPy supports masked arrays, where specific elements of an array can be properly masked by using a <tt class="docutils literal"><span class="pre">mask</span></tt> - a boolean array. There are several advantages to using this:</p>
+<p>NumPy supports masked arrays, where specific elements of an array can be properly masked by using a <em>mask</em> - a boolean array. There are several advantages to using this:</p>
 <ul class="simple">
 <li>The mask is unrelated to the value in the cell - any cell can be masked, not
 just all cells with a specific value</li>
@@ -120,6 +120,18 @@ statistics on masked arrays, ignoring the masked values.</li>
 <p>To specify the mask of a column, use the <tt class="docutils literal"><span class="pre">mask</span></tt> argument in <tt class="docutils literal"><span class="pre">add_column</span></tt>. To do the equivalent to the example in <a class="reference internal" href="#null"><em>Null values</em></a>, use:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">time</span><span class="o">==-</span><span class="mf">999.</span><span class="p">)</span>
 </pre></div>
+</div>
+<p>When writing out to certain file/database formats, a masked value has to be given a specific value - this is called a <em>fill</em> value. To set the fill value, simply use the <tt class="docutils literal"><span class="pre">fill</span></tt> argument when adding data to a column:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">time</span><span class="o">==-</span><span class="mf">999.</span><span class="p">,</span> <span class="n">fill</span><span class="o">=-</span><span class="mf">999.</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the above example, if the table is written out to an IPAC table, the value of -999. will be used for masked values.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When implementing this in ATpy, we discovered a few bugs in the masked
+structured implementation of NumPy, which have now been fixed. Therefore,
+we recommend using the latest svn version of NumPy if you want to use
+masked arrays.</p>
 </div>
 </div>
 </div>

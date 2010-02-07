@@ -174,7 +174,7 @@ can be overridden by setting this argument.</dd>
 <h2>Column manipulation<a class="headerlink" href="#column-manipulation" title="Permalink to this headline">¶</a></h2>
 <dl class="method">
 <dt id="atpy.Table.add_column">
-<tt class="descclassname">Table.</tt><tt class="descname">add_column</tt><big>(</big><em>name</em>, <em>data</em>, <em>unit=''</em>, <em>null=''</em>, <em>description=''</em>, <em>format=None</em>, <em>dtype=None</em>, <em>before=None</em>, <em>after=None</em>, <em>position=None</em>, <em>mask=None</em><big>)</big><a class="headerlink" href="#atpy.Table.add_column" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Table.</tt><tt class="descname">add_column</tt><big>(</big><em>name</em>, <em>data</em>, <em>unit=''</em>, <em>null=''</em>, <em>description=''</em>, <em>format=None</em>, <em>dtype=None</em>, <em>before=None</em>, <em>after=None</em>, <em>position=None</em>, <em>mask=None</em>, <em>fill=None</em><big>)</big><a class="headerlink" href="#atpy.Table.add_column" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a column to the table</p>
 <p>Required Arguments:</p>
 <blockquote>
@@ -206,6 +206,12 @@ the dtype= argument in numpy.array</dd>
 <dt><em>position</em>: [ integer ]</dt>
 <dd>Position at which the new column should be inserted (0 = first
 column)</dd>
+<dt><em>mask</em>: [ numpy array ]</dt>
+<dd>An array of booleans, with the same dimensions as the data,
+indicating whether or not to mask values.</dd>
+<dt><em>fill</em>: [ value ]</dt>
+<dd>If masked arrays are used, this value is used as the fill
+value in the numpy masked array.</dd>
 </dl>
 </blockquote>
 </dd></dl>
