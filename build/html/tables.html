@@ -59,6 +59,7 @@
 <li><a class="reference external" href="#writing-the-data-to-a-file">Writing the data to a file</a></li>
 </ul>
 </li>
+<li><a class="reference external" href="#adding-meta-data">Adding meta-data</a></li>
 </ul>
 </li>
 </ul>
@@ -194,6 +195,14 @@ nevertheless be specified using the <tt class="docutils literal"><span class="pr
 <div class="section" id="writing-the-data-to-a-file">
 <h3>Writing the data to a file<a class="headerlink" href="#writing-the-data-to-a-file" title="Permalink to this headline">¶</a></h3>
 <p>Writing data to files or databases is done through the <tt class="docutils literal"><span class="pre">write</span></tt> method. The arguments to this method are very similar to that of the <tt class="docutils literal"><span class="pre">read</span></tt> data. The only main difference is that the <tt class="docutils literal"><span class="pre">write</span></tt> method can take an <tt class="docutils literal"><span class="pre">overwrite</span></tt> argument that specifies whether or not to overwrite existing files.</p>
+</div>
+</div>
+<div class="section" id="adding-meta-data">
+<h2>Adding meta-data<a class="headerlink" href="#adding-meta-data" title="Permalink to this headline">¶</a></h2>
+<p>Comments and keywords can be added to a table using the <tt class="docutils literal"><span class="pre">add_comment()</span></tt> and <tt class="docutils literal"><span class="pre">add_keyword()</span></tt> methods:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">add_comment</span><span class="p">(</span><span class="s">&quot;This is a great table&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">add_keyword</span><span class="p">(</span><span class="s">&quot;meaning&quot;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
 </div>

@@ -13,7 +13,6 @@ The easiest way to create a table set object is to call the ``TableSet`` class w
 
     tset = TableSet()
     
-    
 Manually adding a table to a set
 ================================
 
@@ -58,3 +57,13 @@ Single tables can be accessed through the ``TableSet.tables`` python list. For e
 And all methods associated with single tables are then available. For example, the following shows how to run the ``describe`` method of the first table in a set::
 
     tset.tables[0].describe()
+
+Adding meta-data
+================
+
+As well as having keywords and comments associated with each ``Table``, it is possible to have overall keywords and comments associated with a ``TableSet``.
+Comments and keywords can be added to a table using the ``add_comment()`` and ``add_keyword()`` methods::
+
+  >>> tset.add_comment("This is a great table set")
+  >>> tset.add_keyword("version", 314)
+

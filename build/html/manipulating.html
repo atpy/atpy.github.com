@@ -51,6 +51,7 @@
             <ul>
 <li><a class="reference external" href="">Modifying tables</a><ul>
 <li><a class="reference external" href="#manipulating-table-columns">Manipulating table columns</a></li>
+<li><a class="reference external" href="#sorting-tables">Sorting tables</a></li>
 <li><a class="reference external" href="#combining-tables">Combining tables</a></li>
 </ul>
 </li>
@@ -102,6 +103,13 @@ methods. For example, to rename a column <tt class="docutils literal"><span clas
 <tt class="docutils literal"><span class="pre">remove_columns</span></tt> - it is used to specify which subset of the columns to not
 remove, which can be useful for extracting specific columns from a large
 table. For more information, see the <a class="reference external" href="api_table.html#api"><em>Full API for Table class</em></a>.</p>
+</div>
+<div class="section" id="sorting-tables">
+<h2>Sorting tables<a class="headerlink" href="#sorting-tables" title="Permalink to this headline">¶</a></h2>
+<p>To sort a table, use the <tt class="docutils literal"><span class="pre">sort()</span></tt> method, along with the name of the column to sort by:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s">&#39;time&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="combining-tables">
 <h2>Combining tables<a class="headerlink" href="#combining-tables" title="Permalink to this headline">¶</a></h2>

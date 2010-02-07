@@ -54,6 +54,7 @@
 <li><a class="reference external" href="#manually-adding-a-table-to-a-set">Manually adding a table to a set</a></li>
 <li><a class="reference external" href="#reading-in-tables-from-a-file-or-database">Reading in tables from a file or database</a></li>
 <li><a class="reference external" href="#accessing-a-single-table">Accessing a single table</a></li>
+<li><a class="reference external" href="#adding-meta-data">Adding meta-data</a></li>
 </ul>
 </li>
 </ul>
@@ -140,6 +141,15 @@
 </div>
 <p>And all methods associated with single tables are then available. For example, the following shows how to run the <tt class="docutils literal"><span class="pre">describe</span></tt> method of the first table in a set:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">tset</span><span class="o">.</span><span class="n">tables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-meta-data">
+<h2>Adding meta-data<a class="headerlink" href="#adding-meta-data" title="Permalink to this headline">¶</a></h2>
+<p>As well as having keywords and comments associated with each <tt class="docutils literal"><span class="pre">Table</span></tt>, it is possible to have overall keywords and comments associated with a <tt class="docutils literal"><span class="pre">TableSet</span></tt>.
+Comments and keywords can be added to a table using the <tt class="docutils literal"><span class="pre">add_comment()</span></tt> and <tt class="docutils literal"><span class="pre">add_keyword()</span></tt> methods:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">tset</span><span class="o">.</span><span class="n">add_comment</span><span class="p">(</span><span class="s">&quot;This is a great table set&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tset</span><span class="o">.</span><span class="n">add_keyword</span><span class="p">(</span><span class="s">&quot;version&quot;</span><span class="p">,</span> <span class="mi">314</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
