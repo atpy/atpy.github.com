@@ -13,8 +13,8 @@ astronomical data in a uniform way. The two main features of ATpy are:
   changing values, sorting, ...).
 
 * It provides built-in support for reading and writing to several common
-  file/database formats, including FITS, VO, HDF5, and ASCII tables, and
-  SQLite, MySQL and PostgreSQL databases, with a very simple API.
+  file/database formats, including FITS, VO, HDF5, and ASCII tables, as
+  well as SQLite, MySQL and PostgreSQL databases, with a very simple API.
 
 In addition, ATpy provides a TableSet class that can be used to contain
 multiple tables, and supports reading and writing to file/database formats

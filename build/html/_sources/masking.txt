@@ -4,11 +4,23 @@
 Masking and null values
 =======================
 
-It is often useful to be able to define missing or invalid values in a table. There are currently two ways to do this in ATpy, :ref:`null`, and :ref:`masking`. The preferred way is to use Masking, but this requires at least NumPy 1.4.0 in most cases, and the latest svn version of NumPy for SQL database input/output. Therefore, for version 0.9.2 of ATpy, the default is to use the Null value method. To opt-in to using masked arrays, specify the ``masked=True`` argument when creating a ``Table`` instance::
+It is often useful to be able to define missing or invalid values in a table. There are currently two ways to do this in ATpy, :ref:`null`, and :ref:`masking`. The preferred way is to use Masking, but this requires at least NumPy 1.4.1 in most cases, and the latest svn version of NumPy for SQL database input/output. Therefore, for version 0.9.4 of ATpy, the default is to use the Null value method. To opt-in to using masked arrays, specify the ``masked=True`` argument when creating a ``Table`` instance::
 
    >>> t = Table('example.fits.gz', masked=True)
    
 In future, once NumPy 1.5.0 is out, we will switch over to using masked arrays by default, and will slowly phase out the Null value method.
+
+If you want to set the default for masking to be on or off for a whole script, this can be done using the ``set_masked_default`` function::
+
+  import atpy
+  atpy.set_masked_default(True)
+  
+If you want to set the default for masking on a user-level, create a file named ``~/.atpyrc`` in your home directory, containing::
+
+  [general]
+  masked_default:yes
+  
+The ``set_masked_default`` function overrides the ``.atpyrc`` file, and the ``masked=`` argument in Table overrides both the ``set_masked_default`` function and the ``.atpyrc`` file.
    
 .. _null:
    

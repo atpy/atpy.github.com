@@ -90,11 +90,21 @@
             
   <div class="section" id="masking-and-null-values">
 <span id="maskingandnull"></span><h1>Masking and null values<a class="headerlink" href="#masking-and-null-values" title="Permalink to this headline">¶</a></h1>
-<p>It is often useful to be able to define missing or invalid values in a table. There are currently two ways to do this in ATpy, <a class="reference internal" href="#null"><em>Null values</em></a>, and <a class="reference internal" href="#masking"><em>Masking</em></a>. The preferred way is to use Masking, but this requires at least NumPy 1.4.0 in most cases, and the latest svn version of NumPy for SQL database input/output. Therefore, for version 0.9.2 of ATpy, the default is to use the Null value method. To opt-in to using masked arrays, specify the <tt class="docutils literal"><span class="pre">masked=True</span></tt> argument when creating a <tt class="docutils literal"><span class="pre">Table</span></tt> instance:</p>
+<p>It is often useful to be able to define missing or invalid values in a table. There are currently two ways to do this in ATpy, <a class="reference internal" href="#null"><em>Null values</em></a>, and <a class="reference internal" href="#masking"><em>Masking</em></a>. The preferred way is to use Masking, but this requires at least NumPy 1.4.1 in most cases, and the latest svn version of NumPy for SQL database input/output. Therefore, for version 0.9.4 of ATpy, the default is to use the Null value method. To opt-in to using masked arrays, specify the <tt class="docutils literal"><span class="pre">masked=True</span></tt> argument when creating a <tt class="docutils literal"><span class="pre">Table</span></tt> instance:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">&#39;example.fits.gz&#39;</span><span class="p">,</span> <span class="n">masked</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In future, once NumPy 1.5.0 is out, we will switch over to using masked arrays by default, and will slowly phase out the Null value method.</p>
+<p>If you want to set the default for masking to be on or off for a whole script, this can be done using the <tt class="docutils literal"><span class="pre">set_masked_default</span></tt> function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">atpy</span>
+<span class="n">atpy</span><span class="o">.</span><span class="n">set_masked_default</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you want to set the default for masking on a user-level, create a file named <tt class="docutils literal"><span class="pre">~/.atpyrc</span></tt> in your home directory, containing:</p>
+<div class="highlight-python"><pre>[general]
+masked_default:yes</pre>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">set_masked_default</span></tt> function overrides the <tt class="docutils literal"><span class="pre">.atpyrc</span></tt> file, and the <tt class="docutils literal"><span class="pre">masked=</span></tt> argument in Table overrides both the <tt class="docutils literal"><span class="pre">set_masked_default</span></tt> function and the <tt class="docutils literal"><span class="pre">.atpyrc</span></tt> file.</p>
 <div class="section" id="null-values">
 <span id="null"></span><h2>Null values<a class="headerlink" href="#null-values" title="Permalink to this headline">¶</a></h2>
 <p>The basic idea behind this method is to specify a special value in each column that will signify missing or invalid data. To specify the Null value for a column, use the <tt class="docutils literal"><span class="pre">null</span></tt> argument in <tt class="docutils literal"><span class="pre">add_column</span></tt>:</p>
