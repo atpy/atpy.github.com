@@ -5,13 +5,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Constructing a table &mdash; ATpy v0.9.2 documentation</title>
+    <title>Constructing a table &mdash; ATpy v0.9.4 documentation</title>
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.9.2',
+        VERSION:     '0.9.4',
         COLLAPSE_MODINDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -19,7 +19,7 @@
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="ATpy v0.9.2 documentation" href="index.html" />
+    <link rel="top" title="ATpy v0.9.4 documentation" href="index.html" />
     <link rel="next" title="Accessing Table Data" href="data.html" />
     <link rel="prev" title="Installation" href="installation.html" /> 
   </head>
@@ -39,7 +39,7 @@
         <li class="right" >
           <a href="installation.html" title="Installation"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">ATpy v0.9.4 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -97,12 +97,20 @@
           <div class="body">
             
   <div class="section" id="constructing-a-table">
-<h1>Constructing a table<a class="headerlink" href="#constructing-a-table" title="Permalink to this headline">¶</a></h1>
-<p>The <tt class="docutils literal"><span class="pre">Table</span></tt> class is the basic entity in ATpy. It consists of table data and metadata. The data is stored using a <a class="reference external" href="http://numpy.scipy.org/">NumPy</a> structured array. The metadata includes units, null values, and column descriptions, as well as comments and keywords.</p>
-<p>Data can be stored in the table using many of the <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/arrays.scalars.html#built-in-scalar-types">NumPy types</a>, including booleans, 8, 16, 32, and 64-bit signed and unsigned integers, 32 and 64-bit floats, and strings. Not all file formats and databases support reading and writing all of these types &#8211; for more information, see <a class="reference external" href="formats.html#formats"><em>Supported Formats</em></a>.</p>
+<span id="tables"></span><h1>Constructing a table<a class="headerlink" href="#constructing-a-table" title="Permalink to this headline">¶</a></h1>
+<p>The <tt class="docutils literal"><span class="pre">Table</span></tt> class is the basic entity in ATpy. It consists of table data
+and metadata. The data is stored using a <a class="reference external" href="http://numpy.scipy.org/">NumPy</a>
+structured array. The metadata includes units, null values, and column
+descriptions, as well as comments and keywords.</p>
+<p>Data can be stored in the table using many of the <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/arrays.scalars.html#built-in-scalar-types">NumPy types</a>,
+including booleans, 8, 16, 32, and 64-bit signed and unsigned integers, 32
+and 64-bit floats, and strings. Not all file formats and databases support
+reading and writing all of these types &#8211; for more information, see
+<a class="reference external" href="formats.html#formats"><em>Supported Formats</em></a>.</p>
 <div class="section" id="creating-a-table">
 <h2>Creating a table<a class="headerlink" href="#creating-a-table" title="Permalink to this headline">¶</a></h2>
-<p>The simplest way to create an instance of the <tt class="docutils literal"><span class="pre">Table</span></tt> is to call the class with no arguments:</p>
+<p>The simplest way to create an instance of the <tt class="docutils literal"><span class="pre">Table</span></tt> is to call the
+class with no arguments:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -115,9 +123,19 @@
 <p>The <tt class="docutils literal"><span class="pre">read(...)</span></tt> method can be used to read in a table from a file. To date, ATpy supports the following file formats:</p>
 <blockquote>
 <ul class="simple">
-<li><a class="reference external" href="http://archive.stsci.edu/fits/fits_standard/">FITS</a> tables (<tt class="docutils literal"><span class="pre">fits</span></tt>)</li>
-<li><a class="reference external" href="http://www.ivoa.net/Documents/VOTable/">VO</a> tables (<tt class="docutils literal"><span class="pre">vo</span></tt>)</li>
-<li><a class="reference external" href="http://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html">IPAC</a> tables (<tt class="docutils literal"><span class="pre">ipac</span></tt>)</li>
+<li><a class="reference external" href="http://archive.stsci.edu/fits/fits_standard/">FITS</a> tables (<tt class="docutils literal"><span class="pre">type=fits</span></tt>)</li>
+<li><a class="reference external" href="http://www.ivoa.net/Documents/VOTable/">VO</a> tables (<tt class="docutils literal"><span class="pre">type=vo</span></tt>)</li>
+<li><a class="reference external" href="http://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html">IPAC</a> tables (<tt class="docutils literal"><span class="pre">type=ipac</span></tt>)</li>
+<li><a class="reference external" href="http://www.hdfgroup.org/HDF5/">HDF5</a> (<tt class="docutils literal"><span class="pre">type=hdf5</span></tt>)</li>
+</ul>
+</blockquote>
+<p>Now that ATpy has integrates with <a class="reference external" href="http://cxc.harvard.edu/contrib/asciitable/">asciitable</a>, the following formats are also supported:</p>
+<blockquote>
+<ul class="simple">
+<li><a class="reference external" href="http://vizier.u-strasbg.fr/doc/catstd.htx">CDS</a> (<tt class="docutils literal"><span class="pre">type=cds</span></tt> or <tt class="docutils literal"><span class="pre">type=mrt</span></tt>)</li>
+<li>DAOPhot (<tt class="docutils literal"><span class="pre">type=daophot</span></tt>)</li>
+<li>RDB (<tt class="docutils literal"><span class="pre">type=rdb</span></tt>)</li>
+<li>Arbitrary ASCII tables (<tt class="docutils literal"><span class="pre">type=ascii</span></tt>)</li>
 </ul>
 </blockquote>
 <p>When reading a table from a file, the only required argument is the filename. For example, to read a VO table called <tt class="docutils literal"><span class="pre">example.xml</span></tt>, the following should be used:</p>
@@ -228,7 +246,7 @@ nevertheless be specified using the <tt class="docutils literal"><span class="pr
         <li class="right" >
           <a href="installation.html" title="Installation"
              >previous</a> |</li>
-        <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">ATpy v0.9.4 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -13,15 +13,20 @@ astronomical data in a uniform way. The two main features of ATpy are:
   changing values, sorting, ...).
 
 * It provides built-in support for reading and writing to several common
-  file/database formats, including FITS, VO, and IPAC tables, and SQLite,
-  MySQL and PostgreSQL databases, with a very simple API.
+  file/database formats, including FITS, VO, HDF5, and ASCII tables, and
+  SQLite, MySQL and PostgreSQL databases, with a very simple API.
 
-In addition, ATpy provides a TableSet class that can be used to contain multiple tables, and supports reading and writing to file/database formats that support this (FITS, VO, and SQL databases).
+In addition, ATpy provides a TableSet class that can be used to contain
+multiple tables, and supports reading and writing to file/database formats
+that support this (FITS, VO, and SQL databases).
 
-Finally, ATpy provides support for user-written read/write functions for file/database formats not supported by default. We encourage users to send us custom read/write functions to read commonly used formats, and would be happy to integrate them into the main distribution.
+Finally, ATpy provides support for user-written read/write functions for
+file/database formats not supported by default. We encourage users to send
+us custom read/write functions to read commonly used formats, and would be
+happy to integrate them into the main distribution.
 
-The following example shows how ATpy can be used to read, convert, and write a
-data file from FITS format to VO, IPAC, and SQLite formats::
+The following example shows how ATpy can be used to read, convert, and
+write a data file from FITS format to VO, HDF5, IPAC, and SQLite formats::
 
     import atpy
     tbl = atpy.Table('some_fits_table_file.fits')
@@ -29,13 +34,17 @@ data file from FITS format to VO, IPAC, and SQLite formats::
     # ATpy will automatically try to detect which type of file you're writing.
     tbl.write('new_votable.xml')                 # VO Table
     tbl.write('new_ipactable.tbl')               # IPAC table
+    tbl.write('new_ipactable.hdf5')              # HDF5 table
     tbl.write('sqlite','new_sqlitetable.db')     # SQLite database
     
     # You can easily access and modify data in the table:
     tbl.some_column[3] = 4.5
     tbl.remove_column('some_other_column')
 
-This is only a small fraction of ATpy's functionality. We strongly recommend that users read through the documentation, which is available below.
+This is only a small fraction of ATpy's functionality. We strongly recommend that users read through the documentation, which is available below. For a quick introduction, we recommend the :ref:`tables` and :ref:`data` sections. For information about format-specific features, see :ref:`formats`.
+
+Documentation
+-------------
 
 .. toctree::
   :maxdepth: 2

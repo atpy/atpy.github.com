@@ -5,13 +5,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>ATpy - Astronomical Tables in Python &mdash; ATpy v0.9.2 documentation</title>
+    <title>ATpy - Astronomical Tables in Python &mdash; ATpy v0.9.4 documentation</title>
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.9.2',
+        VERSION:     '0.9.4',
         COLLAPSE_MODINDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -19,7 +19,7 @@
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="ATpy v0.9.2 documentation" href="" />
+    <link rel="top" title="ATpy v0.9.4 documentation" href="" />
     <link rel="next" title="Installation" href="installation.html" /> 
   </head>
   <body>
@@ -35,7 +35,7 @@
         <li class="right" >
           <a href="installation.html" title="Installation"
              accesskey="N">next</a> |</li>
-        <li><a href="">ATpy v0.9.2 documentation</a> &raquo;</li> 
+        <li><a href="">ATpy v0.9.4 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -43,6 +43,16 @@
             <p class="logo"><a href="">
               <img class="logo" src="_static/atpy_logo.png" alt="Logo"/>
             </a></p>
+            <h3><a href="">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">ATpy - Astronomical Tables in Python</a><ul>
+<li><a class="reference external" href="#documentation">Documentation</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
             <h4>Next topic</h4>
             <p class="topless"><a href="installation.html"
                                   title="next chapter">Installation</a></p>
@@ -83,19 +93,25 @@ array, along with meta-data to describe the columns, and methods to
 manipulate the table (e.g. adding/removing/renaming columns, selecting rows,
 changing values, sorting, ...).</li>
 <li>It provides built-in support for reading and writing to several common
-file/database formats, including FITS, VO, and IPAC tables, and SQLite,
-MySQL and PostgreSQL databases, with a very simple API.</li>
+file/database formats, including FITS, VO, HDF5, and ASCII tables, and
+SQLite, MySQL and PostgreSQL databases, with a very simple API.</li>
 </ul>
-<p>In addition, ATpy provides a TableSet class that can be used to contain multiple tables, and supports reading and writing to file/database formats that support this (FITS, VO, and SQL databases).</p>
-<p>Finally, ATpy provides support for user-written read/write functions for file/database formats not supported by default. We encourage users to send us custom read/write functions to read commonly used formats, and would be happy to integrate them into the main distribution.</p>
-<p>The following example shows how ATpy can be used to read, convert, and write a
-data file from FITS format to VO, IPAC, and SQLite formats:</p>
+<p>In addition, ATpy provides a TableSet class that can be used to contain
+multiple tables, and supports reading and writing to file/database formats
+that support this (FITS, VO, and SQL databases).</p>
+<p>Finally, ATpy provides support for user-written read/write functions for
+file/database formats not supported by default. We encourage users to send
+us custom read/write functions to read commonly used formats, and would be
+happy to integrate them into the main distribution.</p>
+<p>The following example shows how ATpy can be used to read, convert, and
+write a data file from FITS format to VO, HDF5, IPAC, and SQLite formats:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">atpy</span>
 <span class="n">tbl</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s">&#39;some_fits_table_file.fits&#39;</span><span class="p">)</span>
 
 <span class="c"># ATpy will automatically try to detect which type of file you&#39;re writing.</span>
 <span class="n">tbl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;new_votable.xml&#39;</span><span class="p">)</span>                 <span class="c"># VO Table</span>
 <span class="n">tbl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;new_ipactable.tbl&#39;</span><span class="p">)</span>               <span class="c"># IPAC table</span>
+<span class="n">tbl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;new_ipactable.hdf5&#39;</span><span class="p">)</span>              <span class="c"># HDF5 table</span>
 <span class="n">tbl</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;sqlite&#39;</span><span class="p">,</span><span class="s">&#39;new_sqlitetable.db&#39;</span><span class="p">)</span>     <span class="c"># SQLite database</span>
 
 <span class="c"># You can easily access and modify data in the table:</span>
@@ -103,7 +119,9 @@ data file from FITS format to VO, IPAC, and SQLite formats:</p>
 <span class="n">tbl</span><span class="o">.</span><span class="n">remove_column</span><span class="p">(</span><span class="s">&#39;some_other_column&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This is only a small fraction of ATpy&#8217;s functionality. We strongly recommend that users read through the documentation, which is available below.</p>
+<p>This is only a small fraction of ATpy&#8217;s functionality. We strongly recommend that users read through the documentation, which is available below. For a quick introduction, we recommend the <a class="reference external" href="tables.html#tables"><em>Constructing a table</em></a> and <a class="reference external" href="data.html#data"><em>Accessing Table Data</em></a> sections. For information about format-specific features, see <a class="reference external" href="formats.html#formats"><em>Supported Formats</em></a>.</p>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference external" href="tables.html">Constructing a table</a><ul>
@@ -140,13 +158,12 @@ data file from FITS format to VO, IPAC, and SQLite formats:</p>
 </li>
 <li class="toctree-l1"><a class="reference external" href="developers.html">Custom reading/writing</a></li>
 <li class="toctree-l1"><a class="reference external" href="formats.html">Supported Formats</a><ul>
-<li class="toctree-l2"><a class="reference external" href="formats.html#fits-table">FITS Table</a></li>
-<li class="toctree-l2"><a class="reference external" href="formats.html#fits-table-set">FITS Table Set</a></li>
-<li class="toctree-l2"><a class="reference external" href="formats.html#ipac-table">IPAC Table</a></li>
-<li class="toctree-l2"><a class="reference external" href="formats.html#vo-table">VO Table</a></li>
-<li class="toctree-l2"><a class="reference external" href="formats.html#vo-table-set">VO Table Set</a></li>
-<li class="toctree-l2"><a class="reference external" href="formats.html#sql-table">SQL Table</a></li>
-<li class="toctree-l2"><a class="reference external" href="formats.html#sql-table-set">SQL Table Set</a></li>
+<li class="toctree-l2"><a class="reference external" href="format_fits.html">FITS tables</a></li>
+<li class="toctree-l2"><a class="reference external" href="format_vo.html">VO tables</a></li>
+<li class="toctree-l2"><a class="reference external" href="format_hdf5.html">HDF5 tables</a></li>
+<li class="toctree-l2"><a class="reference external" href="format_ipac.html">IPAC tables</a></li>
+<li class="toctree-l2"><a class="reference external" href="format_ascii.html">ASCII tables</a></li>
+<li class="toctree-l2"><a class="reference external" href="format_sql.html">SQL databases</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="api_table.html">Full API for Table class</a><ul>
@@ -163,6 +180,7 @@ data file from FITS format to VO, IPAC, and SQLite formats:</p>
 </ul>
 </li>
 </ul>
+</div>
 </div>
 
 
@@ -183,7 +201,7 @@ data file from FITS format to VO, IPAC, and SQLite formats:</p>
         <li class="right" >
           <a href="installation.html" title="Installation"
              >next</a> |</li>
-        <li><a href="">ATpy v0.9.2 documentation</a> &raquo;</li> 
+        <li><a href="">ATpy v0.9.4 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

@@ -1,3 +1,5 @@
+.. _manipulating:
+
 ================
 Modifying tables
 ================

@@ -5,13 +5,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Supported Formats &mdash; ATpy v0.9.2 documentation</title>
+    <title>Supported Formats &mdash; ATpy v0.9.4 documentation</title>
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.9.2',
+        VERSION:     '0.9.4',
         COLLAPSE_MODINDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -19,8 +19,8 @@
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="ATpy v0.9.2 documentation" href="index.html" />
-    <link rel="next" title="Full API for Table class" href="api_table.html" />
+    <link rel="top" title="ATpy v0.9.4 documentation" href="index.html" />
+    <link rel="next" title="FITS tables" href="format_fits.html" />
     <link rel="prev" title="Custom reading/writing" href="developers.html" /> 
   </head>
   <body>
@@ -34,12 +34,12 @@
           <a href="modindex.html" title="Global Module Index"
              accesskey="M">modules</a> |</li>
         <li class="right" >
-          <a href="api_table.html" title="Full API for Table class"
+          <a href="format_fits.html" title="FITS tables"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="developers.html" title="Custom reading/writing"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">ATpy v0.9.4 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -47,26 +47,12 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/atpy_logo.png" alt="Logo"/>
             </a></p>
-            <h3><a href="index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference external" href="">Supported Formats</a><ul>
-<li><a class="reference external" href="#fits-table">FITS Table</a></li>
-<li><a class="reference external" href="#fits-table-set">FITS Table Set</a></li>
-<li><a class="reference external" href="#ipac-table">IPAC Table</a></li>
-<li><a class="reference external" href="#vo-table">VO Table</a></li>
-<li><a class="reference external" href="#vo-table-set">VO Table Set</a></li>
-<li><a class="reference external" href="#sql-table">SQL Table</a></li>
-<li><a class="reference external" href="#sql-table-set">SQL Table Set</a></li>
-</ul>
-</li>
-</ul>
-
             <h4>Previous topic</h4>
             <p class="topless"><a href="developers.html"
                                   title="previous chapter">Custom reading/writing</a></p>
             <h4>Next topic</h4>
-            <p class="topless"><a href="api_table.html"
-                                  title="next chapter">Full API for Table class</a></p>
+            <p class="topless"><a href="format_fits.html"
+                                  title="next chapter">FITS tables</a></p>
             <h3>This Page</h3>
             <ul class="this-page-menu">
               <li><a href="_sources/formats.txt"
@@ -93,615 +79,25 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-atpy">
-<span id="formats"></span><h1>Supported Formats<a class="headerlink" href="#module-atpy" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="supported-formats">
+<span id="formats"></span><h1>Supported Formats<a class="headerlink" href="#supported-formats" title="Permalink to this headline">¶</a></h1>
+<p>The following pages describe the file formats currently supported, and format-specific options. A full API is also included for advanced users.</p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="format_fits.html">FITS tables</a></li>
+<li class="toctree-l1"><a class="reference external" href="format_vo.html">VO tables</a></li>
+<li class="toctree-l1"><a class="reference external" href="format_hdf5.html">HDF5 tables</a></li>
+<li class="toctree-l1"><a class="reference external" href="format_ipac.html">IPAC tables</a></li>
+<li class="toctree-l1"><a class="reference external" href="format_ascii.html">ASCII tables</a></li>
+<li class="toctree-l1"><a class="reference external" href="format_sql.html">SQL databases</a></li>
+</ul>
 <p>Unless stated otherwise below, all table types support the following types:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">np.bool</span></tt>: booleans</li>
-<li><tt class="docutils literal"><span class="pre">np.int8</span></tt>, <tt class="docutils literal"><span class="pre">np.int16</span></tt>, <tt class="docutils literal"><span class="pre">np.int32</span></tt>, <tt class="docutils literal"><span class="pre">np.int64</span></tt>: 8-, 16-, 32-, and 64- bit signed integer numbers.</li>
-<li><tt class="docutils literal"><span class="pre">np.uint8</span></tt>, <tt class="docutils literal"><span class="pre">np.uint16</span></tt>, <tt class="docutils literal"><span class="pre">np.uint32</span></tt>, <tt class="docutils literal"><span class="pre">np.uint64</span></tt>: 8-, 16-, 32-, and 64- bit unsigned integer numbers.</li>
-<li><tt class="docutils literal"><span class="pre">np.float32</span></tt>, <tt class="docutils literal"><span class="pre">np.float64</span></tt>: 32- and 64-bit floating point numbers.</li>
-<li><tt class="docutils literal"><span class="pre">np.str</span></tt>: ASCII strings</li>
+<li>booleans</li>
+<li>8-, 16-, 32-, and 64- bit signed integer numbers.</li>
+<li>8-, 16-, 32-, and 64- bit unsigned integer numbers.</li>
+<li>32- and 64-bit floating point numbers.</li>
+<li>ASCII strings</li>
 </ul>
-<p>Below are the descriptions of the options available for the built-in datatypes. Note that the functions should not be called directly - all reading and writing should be done through the <tt class="docutils literal"><span class="pre">read()</span></tt> and <tt class="docutils literal"><span class="pre">write()</span></tt> methods for <tt class="docutils literal"><span class="pre">Table</span></tt> and <tt class="docutils literal"><span class="pre">TableSet</span></tt>:</p>
-<div class="section" id="fits-table">
-<h2>FITS Table<a class="headerlink" href="#fits-table" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="atpy.fitstable.read">
-<tt class="descclassname">atpy.fitstable.</tt><tt class="descname">read</tt><big>(</big><em>self</em>, <em>filename</em>, <em>hdu=None</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#atpy.fitstable.read" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read a table from a FITS file</p>
-<p>Required Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>filename</em>: [ string ]</dt>
-<dd>The FITS file to read the table from</dd>
-</dl>
-</blockquote>
-<p>Optional Keyword Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>hdu</em>: [ integer ]</dt>
-<dd>The HDU to read from the FITS file (this is only required
-if there are more than one table in the FITS file)</dd>
-</dl>
-</blockquote>
-</dd></dl>
-
-<dl class="function">
-<dt id="atpy.fitstable.write">
-<tt class="descclassname">atpy.fitstable.</tt><tt class="descname">write</tt><big>(</big><em>self</em>, <em>filename</em>, <em>overwrite=False</em><big>)</big><a class="headerlink" href="#atpy.fitstable.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write the table to a FITS file</p>
-<p>Required Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>filename</em>: [ string ]</dt>
-<dd>The FITS file to write the table to</dd>
-</dl>
-</blockquote>
-<p>Optional Keyword Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>overwrite</em>: [ True | False ]</dt>
-<dd>Whether to overwrite any existing file without warning</dd>
-</dl>
-</blockquote>
-</dd></dl>
-
-</div>
-<div class="section" id="fits-table-set">
-<h2>FITS Table Set<a class="headerlink" href="#fits-table-set" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="atpy.fitstable.read_set">
-<tt class="descclassname">atpy.fitstable.</tt><tt class="descname">read_set</tt><big>(</big><em>self</em>, <em>filename</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#atpy.fitstable.read_set" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read all tables from a FITS file</p>
-<p>Required Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>filename</em>: [ string ]</dt>
-<dd>The FITS file to read the tables from</dd>
-</dl>
-</blockquote>
-</dd></dl>
-
-<dl class="function">
-<dt id="atpy.fitstable.write_set">
-<tt class="descclassname">atpy.fitstable.</tt><tt class="descname">write_set</tt><big>(</big><em>self</em>, <em>filename</em>, <em>overwrite=False</em><big>)</big><a class="headerlink" href="#atpy.fitstable.write_set" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write the tables to a FITS file</p>
-<p>Required Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>filename</em>: [ string ]</dt>
-<dd>The FITS file to write the tables to</dd>
-</dl>
-</blockquote>
-<p>Optional Keyword Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>overwrite</em>: [ True | False ]</dt>
-<dd>Whether to overwrite any existing file without warning</dd>
-</dl>
-</blockquote>
-</dd></dl>
-
-</div>
-<div class="section" id="ipac-table">
-<h2>IPAC Table<a class="headerlink" href="#ipac-table" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="atpy.ipactable.read">
-<tt class="descclassname">atpy.ipactable.</tt><tt class="descname">read</tt><big>(</big><em>self</em>, <em>filename</em>, <em>definition=3</em>, <em>verbose=True</em>, <em>smart_typing=False</em><big>)</big><a class="headerlink" href="#atpy.ipactable.read" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read a table from a IPAC file</p>
-<p>Required Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>filename</em>: [ string ]</dt>
-<dd>The IPAC file to read the table from</dd>
-</dl>
-</blockquote>
-<p>Optional Keyword Arguments:</p>
-<blockquote>
-<p><em>definition</em>: [ 1 | 2 | 3 ]</p>
-<blockquote>
-<p>The definition to use to read IPAC tables:</p>
-<dl class="docutils">
-<dt>1: any character below a pipe symbol belongs to the</dt>
-<dd>column on the left, and any characters below the
-first pipe symbol belong to the first column.</dd>
-<dt>2: any character below a pipe symbol belongs to the</dt>
-<dd>column on the right.</dd>
-<dt>3: no characters should be present below the pipe</dt>
-<dd>symbols (default).</dd>
-</dl>
-</blockquote>
-<p><em>smart_typing</em>: [ True | False ]</p>
-<blockquote>
-Whether to try and save memory by using the smallest
-integer type that can contain a column. For example,
-a column containing only values between 0 and 255 can
-be stored as an unsigned 8-bit integer column. The
-default is false, so that all integer columns are
-stored as 64-bit integers.</blockquote>
-</blockquote>
-</dd></dl>
-
-<dl class="function">
-<dt id="atpy.ipactable.write">
-<tt class="descclassname">atpy.ipactable.</tt><tt class="descname">write</tt><big>(</big><em>self</em>, <em>filename</em>, <em>overwrite=False</em><big>)</big><a class="headerlink" href="#atpy.ipactable.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write the table to an IPAC file</p>
-<p>Required Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>filename</em>: [ string ]</dt>
-<dd>The IPAC file to write the table to</dd>
-</dl>
-</blockquote>
-</dd></dl>
-
-</div>
-<div class="section" id="vo-table">
-<h2>VO Table<a class="headerlink" href="#vo-table" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="atpy.votable.read">
-<tt class="descclassname">atpy.votable.</tt><tt class="descname">read</tt><big>(</big><em>self</em>, <em>filename</em>, <em>pedantic=False</em>, <em>tid=-1</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#atpy.votable.read" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read a table from a VOT file</p>
-<p>Required Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>filename</em>: [ string ]</dt>
-<dd>The VOT file to read the table from</dd>
-</dl>
-</blockquote>
-<p>Optional Keyword Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>tid</em>: [ integer ]</dt>
-<dd>The ID of the table to read from the VO file (this is
-only required if there are more than one table in the VO file)</dd>
-<dt><em>pedantic</em>: [ True | False ]</dt>
-<dd>When <em>pedantic</em> is True, raise an error when the file violates
-the VO Table specification, otherwise issue a warning.</dd>
-</dl>
-</blockquote>
-</dd></dl>
-
-<dl class="function">
-<dt id="atpy.votable.write">
-<tt class="descclassname">atpy.votable.</tt><tt class="descname">write</tt><big>(</big><em>self</em>, <em>filename</em>, <em>votype='ascii'</em>, <em>overwrite=False</em><big>)</big><a class="headerlink" href="#atpy.votable.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write the table to a VOT file</p>
-<p>Required Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>filename</em>: [ string ]</dt>
-<dd>The VOT file to write the table to</dd>
-</dl>
-</blockquote>
-<p>Optional Keyword Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>votype</em>: [ &#8216;ascii&#8217; | &#8216;binary&#8217; ]</dt>
-<dd>Whether to write the table as ASCII or binary</dd>
-</dl>
-</blockquote>
-</dd></dl>
-
-</div>
-<div class="section" id="vo-table-set">
-<h2>VO Table Set<a class="headerlink" href="#vo-table-set" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="atpy.votable.read_set">
-<tt class="descclassname">atpy.votable.</tt><tt class="descname">read_set</tt><big>(</big><em>self</em>, <em>filename</em>, <em>pedantic=False</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#atpy.votable.read_set" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read all tables from a VOT file</p>
-<p>Required Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>filename</em>: [ string ]</dt>
-<dd>The VOT file to read the tables from</dd>
-</dl>
-</blockquote>
-<p>Optional Keyword Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>pedantic</em>: [ True | False ]</dt>
-<dd>When <em>pedantic</em> is True, raise an error when the file violates
-the VO Table specification, otherwise issue a warning.</dd>
-</dl>
-</blockquote>
-</dd></dl>
-
-<dl class="function">
-<dt id="atpy.votable.write_set">
-<tt class="descclassname">atpy.votable.</tt><tt class="descname">write_set</tt><big>(</big><em>self</em>, <em>filename</em>, <em>votype='ascii'</em>, <em>overwrite=False</em><big>)</big><a class="headerlink" href="#atpy.votable.write_set" title="Permalink to this definition">¶</a></dt>
-<dd><p>Write all tables to a VOT file</p>
-<p>Required Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>filename</em>: [ string ]</dt>
-<dd>The VOT file to write the tables to</dd>
-</dl>
-</blockquote>
-<p>Optional Keyword Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>votype</em>: [ &#8216;ascii&#8217; | &#8216;binary&#8217; ]</dt>
-<dd>Whether to write the tables as ASCII or binary tables</dd>
-</dl>
-</blockquote>
-</dd></dl>
-
-</div>
-<div class="section" id="sql-table">
-<h2>SQL Table<a class="headerlink" href="#sql-table" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="atpy.sqltable.read">
-<tt class="descclassname">atpy.sqltable.</tt><tt class="descname">read</tt><big>(</big><em>self</em>, <em>dbtype</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.sqltable.read" title="Permalink to this definition">¶</a></dt>
-<dd><p>Required Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>dbtype</em>: [ &#8216;sqlite&#8217; | &#8216;mysql&#8217; | &#8216;postgres&#8217; ]</dt>
-<dd>The SQL database type</dd>
-</dl>
-</blockquote>
-<p>Optional arguments (only for Table.read() class):</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>table</em>: [ string ]</dt>
-<dd>The name of the table to read from the database (this is only
-required if there are more than one table in the database). This
-is not required if the query= argument is specified, except if
-using an SQLite database.</dd>
-<dt><em>query</em>: [ string ]</dt>
-<dd>An arbitrary SQL query to construct a table from. This can be
-any valid SQL command provided that the result is a single
-table.</dd>
-</dl>
-</blockquote>
-<p>The remaining arguments depend on the database type:</p>
-<ul>
-<li><p class="first">SQLite:</p>
-<blockquote>
-<p>Arguments are passed to sqlite3.connect(). For a full list of
-available arguments, see the help page for sqlite3.connect(). The
-main arguments are listed below.</p>
-<p>Required arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>dbname</em>: [ string ]</dt>
-<dd><p class="first last">The name of the database file</p>
-</dd>
-</dl>
-</blockquote>
-</blockquote>
-</li>
-<li><p class="first">MySQL:</p>
-<blockquote>
-<p>Arguments are passed to MySQLdb.connect(). For a full list of
-available arguments, see the documentation for MySQLdb. The main
-arguments are listed below.</p>
-<p>Optional arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>host</em>: [ string ]</dt>
-<dd><p class="first last">The host to connect to (default is localhost)</p>
-</dd>
-<dt><em>user</em>: [ string ]</dt>
-<dd><p class="first last">The user to conenct as (default is current user)</p>
-</dd>
-<dt><em>passwd</em>: [ string ]</dt>
-<dd><p class="first last">The user password (default is blank)</p>
-</dd>
-<dt><em>db</em>: [ string ]</dt>
-<dd><p class="first last">The name of the database to connect to (no default)</p>
-</dd>
-<dt><em>port</em> [ integer ]</dt>
-<dd><p class="first last">The port to connect to (default is 3306)</p>
-</dd>
-</dl>
-</blockquote>
-</blockquote>
-</li>
-<li><p class="first">PostGreSQL:</p>
-<blockquote>
-<p>Arguments are passed to pgdb.connect(). For a full list of
-available arguments, see the help page for pgdb.connect(). The
-main arguments are listed below.</p>
-<dl class="docutils">
-<dt><em>host</em>: [ string ]</dt>
-<dd><p class="first last">The host to connect to (default is localhost)</p>
-</dd>
-<dt><em>user</em>: [ string ]</dt>
-<dd><p class="first last">The user to conenct as (default is current user)</p>
-</dd>
-<dt><em>password</em>: [ string ]</dt>
-<dd><p class="first last">The user password (default is blank)</p>
-</dd>
-<dt><em>database</em>: [ string ]</dt>
-<dd><p class="first last">The name of the database to connect to (no default)</p>
-</dd>
-</dl>
-</blockquote>
-</li>
-</ul>
-</dd></dl>
-
-<dl class="function">
-<dt id="atpy.sqltable.write">
-<tt class="descclassname">atpy.sqltable.</tt><tt class="descname">write</tt><big>(</big><em>self</em>, <em>dbtype</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.sqltable.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>Required Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>dbtype</em>: [ &#8216;sqlite&#8217; | &#8216;mysql&#8217; | &#8216;postgres&#8217; ]</dt>
-<dd>The SQL database type</dd>
-</dl>
-</blockquote>
-<p>Optional arguments (only for Table.read() class):</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>table</em>: [ string ]</dt>
-<dd>The name of the table to read from the database (this is only
-required if there are more than one table in the database). This
-is not required if the query= argument is specified, except if
-using an SQLite database.</dd>
-<dt><em>query</em>: [ string ]</dt>
-<dd>An arbitrary SQL query to construct a table from. This can be
-any valid SQL command provided that the result is a single
-table.</dd>
-</dl>
-</blockquote>
-<p>The remaining arguments depend on the database type:</p>
-<ul>
-<li><p class="first">SQLite:</p>
-<blockquote>
-<p>Arguments are passed to sqlite3.connect(). For a full list of
-available arguments, see the help page for sqlite3.connect(). The
-main arguments are listed below.</p>
-<p>Required arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>dbname</em>: [ string ]</dt>
-<dd><p class="first last">The name of the database file</p>
-</dd>
-</dl>
-</blockquote>
-</blockquote>
-</li>
-<li><p class="first">MySQL:</p>
-<blockquote>
-<p>Arguments are passed to MySQLdb.connect(). For a full list of
-available arguments, see the documentation for MySQLdb. The main
-arguments are listed below.</p>
-<p>Optional arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>host</em>: [ string ]</dt>
-<dd><p class="first last">The host to connect to (default is localhost)</p>
-</dd>
-<dt><em>user</em>: [ string ]</dt>
-<dd><p class="first last">The user to conenct as (default is current user)</p>
-</dd>
-<dt><em>passwd</em>: [ string ]</dt>
-<dd><p class="first last">The user password (default is blank)</p>
-</dd>
-<dt><em>db</em>: [ string ]</dt>
-<dd><p class="first last">The name of the database to connect to (no default)</p>
-</dd>
-<dt><em>port</em> [ integer ]</dt>
-<dd><p class="first last">The port to connect to (default is 3306)</p>
-</dd>
-</dl>
-</blockquote>
-</blockquote>
-</li>
-<li><p class="first">PostGreSQL:</p>
-<blockquote>
-<p>Arguments are passed to pgdb.connect(). For a full list of
-available arguments, see the help page for pgdb.connect(). The
-main arguments are listed below.</p>
-<dl class="docutils">
-<dt><em>host</em>: [ string ]</dt>
-<dd><p class="first last">The host to connect to (default is localhost)</p>
-</dd>
-<dt><em>user</em>: [ string ]</dt>
-<dd><p class="first last">The user to conenct as (default is current user)</p>
-</dd>
-<dt><em>password</em>: [ string ]</dt>
-<dd><p class="first last">The user password (default is blank)</p>
-</dd>
-<dt><em>database</em>: [ string ]</dt>
-<dd><p class="first last">The name of the database to connect to (no default)</p>
-</dd>
-</dl>
-</blockquote>
-</li>
-</ul>
-</dd></dl>
-
-</div>
-<div class="section" id="sql-table-set">
-<h2>SQL Table Set<a class="headerlink" href="#sql-table-set" title="Permalink to this headline">¶</a></h2>
-<dl class="function">
-<dt id="atpy.sqltable.read_set">
-<tt class="descclassname">atpy.sqltable.</tt><tt class="descname">read_set</tt><big>(</big><em>self</em>, <em>dbtype</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.sqltable.read_set" title="Permalink to this definition">¶</a></dt>
-<dd><p>Required Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>dbtype</em>: [ &#8216;sqlite&#8217; | &#8216;mysql&#8217; | &#8216;postgres&#8217; ]</dt>
-<dd>The SQL database type</dd>
-</dl>
-</blockquote>
-<p>Optional arguments (only for Table.read() class):</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>table</em>: [ string ]</dt>
-<dd>The name of the table to read from the database (this is only
-required if there are more than one table in the database). This
-is not required if the query= argument is specified, except if
-using an SQLite database.</dd>
-<dt><em>query</em>: [ string ]</dt>
-<dd>An arbitrary SQL query to construct a table from. This can be
-any valid SQL command provided that the result is a single
-table.</dd>
-</dl>
-</blockquote>
-<p>The remaining arguments depend on the database type:</p>
-<ul>
-<li><p class="first">SQLite:</p>
-<blockquote>
-<p>Arguments are passed to sqlite3.connect(). For a full list of
-available arguments, see the help page for sqlite3.connect(). The
-main arguments are listed below.</p>
-<p>Required arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>dbname</em>: [ string ]</dt>
-<dd><p class="first last">The name of the database file</p>
-</dd>
-</dl>
-</blockquote>
-</blockquote>
-</li>
-<li><p class="first">MySQL:</p>
-<blockquote>
-<p>Arguments are passed to MySQLdb.connect(). For a full list of
-available arguments, see the documentation for MySQLdb. The main
-arguments are listed below.</p>
-<p>Optional arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>host</em>: [ string ]</dt>
-<dd><p class="first last">The host to connect to (default is localhost)</p>
-</dd>
-<dt><em>user</em>: [ string ]</dt>
-<dd><p class="first last">The user to conenct as (default is current user)</p>
-</dd>
-<dt><em>passwd</em>: [ string ]</dt>
-<dd><p class="first last">The user password (default is blank)</p>
-</dd>
-<dt><em>db</em>: [ string ]</dt>
-<dd><p class="first last">The name of the database to connect to (no default)</p>
-</dd>
-<dt><em>port</em> [ integer ]</dt>
-<dd><p class="first last">The port to connect to (default is 3306)</p>
-</dd>
-</dl>
-</blockquote>
-</blockquote>
-</li>
-<li><p class="first">PostGreSQL:</p>
-<blockquote>
-<p>Arguments are passed to pgdb.connect(). For a full list of
-available arguments, see the help page for pgdb.connect(). The
-main arguments are listed below.</p>
-<dl class="docutils">
-<dt><em>host</em>: [ string ]</dt>
-<dd><p class="first last">The host to connect to (default is localhost)</p>
-</dd>
-<dt><em>user</em>: [ string ]</dt>
-<dd><p class="first last">The user to conenct as (default is current user)</p>
-</dd>
-<dt><em>password</em>: [ string ]</dt>
-<dd><p class="first last">The user password (default is blank)</p>
-</dd>
-<dt><em>database</em>: [ string ]</dt>
-<dd><p class="first last">The name of the database to connect to (no default)</p>
-</dd>
-</dl>
-</blockquote>
-</li>
-</ul>
-</dd></dl>
-
-<dl class="function">
-<dt id="atpy.sqltable.write_set">
-<tt class="descclassname">atpy.sqltable.</tt><tt class="descname">write_set</tt><big>(</big><em>self</em>, <em>dbtype</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.sqltable.write_set" title="Permalink to this definition">¶</a></dt>
-<dd><p>Required Arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>dbtype</em>: [ &#8216;sqlite&#8217; | &#8216;mysql&#8217; | &#8216;postgres&#8217; ]</dt>
-<dd>The SQL database type</dd>
-</dl>
-</blockquote>
-<p>Optional arguments (only for Table.read() class):</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>table</em>: [ string ]</dt>
-<dd>The name of the table to read from the database (this is only
-required if there are more than one table in the database). This
-is not required if the query= argument is specified, except if
-using an SQLite database.</dd>
-<dt><em>query</em>: [ string ]</dt>
-<dd>An arbitrary SQL query to construct a table from. This can be
-any valid SQL command provided that the result is a single
-table.</dd>
-</dl>
-</blockquote>
-<p>The remaining arguments depend on the database type:</p>
-<ul>
-<li><p class="first">SQLite:</p>
-<blockquote>
-<p>Arguments are passed to sqlite3.connect(). For a full list of
-available arguments, see the help page for sqlite3.connect(). The
-main arguments are listed below.</p>
-<p>Required arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>dbname</em>: [ string ]</dt>
-<dd><p class="first last">The name of the database file</p>
-</dd>
-</dl>
-</blockquote>
-</blockquote>
-</li>
-<li><p class="first">MySQL:</p>
-<blockquote>
-<p>Arguments are passed to MySQLdb.connect(). For a full list of
-available arguments, see the documentation for MySQLdb. The main
-arguments are listed below.</p>
-<p>Optional arguments:</p>
-<blockquote>
-<dl class="docutils">
-<dt><em>host</em>: [ string ]</dt>
-<dd><p class="first last">The host to connect to (default is localhost)</p>
-</dd>
-<dt><em>user</em>: [ string ]</dt>
-<dd><p class="first last">The user to conenct as (default is current user)</p>
-</dd>
-<dt><em>passwd</em>: [ string ]</dt>
-<dd><p class="first last">The user password (default is blank)</p>
-</dd>
-<dt><em>db</em>: [ string ]</dt>
-<dd><p class="first last">The name of the database to connect to (no default)</p>
-</dd>
-<dt><em>port</em> [ integer ]</dt>
-<dd><p class="first last">The port to connect to (default is 3306)</p>
-</dd>
-</dl>
-</blockquote>
-</blockquote>
-</li>
-<li><p class="first">PostGreSQL:</p>
-<blockquote>
-<p>Arguments are passed to pgdb.connect(). For a full list of
-available arguments, see the help page for pgdb.connect(). The
-main arguments are listed below.</p>
-<dl class="docutils">
-<dt><em>host</em>: [ string ]</dt>
-<dd><p class="first last">The host to connect to (default is localhost)</p>
-</dd>
-<dt><em>user</em>: [ string ]</dt>
-<dd><p class="first last">The user to conenct as (default is current user)</p>
-</dd>
-<dt><em>password</em>: [ string ]</dt>
-<dd><p class="first last">The user password (default is blank)</p>
-</dd>
-<dt><em>database</em>: [ string ]</dt>
-<dd><p class="first last">The name of the database to connect to (no default)</p>
-</dd>
-</dl>
-</blockquote>
-</li>
-</ul>
-</dd></dl>
-
-</div>
 </div>
 
 
@@ -720,12 +116,12 @@ main arguments are listed below.</p>
           <a href="modindex.html" title="Global Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="api_table.html" title="Full API for Table class"
+          <a href="format_fits.html" title="FITS tables"
              >next</a> |</li>
         <li class="right" >
           <a href="developers.html" title="Custom reading/writing"
              >previous</a> |</li>
-        <li><a href="index.html">ATpy v0.9.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">ATpy v0.9.4 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

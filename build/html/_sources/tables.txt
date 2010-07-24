@@ -1,15 +1,26 @@
+.. _tables:
+
 ====================
 Constructing a table
 ====================
 
-The ``Table`` class is the basic entity in ATpy. It consists of table data and metadata. The data is stored using a `NumPy <http://numpy.scipy.org/>`_ structured array. The metadata includes units, null values, and column descriptions, as well as comments and keywords.
+The ``Table`` class is the basic entity in ATpy. It consists of table data
+and metadata. The data is stored using a `NumPy <http://numpy.scipy.org/>`_
+structured array. The metadata includes units, null values, and column
+descriptions, as well as comments and keywords.
 
-Data can be stored in the table using many of the `NumPy types <http://docs.scipy.org/doc/numpy/reference/arrays.scalars.html#built-in-scalar-types>`_, including booleans, 8, 16, 32, and 64-bit signed and unsigned integers, 32 and 64-bit floats, and strings. Not all file formats and databases support reading and writing all of these types -- for more information, see :ref:`formats`.
+Data can be stored in the table using many of the `NumPy types
+<http://docs.scipy.org/doc/numpy/reference/arrays.scalars.html#built-in-scalar-types>`_,
+including booleans, 8, 16, 32, and 64-bit signed and unsigned integers, 32
+and 64-bit floats, and strings. Not all file formats and databases support
+reading and writing all of these types -- for more information, see
+:ref:`formats`.
 
 Creating a table
 ================
 
-The simplest way to create an instance of the ``Table`` is to call the class with no arguments::
+The simplest way to create an instance of the ``Table`` is to call the
+class with no arguments::
 
   >>> t = atpy.Table()
 
@@ -23,9 +34,17 @@ Reading data from a file
 
 The ``read(...)`` method can be used to read in a table from a file. To date, ATpy supports the following file formats:
 
-  * `FITS <http://archive.stsci.edu/fits/fits_standard/>`_ tables (``fits``)
-  * `VO <http://www.ivoa.net/Documents/VOTable/>`_ tables (``vo``)
-  * `IPAC <http://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html>`_ tables (``ipac``)
+  * `FITS <http://archive.stsci.edu/fits/fits_standard/>`_ tables (``type=fits``)
+  * `VO <http://www.ivoa.net/Documents/VOTable/>`_ tables (``type=vo``)
+  * `IPAC <http://irsa.ipac.caltech.edu/applications/DDGEN/Doc/ipac_tbl.html>`_ tables (``type=ipac``)
+  * `HDF5 <http://www.hdfgroup.org/HDF5/>`_ (``type=hdf5``)
+  
+Now that ATpy has integrates with `asciitable <http://cxc.harvard.edu/contrib/asciitable/>`_, the following formats are also supported:
+
+  * `CDS <http://vizier.u-strasbg.fr/doc/catstd.htx>`_ (``type=cds`` or ``type=mrt``)
+  * DAOPhot (``type=daophot``)
+  * RDB (``type=rdb``)
+  * Arbitrary ASCII tables (``type=ascii``)
   
 When reading a table from a file, the only required argument is the filename. For example, to read a VO table called ``example.xml``, the following should be used::
 

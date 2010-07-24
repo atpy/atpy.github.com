@@ -23,6 +23,10 @@ Below is a list of the optional packages that ATpy depends on to support reading
 
 * `vo <http://www.stsci.edu/trac/ssb/astrolib>`_ (VO tables)
 
+* `asciitable <http://cxc.harvard.edu/contrib/asciitable/>`_ (ASCII tables)
+
+* `h5py <http://code.google.com/p/h5py/>`_ (HDF5 tables)
+
 * `MySQL-python <http://sourceforge.net/projects/mysql-python>`_ (MySQL
   databases)
 
