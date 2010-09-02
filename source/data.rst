@@ -7,9 +7,9 @@ Accessing Table Data
 Accessing the data
 ==================
 
-The table data is stored in a NumPy structured array, which can be accessed using the ``data`` attribute with the column name passed as a key. This returns the column in question as a NumPy array::
+The table data is stored in a NumPy structured array, which can be accessed by passing the column name a key. This returns the column in question as a NumPy array::
 
-  t.data['column_name']
+  t['column_name']
   
 For convenience, columns with names that satisfy the python variable name requirements (essentially starting with a letter and containing no symbols apart from underscores) can be accessed directly as attributes of the table::
 
@@ -17,7 +17,7 @@ For convenience, columns with names that satisfy the python variable name requir
   
 Since the returned data is a NumPy array, individual elements can be accessed using::
 
-  t.data['column_name'][row_number]
+  t['column_name'][row_number]
   
 or::
 
@@ -29,7 +29,7 @@ Both notations can be used to set data in the table, for example::
   
 and::
 
-  t.data['column_name'][row_number] = 1
+  t['column_name'][row_number] = 1
   
 are equivalent, and will set the element at ``row_number`` to 1
 

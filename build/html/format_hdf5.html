@@ -175,7 +175,7 @@ required if there are more than one table in the file)</dd>
 
 <dl class="function">
 <dt id="atpy.hdf5table.write">
-<tt class="descclassname">atpy.hdf5table.</tt><tt class="descname">write</tt><big>(</big><em>self</em>, <em>filename</em>, <em>compression=False</em>, <em>group=''</em>, <em>append=False</em>, <em>overwrite=False</em><big>)</big><a class="headerlink" href="#atpy.hdf5table.write" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">atpy.hdf5table.</tt><tt class="descname">write</tt><big>(</big><em>self</em>, <em>filename</em>, <em>compression=False</em>, <em>group=''</em>, <em>append=False</em>, <em>overwrite=False</em>, <em>ignore_groups=False</em><big>)</big><a class="headerlink" href="#atpy.hdf5table.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the table to an HDF5 file</p>
 <p>Required Arguments:</p>
 <blockquote>
@@ -200,6 +200,11 @@ The HDF5 file to write the table to</blockquote>
 <dd>Whether to append the table to an existing HDF5 file</dd>
 <dt><em>overwrite</em>: [ True | False ]</dt>
 <dd>Whether to overwrite any existing file without warning</dd>
+<dt><em>ignore_groups</em>: [ True | False ]</dt>
+<dd>With this option set to True, groups are removed from table names.
+With this option set to False, tables are placed in groups that
+are present in the table name, and the groups are created if
+necessary.</dd>
 </dl>
 </blockquote>
 </dd></dl>
@@ -219,7 +224,7 @@ The HDF5 file to write the table to</blockquote>
 
 <dl class="function">
 <dt id="atpy.hdf5table.write_set">
-<tt class="descclassname">atpy.hdf5table.</tt><tt class="descname">write_set</tt><big>(</big><em>self</em>, <em>filename</em>, <em>compression=False</em>, <em>group=''</em>, <em>append=False</em>, <em>overwrite=False</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.hdf5table.write_set" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">atpy.hdf5table.</tt><tt class="descname">write_set</tt><big>(</big><em>self</em>, <em>filename</em>, <em>compression=False</em>, <em>group=''</em>, <em>append=False</em>, <em>overwrite=False</em>, <em>ignore_groups=False</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.hdf5table.write_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the tables to an HDF5 file</p>
 <p>Required Arguments:</p>
 <blockquote>
@@ -239,6 +244,11 @@ The HDF5 file to write the table to</blockquote>
 <dd>Whether to append the tables to an existing HDF5 file</dd>
 <dt><em>overwrite</em>: [ True | False ]</dt>
 <dd>Whether to overwrite any existing file without warning</dd>
+<dt><em>ignore_groups</em>: [ True | False ]</dt>
+<dd>With this option set to True, groups are removed from table names.
+With this option set to False, tables are placed in groups that
+are present in the table name, and the groups are created if
+necessary.</dd>
 </dl>
 </blockquote>
 </dd></dl>

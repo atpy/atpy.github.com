@@ -94,8 +94,8 @@
 <span id="data"></span><h1>Accessing Table Data<a class="headerlink" href="#accessing-table-data" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="accessing-the-data">
 <h2>Accessing the data<a class="headerlink" href="#accessing-the-data" title="Permalink to this headline">¶</a></h2>
-<p>The table data is stored in a NumPy structured array, which can be accessed using the <tt class="docutils literal"><span class="pre">data</span></tt> attribute with the column name passed as a key. This returns the column in question as a NumPy array:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;column_name&#39;</span><span class="p">]</span>
+<p>The table data is stored in a NumPy structured array, which can be accessed by passing the column name a key. This returns the column in question as a NumPy array:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="p">[</span><span class="s">&#39;column_name&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>For convenience, columns with names that satisfy the python variable name requirements (essentially starting with a letter and containing no symbols apart from underscores) can be accessed directly as attributes of the table:</p>
@@ -103,7 +103,7 @@
 </pre></div>
 </div>
 <p>Since the returned data is a NumPy array, individual elements can be accessed using:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;column_name&#39;</span><span class="p">][</span><span class="n">row_number</span><span class="p">]</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="p">[</span><span class="s">&#39;column_name&#39;</span><span class="p">][</span><span class="n">row_number</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>or:</p>
@@ -115,7 +115,7 @@
 </pre></div>
 </div>
 <p>and:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s">&#39;column_name&#39;</span><span class="p">][</span><span class="n">row_number</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">t</span><span class="p">[</span><span class="s">&#39;column_name&#39;</span><span class="p">][</span><span class="n">row_number</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>are equivalent, and will set the element at <tt class="docutils literal"><span class="pre">row_number</span></tt> to 1</p>
