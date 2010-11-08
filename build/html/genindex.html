@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
         VERSION:     '0.9.4',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="ATpy v0.9.4 documentation" href="index.html" /> 
   </head>
@@ -26,11 +29,11 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="" title="General Index"
+          <a href="#" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="modindex.html" title="Global Module Index"
-             accesskey="M">modules</a> |</li>
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li><a href="index.html">ATpy v0.9.4 documentation</a> &raquo;</li> 
       </ul>
     </div>
@@ -42,19 +45,19 @@
 
    
 
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -66,108 +69,114 @@
 
    <h1 id="index">Index</h1>
 
+   <div class="genindex-jumpbox">
    <a href="#A"><strong>A</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#K"><strong>K</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#W"><strong>W</strong></a> 
-
-   <hr />
-
-   
+   </div>
 <h2 id="A">A</h2>
-<table width="100%" class="indextable"><tr><td width="33%" valign="top">
-<dl>
-
-<dt><a href="api_table.html#atpy.Table.add_column">add_column() (atpy.Table method)</a></dt>
-<dt><a href="api_table.html#atpy.Table.add_comment">add_comment() (atpy.Table method)</a></dt>
-  <dd><dl>
-    <dt><a href="api_tableset.html#atpy.TableSet.add_comment">(atpy.TableSet method)</a></dt>
+<table width="100%" class="indextable genindextable"><tr>
+  <td width="33%" valign="top"><dl>
+    <dt><a href="api_table.html#atpy.Table.add_column">add_column() (atpy.Table method)</a></dt>
+    <dt><a href="api_table.html#atpy.Table.add_comment">add_comment() (atpy.Table method)</a></dt>
+    <dd><dl>
+      <dt><a href="api_tableset.html#atpy.TableSet.add_comment">(atpy.TableSet method)</a></dt>
   </dl></dd>
-<dt><a href="api_table.html#atpy.Table.add_empty_column">add_empty_column() (atpy.Table method)</a></dt>
-<dt><a href="api_table.html#atpy.Table.add_keyword">add_keyword() (atpy.Table method)</a></dt>
-  <dd><dl>
-    <dt><a href="api_tableset.html#atpy.TableSet.add_keyword">(atpy.TableSet method)</a></dt>
-  </dl></dd></dl></td><td width="33%" valign="top"><dl>
-<dt><a href="api_tableset.html#atpy.TableSet.append">append() (atpy.TableSet method)</a></dt>
-<dt><a href="api_table.html#module-atpy">atpy (module)</a>, <a href="api_tableset.html#module-atpy">[1]</a></dt>
-</dl></td></tr></table>
+    <dt><a href="api_table.html#atpy.Table.add_empty_column">add_empty_column() (atpy.Table method)</a></dt>
+</dl></td>
+  <td width="33%" valign="top"><dl>
+    <dt><a href="api_table.html#atpy.Table.add_keyword">add_keyword() (atpy.Table method)</a></dt>
+    <dd><dl>
+      <dt><a href="api_tableset.html#atpy.TableSet.add_keyword">(atpy.TableSet method)</a></dt>
+  </dl></dd>
+    <dt><a href="api_tableset.html#atpy.TableSet.append">append() (atpy.TableSet method)</a></dt>
+    <dt><a href="api_table.html#module-atpy">atpy (module)</a>, <a href="api_tableset.html#module-atpy">[1]</a></dt>
+</dl></td>
+</tr></table>
 
 <h2 id="D">D</h2>
-<table width="100%" class="indextable"><tr><td width="33%" valign="top">
-<dl>
-
-<dt><a href="api_table.html#atpy.Table.describe">describe() (atpy.Table method)</a></dt>
-  <dd><dl>
-    <dt><a href="api_tableset.html#atpy.TableSet.describe">(atpy.TableSet method)</a></dt>
-  </dl></dd></dl></td><td width="33%" valign="top"><dl>
-</dl></td></tr></table>
+<table width="100%" class="indextable genindextable"><tr>
+  <td width="33%" valign="top"><dl>
+    <dt><a href="api_table.html#atpy.Table.describe">describe() (atpy.Table method)</a></dt>
+    <dd><dl>
+      <dt><a href="api_tableset.html#atpy.TableSet.describe">(atpy.TableSet method)</a></dt>
+  </dl></dd>
+</dl></td>
+</tr></table>
 
 <h2 id="K">K</h2>
-<table width="100%" class="indextable"><tr><td width="33%" valign="top">
-<dl>
-
-<dt><a href="api_table.html#atpy.Table.keep_columns">keep_columns() (atpy.Table method)</a></dt></dl></td><td width="33%" valign="top"><dl>
-</dl></td></tr></table>
+<table width="100%" class="indextable genindextable"><tr>
+  <td width="33%" valign="top"><dl>
+    <dt><a href="api_table.html#atpy.Table.keep_columns">keep_columns() (atpy.Table method)</a></dt>
+</dl></td>
+</tr></table>
 
 <h2 id="R">R</h2>
-<table width="100%" class="indextable"><tr><td width="33%" valign="top">
-<dl>
-
-<dt><a href="api_table.html#atpy.Table.read">read() (atpy.Table method)</a></dt>
-  <dd><dl>
-    <dt><a href="api_tableset.html#atpy.TableSet.read">(atpy.TableSet method)</a></dt>
-    <dt><a href="format_fits.html#atpy.fitstable.read">(in module atpy.fitstable)</a></dt>
-    <dt><a href="format_hdf5.html#atpy.hdf5table.read">(in module atpy.hdf5table)</a></dt>
-    <dt><a href="format_ipac.html#atpy.ipactable.read">(in module atpy.ipactable)</a></dt>
-    <dt><a href="format_sql.html#atpy.sqltable.read">(in module atpy.sqltable)</a></dt>
-    <dt><a href="format_vo.html#atpy.votable.read">(in module atpy.votable)</a></dt>
+<table width="100%" class="indextable genindextable"><tr>
+  <td width="33%" valign="top"><dl>
+    <dt><a href="api_table.html#atpy.Table.read">read() (atpy.Table method)</a></dt>
+    <dd><dl>
+      <dt><a href="api_tableset.html#atpy.TableSet.read">(atpy.TableSet method)</a></dt>
+      <dt><a href="format_fits.html#atpy.fitstable.read">(in module atpy.fitstable)</a></dt>
+      <dt><a href="format_hdf5.html#atpy.hdf5table.read">(in module atpy.hdf5table)</a></dt>
+      <dt><a href="format_ipac.html#atpy.ipactable.read">(in module atpy.ipactable)</a></dt>
+      <dt><a href="format_sql.html#atpy.sqltable.read">(in module atpy.sqltable)</a></dt>
+      <dt><a href="format_vo.html#atpy.votable.read">(in module atpy.votable)</a></dt>
   </dl></dd>
-<dt><a href="format_ascii.html#atpy.asciitables.read_ascii">read_ascii() (in module atpy.asciitables)</a></dt>
-<dt><a href="format_ascii.html#atpy.asciitables.read_cds">read_cds() (in module atpy.asciitables)</a></dt>
-<dt><a href="format_ascii.html#atpy.asciitables.read_daophot">read_daophot() (in module atpy.asciitables)</a></dt>
-<dt><a href="format_ascii.html#atpy.asciitables.read_rdb">read_rdb() (in module atpy.asciitables)</a></dt></dl></td><td width="33%" valign="top"><dl>
-<dt><a href="format_fits.html#atpy.fitstable.read_set">read_set() (in module atpy.fitstable)</a></dt>
-  <dd><dl>
-    <dt><a href="format_hdf5.html#atpy.hdf5table.read_set">(in module atpy.hdf5table)</a></dt>
-    <dt><a href="format_sql.html#atpy.sqltable.read_set">(in module atpy.sqltable)</a></dt>
-    <dt><a href="format_vo.html#atpy.votable.read_set">(in module atpy.votable)</a></dt>
+    <dt><a href="format_ascii.html#atpy.asciitables.read_ascii">read_ascii() (in module atpy.asciitables)</a></dt>
+    <dt><a href="format_ascii.html#atpy.asciitables.read_cds">read_cds() (in module atpy.asciitables)</a></dt>
+    <dt><a href="format_ascii.html#atpy.asciitables.read_daophot">read_daophot() (in module atpy.asciitables)</a></dt>
+    <dt><a href="format_ascii.html#atpy.asciitables.read_rdb">read_rdb() (in module atpy.asciitables)</a></dt>
+    <dt><a href="format_fits.html#atpy.fitstable.read_set">read_set() (in module atpy.fitstable)</a></dt>
+    <dd><dl>
+      <dt><a href="format_hdf5.html#atpy.hdf5table.read_set">(in module atpy.hdf5table)</a></dt>
+      <dt><a href="format_sql.html#atpy.sqltable.read_set">(in module atpy.sqltable)</a></dt>
+      <dt><a href="format_vo.html#atpy.votable.read_set">(in module atpy.votable)</a></dt>
   </dl></dd>
-<dt><a href="api_table.html#atpy.Table.remove_columns">remove_columns() (atpy.Table method)</a></dt>
-<dt><a href="api_table.html#atpy.Table.rename_column">rename_column() (atpy.Table method)</a></dt>
-<dt><a href="api_table.html#atpy.Table.reset">reset() (atpy.Table method)</a></dt>
-  <dd><dl>
-    <dt><a href="api_tableset.html#atpy.TableSet.reset">(atpy.TableSet method)</a></dt>
+</dl></td>
+  <td width="33%" valign="top"><dl>
+    <dt><a href="api_table.html#atpy.Table.remove_columns">remove_columns() (atpy.Table method)</a></dt>
+    <dt><a href="api_table.html#atpy.Table.rename_column">rename_column() (atpy.Table method)</a></dt>
+    <dt><a href="api_table.html#atpy.Table.reset">reset() (atpy.Table method)</a></dt>
+    <dd><dl>
+      <dt><a href="api_tableset.html#atpy.TableSet.reset">(atpy.TableSet method)</a></dt>
   </dl></dd>
-<dt><a href="api_table.html#atpy.Table.row">row() (atpy.Table method)</a></dt>
-<dt><a href="api_table.html#atpy.Table.rows">rows() (atpy.Table method)</a></dt>
-</dl></td></tr></table>
+    <dt><a href="api_table.html#atpy.Table.row">row() (atpy.Table method)</a></dt>
+    <dt><a href="api_table.html#atpy.Table.rows">rows() (atpy.Table method)</a></dt>
+</dl></td>
+</tr></table>
 
 <h2 id="S">S</h2>
-<table width="100%" class="indextable"><tr><td width="33%" valign="top">
-<dl>
-
-<dt><a href="api_table.html#atpy.Table.set_primary_key">set_primary_key() (atpy.Table method)</a></dt>
-<dt><a href="api_table.html#atpy.Table.sort">sort() (atpy.Table method)</a></dt></dl></td><td width="33%" valign="top"><dl>
-</dl></td></tr></table>
+<table width="100%" class="indextable genindextable"><tr>
+  <td width="33%" valign="top"><dl>
+    <dt><a href="api_table.html#atpy.Table.set_primary_key">set_primary_key() (atpy.Table method)</a></dt>
+</dl></td>
+  <td width="33%" valign="top"><dl>
+    <dt><a href="api_table.html#atpy.Table.sort">sort() (atpy.Table method)</a></dt>
+</dl></td>
+</tr></table>
 
 <h2 id="W">W</h2>
-<table width="100%" class="indextable"><tr><td width="33%" valign="top">
-<dl>
-
-<dt><a href="api_table.html#atpy.Table.where">where() (atpy.Table method)</a></dt>
-<dt><a href="api_table.html#atpy.Table.write">write() (atpy.Table method)</a></dt>
-  <dd><dl>
-    <dt><a href="api_tableset.html#atpy.TableSet.write">(atpy.TableSet method)</a></dt>
-    <dt><a href="format_fits.html#atpy.fitstable.write">(in module atpy.fitstable)</a></dt>
-    <dt><a href="format_hdf5.html#atpy.hdf5table.write">(in module atpy.hdf5table)</a></dt>
-    <dt><a href="format_ipac.html#atpy.ipactable.write">(in module atpy.ipactable)</a></dt>
-    <dt><a href="format_sql.html#atpy.sqltable.write">(in module atpy.sqltable)</a></dt>
-    <dt><a href="format_vo.html#atpy.votable.write">(in module atpy.votable)</a></dt>
-  </dl></dd></dl></td><td width="33%" valign="top"><dl>
-<dt><a href="format_fits.html#atpy.fitstable.write_set">write_set() (in module atpy.fitstable)</a></dt>
-  <dd><dl>
-    <dt><a href="format_hdf5.html#atpy.hdf5table.write_set">(in module atpy.hdf5table)</a></dt>
-    <dt><a href="format_sql.html#atpy.sqltable.write_set">(in module atpy.sqltable)</a></dt>
-    <dt><a href="format_vo.html#atpy.votable.write_set">(in module atpy.votable)</a></dt>
+<table width="100%" class="indextable genindextable"><tr>
+  <td width="33%" valign="top"><dl>
+    <dt><a href="api_table.html#atpy.Table.where">where() (atpy.Table method)</a></dt>
+    <dt><a href="api_table.html#atpy.Table.write">write() (atpy.Table method)</a></dt>
+    <dd><dl>
+      <dt><a href="api_tableset.html#atpy.TableSet.write">(atpy.TableSet method)</a></dt>
+      <dt><a href="format_fits.html#atpy.fitstable.write">(in module atpy.fitstable)</a></dt>
+      <dt><a href="format_hdf5.html#atpy.hdf5table.write">(in module atpy.hdf5table)</a></dt>
+      <dt><a href="format_ipac.html#atpy.ipactable.write">(in module atpy.ipactable)</a></dt>
+      <dt><a href="format_sql.html#atpy.sqltable.write">(in module atpy.sqltable)</a></dt>
+      <dt><a href="format_vo.html#atpy.votable.write">(in module atpy.votable)</a></dt>
   </dl></dd>
-</dl></td></tr></table>
+</dl></td>
+  <td width="33%" valign="top"><dl>
+    <dt><a href="format_fits.html#atpy.fitstable.write_set">write_set() (in module atpy.fitstable)</a></dt>
+    <dd><dl>
+      <dt><a href="format_hdf5.html#atpy.hdf5table.write_set">(in module atpy.hdf5table)</a></dt>
+      <dt><a href="format_sql.html#atpy.sqltable.write_set">(in module atpy.sqltable)</a></dt>
+      <dt><a href="format_vo.html#atpy.votable.write_set">(in module atpy.votable)</a></dt>
+  </dl></dd>
+</dl></td>
+</tr></table>
 
 
 
@@ -180,17 +189,17 @@
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
-          <a href="" title="General Index"
+          <a href="#" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="modindex.html" title="Global Module Index"
+          <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li><a href="index.html">ATpy v0.9.4 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+        &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
     </div>
   </body>
 </html>

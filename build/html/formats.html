@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
         VERSION:     '0.9.4',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="ATpy v0.9.4 documentation" href="index.html" />
     <link rel="next" title="FITS tables" href="format_fits.html" />
@@ -31,8 +34,8 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="modindex.html" title="Global Module Index"
-             accesskey="M">modules</a> |</li>
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li class="right" >
           <a href="format_fits.html" title="FITS tables"
              accesskey="N">next</a> |</li>
@@ -47,30 +50,30 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/atpy_logo.png" alt="Logo"/>
             </a></p>
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="developers.html"
-                                  title="previous chapter">Custom reading/writing</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="format_fits.html"
-                                  title="next chapter">FITS tables</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="_sources/formats.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="developers.html"
+                        title="previous chapter">Custom reading/writing</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="format_fits.html"
+                        title="next chapter">FITS tables</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/formats.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -82,14 +85,16 @@
   <div class="section" id="supported-formats">
 <span id="formats"></span><h1>Supported Formats<a class="headerlink" href="#supported-formats" title="Permalink to this headline">¶</a></h1>
 <p>The following pages describe the file formats currently supported, and format-specific options. A full API is also included for advanced users.</p>
+<div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference external" href="format_fits.html">FITS tables</a></li>
-<li class="toctree-l1"><a class="reference external" href="format_vo.html">VO tables</a></li>
-<li class="toctree-l1"><a class="reference external" href="format_hdf5.html">HDF5 tables</a></li>
-<li class="toctree-l1"><a class="reference external" href="format_ipac.html">IPAC tables</a></li>
-<li class="toctree-l1"><a class="reference external" href="format_ascii.html">ASCII tables</a></li>
-<li class="toctree-l1"><a class="reference external" href="format_sql.html">SQL databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="format_fits.html">FITS tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="format_vo.html">VO tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="format_hdf5.html">HDF5 tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="format_ipac.html">IPAC tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="format_ascii.html">ASCII tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="format_sql.html">SQL databases</a></li>
 </ul>
+</div>
 <p>Unless stated otherwise below, all table types support the following types:</p>
 <ul class="simple">
 <li>booleans</li>
@@ -113,7 +118,7 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="modindex.html" title="Global Module Index"
+          <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
           <a href="format_fits.html" title="FITS tables"
@@ -125,8 +130,8 @@
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+        &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
     </div>
   </body>
 </html>

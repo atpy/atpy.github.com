@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
         VERSION:     '0.9.4',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="ATpy v0.9.4 documentation" href="index.html" />
     <link rel="up" title="Supported Formats" href="formats.html" />
@@ -32,8 +35,8 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="modindex.html" title="Global Module Index"
-             accesskey="M">modules</a> |</li>
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li class="right" >
           <a href="format_sql.html" title="SQL databases"
              accesskey="N">next</a> |</li>
@@ -49,39 +52,39 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/atpy_logo.png" alt="Logo"/>
             </a></p>
-            <h3><a href="index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference external" href="">ASCII tables</a><ul>
-<li><a class="reference external" href="#overview">Overview</a></li>
-<li><a class="reference external" href="#full-api-for-advanced-users">Full API for advanced users</a></li>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ASCII tables</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#full-api-for-advanced-users">Full API for advanced users</a></li>
 </ul>
 </li>
 </ul>
 
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="format_ipac.html"
-                                  title="previous chapter">IPAC tables</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="format_sql.html"
-                                  title="next chapter">SQL databases</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="_sources/format_ascii.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="format_ipac.html"
+                        title="previous chapter">IPAC tables</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="format_sql.html"
+                        title="next chapter">SQL databases</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/format_ascii.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -128,7 +131,7 @@ writing to overwrite a file (the default is <tt class="docutils literal"><span c
 <dl class="function">
 <dt id="atpy.asciitables.read_cds">
 <tt class="descclassname">atpy.asciitables.</tt><tt class="descname">read_cds</tt><big>(</big><em>self</em>, <em>filename</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.asciitables.read_cds" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read a table from a CDS table (also called Machine Readable Tables) file</p>
+<dd><p>Read data from a CDS table (also called Machine Readable Tables) file</p>
 <blockquote>
 <p>Required Arguments:</p>
 <blockquote>
@@ -144,7 +147,7 @@ writing to overwrite a file (the default is <tt class="docutils literal"><span c
 <dl class="function">
 <dt id="atpy.asciitables.read_daophot">
 <tt class="descclassname">atpy.asciitables.</tt><tt class="descname">read_daophot</tt><big>(</big><em>self</em>, <em>filename</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.asciitables.read_daophot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read a table from a DAOphot table</p>
+<dd><p>Read data from a DAOphot table</p>
 <blockquote>
 <p>Required Arguments:</p>
 <blockquote>
@@ -160,7 +163,7 @@ writing to overwrite a file (the default is <tt class="docutils literal"><span c
 <dl class="function">
 <dt id="atpy.asciitables.read_rdb">
 <tt class="descclassname">atpy.asciitables.</tt><tt class="descname">read_rdb</tt><big>(</big><em>self</em>, <em>filename</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.asciitables.read_rdb" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read a table from a RDB table</p>
+<dd><p>Read data from an RDB table</p>
 <blockquote>
 <p>Required Arguments:</p>
 <blockquote>
@@ -213,7 +216,7 @@ exclude_names - list of names to exlude from output (applied after include_names
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="modindex.html" title="Global Module Index"
+          <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
           <a href="format_sql.html" title="SQL databases"
@@ -226,8 +229,8 @@ exclude_names - list of names to exlude from output (applied after include_names
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+        &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
     </div>
   </body>
 </html>

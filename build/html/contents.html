@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
         VERSION:     '0.9.4',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="ATpy v0.9.4 documentation" href="index.html" /> 
   </head>
@@ -29,8 +32,8 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="modindex.html" title="Global Module Index"
-             accesskey="M">modules</a> |</li>
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li><a href="index.html">ATpy v0.9.4 documentation</a> &raquo;</li> 
       </ul>
     </div>
@@ -39,24 +42,24 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/atpy_logo.png" alt="Logo"/>
             </a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="_sources/contents.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/contents.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -67,65 +70,67 @@
             
   <div class="section" id="table-of-contents">
 <span id="contents"></span><h1>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference external" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference external" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference external" href="tables.html">Constructing a table</a><ul>
-<li class="toctree-l2"><a class="reference external" href="tables.html#creating-a-table">Creating a table</a></li>
-<li class="toctree-l2"><a class="reference external" href="tables.html#populating-the-table">Populating the table</a></li>
-<li class="toctree-l2"><a class="reference external" href="tables.html#adding-meta-data">Adding meta-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tables.html">Constructing a table</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tables.html#creating-a-table">Creating a table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tables.html#populating-the-table">Populating the table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tables.html#adding-meta-data">Adding meta-data</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="data.html">Accessing Table Data</a><ul>
-<li class="toctree-l2"><a class="reference external" href="data.html#accessing-the-data">Accessing the data</a></li>
-<li class="toctree-l2"><a class="reference external" href="data.html#accessing-the-metadata">Accessing the metadata</a></li>
-<li class="toctree-l2"><a class="reference external" href="data.html#accessing-table-rows">Accessing table rows</a></li>
-<li class="toctree-l2"><a class="reference external" href="data.html#global-table-properties">Global Table properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">Accessing Table Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data.html#accessing-the-data">Accessing the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#accessing-the-metadata">Accessing the metadata</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#accessing-table-rows">Accessing table rows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data.html#global-table-properties">Global Table properties</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="manipulating.html">Modifying tables</a><ul>
-<li class="toctree-l2"><a class="reference external" href="manipulating.html#manipulating-table-columns">Manipulating table columns</a></li>
-<li class="toctree-l2"><a class="reference external" href="manipulating.html#sorting-tables">Sorting tables</a></li>
-<li class="toctree-l2"><a class="reference external" href="manipulating.html#combining-tables">Combining tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manipulating.html">Modifying tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="manipulating.html#manipulating-table-columns">Manipulating table columns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manipulating.html#sorting-tables">Sorting tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manipulating.html#combining-tables">Combining tables</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="table_sets.html">Table Sets</a><ul>
-<li class="toctree-l2"><a class="reference external" href="table_sets.html#initialization">Initialization</a></li>
-<li class="toctree-l2"><a class="reference external" href="table_sets.html#manually-adding-a-table-to-a-set">Manually adding a table to a set</a></li>
-<li class="toctree-l2"><a class="reference external" href="table_sets.html#reading-in-tables-from-a-file-or-database">Reading in tables from a file or database</a></li>
-<li class="toctree-l2"><a class="reference external" href="table_sets.html#accessing-a-single-table">Accessing a single table</a></li>
-<li class="toctree-l2"><a class="reference external" href="table_sets.html#adding-meta-data">Adding meta-data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="table_sets.html">Table Sets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="table_sets.html#initialization">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_sets.html#manually-adding-a-table-to-a-set">Manually adding a table to a set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_sets.html#reading-in-tables-from-a-file-or-database">Reading in tables from a file or database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_sets.html#accessing-a-single-table">Accessing a single table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table_sets.html#adding-meta-data">Adding meta-data</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="masking.html">Masking and null values</a><ul>
-<li class="toctree-l2"><a class="reference external" href="masking.html#null-values">Null values</a></li>
-<li class="toctree-l2"><a class="reference external" href="masking.html#masking">Masking</a></li>
+<li class="toctree-l1"><a class="reference internal" href="masking.html">Masking and null values</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="masking.html#null-values">Null values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="masking.html#masking">Masking</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="developers.html">Custom reading/writing</a></li>
-<li class="toctree-l1"><a class="reference external" href="formats.html">Supported Formats</a><ul>
-<li class="toctree-l2"><a class="reference external" href="format_fits.html">FITS tables</a></li>
-<li class="toctree-l2"><a class="reference external" href="format_vo.html">VO tables</a></li>
-<li class="toctree-l2"><a class="reference external" href="format_hdf5.html">HDF5 tables</a></li>
-<li class="toctree-l2"><a class="reference external" href="format_ipac.html">IPAC tables</a></li>
-<li class="toctree-l2"><a class="reference external" href="format_ascii.html">ASCII tables</a></li>
-<li class="toctree-l2"><a class="reference external" href="format_sql.html">SQL databases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">Custom reading/writing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formats.html">Supported Formats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="format_fits.html">FITS tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format_vo.html">VO tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format_hdf5.html">HDF5 tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format_ipac.html">IPAC tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format_ascii.html">ASCII tables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="format_sql.html">SQL databases</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="api_table.html">Full API for Table class</a><ul>
-<li class="toctree-l2"><a class="reference external" href="api_table.html#table-initialization-and-i-o">Table initialization and I/O</a></li>
-<li class="toctree-l2"><a class="reference external" href="api_table.html#meta-data">Meta-data</a></li>
-<li class="toctree-l2"><a class="reference external" href="api_table.html#column-manipulation">Column manipulation</a></li>
-<li class="toctree-l2"><a class="reference external" href="api_table.html#table-manipulation-and-selection">Table manipulation and selection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_table.html">Full API for Table class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_table.html#table-initialization-and-i-o">Table initialization and I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_table.html#meta-data">Meta-data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_table.html#column-manipulation">Column manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_table.html#table-manipulation-and-selection">Table manipulation and selection</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference external" href="api_tableset.html">Full API for TableSet class</a><ul>
-<li class="toctree-l2"><a class="reference external" href="api_tableset.html#tableset-initialization-and-i-o">TableSet initialization and I/O</a></li>
-<li class="toctree-l2"><a class="reference external" href="api_tableset.html#meta-data">Meta-data</a></li>
-<li class="toctree-l2"><a class="reference external" href="api_tableset.html#tableset-manipulation-and-i-o">TableSet manipulation and I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_tableset.html">Full API for TableSet class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_tableset.html#tableset-initialization-and-i-o">TableSet initialization and I/O</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_tableset.html#meta-data">Meta-data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_tableset.html#tableset-manipulation-and-i-o">TableSet manipulation and I/O</a></li>
 </ul>
 </li>
 </ul>
+</div>
 </div>
 
 
@@ -141,14 +146,14 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="modindex.html" title="Global Module Index"
+          <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li><a href="index.html">ATpy v0.9.4 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+        &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
     </div>
   </body>
 </html>

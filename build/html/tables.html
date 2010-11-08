@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
         VERSION:     '0.9.4',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="ATpy v0.9.4 documentation" href="index.html" />
     <link rel="next" title="Accessing Table Data" href="data.html" />
@@ -31,8 +34,8 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="modindex.html" title="Global Module Index"
-             accesskey="M">modules</a> |</li>
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li class="right" >
           <a href="data.html" title="Accessing Table Data"
              accesskey="N">next</a> |</li>
@@ -47,47 +50,47 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/atpy_logo.png" alt="Logo"/>
             </a></p>
-            <h3><a href="index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference external" href="">Constructing a table</a><ul>
-<li><a class="reference external" href="#creating-a-table">Creating a table</a></li>
-<li><a class="reference external" href="#populating-the-table">Populating the table</a><ul>
-<li><a class="reference external" href="#reading-data-from-a-file">Reading data from a file</a></li>
-<li><a class="reference external" href="#reading-data-from-a-database">Reading data from a database</a></li>
-<li><a class="reference external" href="#adding-columns-to-a-table">Adding columns to a table</a></li>
-<li><a class="reference external" href="#vector-columns">Vector Columns</a></li>
-<li><a class="reference external" href="#writing-the-data-to-a-file">Writing the data to a file</a></li>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Constructing a table</a><ul>
+<li><a class="reference internal" href="#creating-a-table">Creating a table</a></li>
+<li><a class="reference internal" href="#populating-the-table">Populating the table</a><ul>
+<li><a class="reference internal" href="#reading-data-from-a-file">Reading data from a file</a></li>
+<li><a class="reference internal" href="#reading-data-from-a-database">Reading data from a database</a></li>
+<li><a class="reference internal" href="#adding-columns-to-a-table">Adding columns to a table</a></li>
+<li><a class="reference internal" href="#vector-columns">Vector Columns</a></li>
+<li><a class="reference internal" href="#writing-the-data-to-a-file">Writing the data to a file</a></li>
 </ul>
 </li>
-<li><a class="reference external" href="#adding-meta-data">Adding meta-data</a></li>
+<li><a class="reference internal" href="#adding-meta-data">Adding meta-data</a></li>
 </ul>
 </li>
 </ul>
 
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="installation.html"
-                                  title="previous chapter">Installation</a></p>
-            <h4>Next topic</h4>
-            <p class="topless"><a href="data.html"
-                                  title="next chapter">Accessing Table Data</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="_sources/tables.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="previous chapter">Installation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="data.html"
+                        title="next chapter">Accessing Table Data</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/tables.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -106,7 +109,7 @@ descriptions, as well as comments and keywords.</p>
 including booleans, 8, 16, 32, and 64-bit signed and unsigned integers, 32
 and 64-bit floats, and strings. Not all file formats and databases support
 reading and writing all of these types &#8211; for more information, see
-<a class="reference external" href="formats.html#formats"><em>Supported Formats</em></a>.</p>
+<a class="reference internal" href="formats.html#formats"><em>Supported Formats</em></a>.</p>
 <div class="section" id="creating-a-table">
 <h2>Creating a table<a class="headerlink" href="#creating-a-table" title="Permalink to this headline">¶</a></h2>
 <p>The simplest way to create an instance of the <tt class="docutils literal"><span class="pre">Table</span></tt> is to call the
@@ -148,8 +151,8 @@ class with no arguments:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;example.xml&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s">&#39;vo&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <tt class="docutils literal"><span class="pre">read</span></tt> method supports additional file-format-dependent options. These are described in more detail in <a class="reference external" href="formats.html#formats"><em>Supported Formats</em></a>.</p>
-<p>In cases where multiple tables are available in a table file, ATpy will display a message to the screen with instructions of how to specify which table to read in. Alternatively, see <a class="reference external" href="table_sets.html#tablesets"><em>Table Sets</em></a> for information on how to read all tables into a single <tt class="docutils literal"><span class="pre">TableSet</span></tt> instance.</p>
+<p>The <tt class="docutils literal"><span class="pre">read</span></tt> method supports additional file-format-dependent options. These are described in more detail in <a class="reference internal" href="formats.html#formats"><em>Supported Formats</em></a>.</p>
+<p>In cases where multiple tables are available in a table file, ATpy will display a message to the screen with instructions of how to specify which table to read in. Alternatively, see <a class="reference internal" href="table_sets.html#tablesets"><em>Table Sets</em></a> for information on how to read all tables into a single <tt class="docutils literal"><span class="pre">TableSet</span></tt> instance.</p>
 <p>As a convenience, it is possible to create a <tt class="docutils literal"><span class="pre">Table</span></tt> instance and read in data in a single command:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">&#39;example.xml&#39;</span><span class="p">)</span>
 </pre></div>
@@ -174,7 +177,7 @@ class with no arguments:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s">&#39;sqlite&#39;</span><span class="p">,</span><span class="s">&#39;example.db&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For MySQL and PostGreSQL databases, it is possible to specify the database, table, authentication, and host parameters. The various options are descried in more detail in <a class="reference external" href="formats.html#formats"><em>Supported Formats</em></a>. As for files, the <tt class="docutils literal"><span class="pre">verbose</span></tt> and <tt class="docutils literal"><span class="pre">type</span></tt> arguments can be used.</p>
+<p>For MySQL and PostGreSQL databases, it is possible to specify the database, table, authentication, and host parameters. The various options are descried in more detail in <a class="reference internal" href="formats.html#formats"><em>Supported Formats</em></a>. As for files, the <tt class="docutils literal"><span class="pre">verbose</span></tt> and <tt class="docutils literal"><span class="pre">type</span></tt> arguments can be used.</p>
 <p>As for reading in from files, one can read in data from a database while initializing the <tt class="docutils literal"><span class="pre">Table</span></tt> object:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s">&#39;sqlite&#39;</span><span class="p">,</span><span class="s">&#39;example.db&#39;</span><span class="p">)</span>
 </pre></div>
@@ -238,7 +241,7 @@ nevertheless be specified using the <tt class="docutils literal"><span class="pr
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="modindex.html" title="Global Module Index"
+          <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
           <a href="data.html" title="Accessing Table Data"
@@ -250,8 +253,8 @@ nevertheless be specified using the <tt class="docutils literal"><span class="pr
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+        &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
     </div>
   </body>
 </html>

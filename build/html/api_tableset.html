@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -12,12 +14,13 @@
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
         VERSION:     '0.9.4',
-        COLLAPSE_MODINDEX: false,
+        COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="ATpy v0.9.4 documentation" href="index.html" />
     <link rel="prev" title="Full API for Table class" href="api_table.html" /> 
@@ -30,8 +33,8 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="modindex.html" title="Global Module Index"
-             accesskey="M">modules</a> |</li>
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
         <li class="right" >
           <a href="api_table.html" title="Full API for Table class"
              accesskey="P">previous</a> |</li>
@@ -43,37 +46,37 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/atpy_logo.png" alt="Logo"/>
             </a></p>
-            <h3><a href="index.html">Table Of Contents</a></h3>
-            <ul>
-<li><a class="reference external" href="">Full API for TableSet class</a><ul>
-<li><a class="reference external" href="#tableset-initialization-and-i-o">TableSet initialization and I/O</a></li>
-<li><a class="reference external" href="#meta-data">Meta-data</a></li>
-<li><a class="reference external" href="#tableset-manipulation-and-i-o">TableSet manipulation and I/O</a></li>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Full API for TableSet class</a><ul>
+<li><a class="reference internal" href="#tableset-initialization-and-i-o">TableSet initialization and I/O</a></li>
+<li><a class="reference internal" href="#meta-data">Meta-data</a></li>
+<li><a class="reference internal" href="#tableset-manipulation-and-i-o">TableSet manipulation and I/O</a></li>
 </ul>
 </li>
 </ul>
 
-            <h4>Previous topic</h4>
-            <p class="topless"><a href="api_table.html"
-                                  title="previous chapter">Full API for Table class</a></p>
-            <h3>This Page</h3>
-            <ul class="this-page-menu">
-              <li><a href="_sources/api_tableset.txt"
-                     rel="nofollow">Show Source</a></li>
-            </ul>
-          <div id="searchbox" style="display: none">
-            <h3>Quick search</h3>
-              <form class="search" action="search.html" method="get">
-                <input type="text" name="q" size="18" />
-                <input type="submit" value="Go" />
-                <input type="hidden" name="check_keywords" value="yes" />
-                <input type="hidden" name="area" value="default" />
-              </form>
-              <p class="searchtip" style="font-size: 90%">
-              Enter search terms or a module, class or function name.
-              </p>
-          </div>
-          <script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="api_table.html"
+                        title="previous chapter">Full API for Table class</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/api_tableset.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" size="18" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
 
@@ -83,13 +86,14 @@
           <div class="body">
             
   <div class="section" id="module-atpy">
-<span id="apiset"></span><h1>Full API for TableSet class<a class="headerlink" href="#module-atpy" title="Permalink to this headline">¶</a></h1>
+<span id="full-api-for-tableset-class"></span><span id="apiset"></span><h1>Full API for TableSet class<a class="headerlink" href="#module-atpy" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="tableset-initialization-and-i-o">
 <h2>TableSet initialization and I/O<a class="headerlink" href="#tableset-initialization-and-i-o" title="Permalink to this headline">¶</a></h2>
 <dl class="method">
 <dt id="atpy.TableSet.reset">
 <tt class="descclassname">TableSet.</tt><tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#atpy.TableSet.reset" title="Permalink to this definition">¶</a></dt>
-<dd>Empty the table set</dd></dl>
+<dd><p>Empty the table set</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="atpy.TableSet.read">
@@ -159,7 +163,8 @@ can be overridden by setting this argument.</dd>
 <dl class="method">
 <dt id="atpy.TableSet.describe">
 <tt class="descclassname">TableSet.</tt><tt class="descname">describe</tt><big>(</big><big>)</big><a class="headerlink" href="#atpy.TableSet.describe" title="Permalink to this definition">¶</a></dt>
-<dd>Describe all the tables in the set</dd></dl>
+<dd><p>Describe all the tables in the set</p>
+</dd></dl>
 
 </div>
 <div class="section" id="tableset-manipulation-and-i-o">
@@ -196,7 +201,7 @@ to a FITSTable inside the set)</dd>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="modindex.html" title="Global Module Index"
+          <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
           <a href="api_table.html" title="Full API for Table class"
@@ -205,8 +210,8 @@ to a FITSTable inside the set)</dd>
       </ul>
     </div>
     <div class="footer">
-      &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.3.
+        &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.4.
     </div>
   </body>
 </html>
