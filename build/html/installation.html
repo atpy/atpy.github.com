@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installation &mdash; ATpy v0.9.4 documentation</title>
+    <title>Obtaining and Installing &mdash; ATpy v0.9.4 documentation</title>
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -50,6 +50,16 @@
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/atpy_logo.png" alt="Logo"/>
             </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Obtaining and Installing</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#stable-version">Stable version</a></li>
+<li><a class="reference internal" href="#developer-version">Developer version</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
                         title="previous chapter">ATpy - Astronomical Tables in Python</a></p>
@@ -82,19 +92,16 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="obtaining-and-installing">
+<h1>Obtaining and Installing<a class="headerlink" href="#obtaining-and-installing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>Python 2.5 or later is required, and Python 2.6 is recommended (as SQLite is included by default).</p>
 <p>ATpy relies on a number of different packages to support reading and writing
 to different file or database formats. However, the only compulsory package is
 <a class="reference external" href="http://numpy.scipy.org/">NumPy</a>. All other requirements are optional - if
 they are not present, the relevant read/write methods will be disabled but
 will not otherwise prevent ATpy from functioning.</p>
-<p>Python 2.5 is required, and Python 2.6 is recommended (as SQLite is included by default).</p>
-<p>To install ATpy, use the standard installation procedure:</p>
-<div class="highlight-python"><pre>tar xvzf ATpy-X-X.X.tar.gz
-cd ATpy-X.X.X/
-python setup.py install</pre>
-</div>
 <p>Below is a list of the optional packages that ATpy depends on to support reading and writing to various table types:</p>
 <ul class="simple">
 <li><a class="reference external" href="http://www.stsci.edu/resources/software_hardware/pyfits">pyfits</a> (FITS
@@ -106,6 +113,25 @@ tables)</li>
 databases)</li>
 <li><a class="reference external" href="http://www.pygresql.org/">PyGreSQL</a> (PostGreSQL databases)</li>
 </ul>
+</div>
+<div class="section" id="stable-version">
+<h2>Stable version<a class="headerlink" href="#stable-version" title="Permalink to this headline">¶</a></h2>
+<p>The latest stable release of ATpy can be downloaded from <a class="reference external" href="https://sourceforge.net/projects/atpy/files/">Sourceforge</a>. To install ATpy, use the standard installation procedure:</p>
+<div class="highlight-python"><pre>tar xvzf ATpy-X-X.X.tar.gz
+cd ATpy-X.X.X/
+python setup.py install</pre>
+</div>
+</div>
+<div class="section" id="developer-version">
+<h2>Developer version<a class="headerlink" href="#developer-version" title="Permalink to this headline">¶</a></h2>
+<p>Advanced users wishing to use the latest development (&#8220;unstable&#8221;) version can check it out with:</p>
+<div class="highlight-python"><pre>svn co https://atpy.svn.sourceforge.net/svnroot/atpy/trunk/src/ATpy ATpy</pre>
+</div>
+<p>which can then be installed with:</p>
+<div class="highlight-python"><pre>cd ATpy
+python setup.py install</pre>
+</div>
+</div>
 </div>
 
 
