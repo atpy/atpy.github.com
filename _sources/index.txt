@@ -2,11 +2,11 @@
 ATpy - Astronomical Tables in Python 
 ====================================
 
-`Sourceforge <http://sourceforge.net/projects/atpy/>`_ - `Download <https://sourceforge.net/projects/atpy/files/>`_ 
+`GitHub <https://github.com/atpy/atpy>`_ - `Download <https://github.com/atpy/atpy/archives/master>`_ 
 
 `Announcement Mailing List <http://groups.google.com/group/atpy-announce>`_ - `Twitter <http://twitter.com/astropython/>`_ - `Discussion Group <http://groups.google.com/group/atpy-users>`_
 
-`Report Bugs <https://sourceforge.net/tracker/?group_id=259666&atid=1280111>`_ - `Requests Features <https://sourceforge.net/tracker/?group_id=259666&atid=1280112>`_
+`Report Bugs <https://github.com/atpy/atpy/issues>`_ - `Requests Features <https://github.com/atpy/atpy/issues>`_
 
 ATpy is a high-level Python package providing a way to manipulate tables of
 astronomical data in a uniform way. The two main features of ATpy are:
