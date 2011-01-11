@@ -32,7 +32,7 @@ Below is a list of the optional packages that ATpy depends on to support reading
 Stable version
 ==============
 
-The latest stable release of ATpy can be downloaded from `Sourceforge <https://sourceforge.net/projects/atpy/files/>`_. To install ATpy, use the standard installation procedure::
+The latest stable release of ATpy can be downloaded from `GitHub <https://github.com/atpy/atpy/archives/master>`_. To install ATpy, use the standard installation procedure::
 
     tar xvzf ATpy-X-X.X.tar.gz
     cd ATpy-X.X.X/
@@ -43,12 +43,9 @@ Developer version
 
 Advanced users wishing to use the latest development ("unstable") version can check it out with::
 
-    svn co https://atpy.svn.sourceforge.net/svnroot/atpy/trunk/src/ATpy ATpy
+    git clone git://github.com/atpy/atpy.git
    
 which can then be installed with::
 
-    cd ATpy
+    cd atpy
     python setup.py install
-
-
-
