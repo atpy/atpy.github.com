@@ -137,16 +137,16 @@ writing to overwrite a file (the default is <tt class="docutils literal"><span c
 <dd><p>Read a table from a IPAC file</p>
 <p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>filename</em>: [ string ]</dt>
 <dd>The IPAC file to read the table from</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Optional Keyword Arguments:</p>
 <blockquote>
-<p><em>definition</em>: [ 1 | 2 | 3 ]</p>
+<div><p><em>definition</em>: [ 1 | 2 | 3 ]</p>
 <blockquote>
-<p>The definition to use to read IPAC tables:</p>
+<div><p>The definition to use to read IPAC tables:</p>
 <dl class="docutils">
 <dt>1: any character below a pipe symbol belongs to the</dt>
 <dd>column on the left, and any characters below the
@@ -156,16 +156,16 @@ first pipe symbol belong to the first column.</dd>
 <dt>3: no characters should be present below the pipe</dt>
 <dd>symbols (default).</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p><em>smart_typing</em>: [ True | False ]</p>
 <blockquote>
-Whether to try and save memory by using the smallest
+<div>Whether to try and save memory by using the smallest
 integer type that can contain a column. For example,
 a column containing only values between 0 and 255 can
 be stored as an unsigned 8-bit integer column. The
 default is false, so that all integer columns are
-stored as 64-bit integers.</blockquote>
-</blockquote>
+stored as 64-bit integers.</div></blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
@@ -174,11 +174,11 @@ stored as 64-bit integers.</blockquote>
 <dd><p>Write the table to an IPAC file</p>
 <p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>filename</em>: [ string ]</dt>
 <dd>The IPAC file to write the table to</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 </div>
@@ -211,7 +211,7 @@ stored as 64-bit integers.</blockquote>
     </div>
     <div class="footer">
         &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.6.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

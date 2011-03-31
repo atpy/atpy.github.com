@@ -160,14 +160,14 @@ writing to overwrite a file (the default is <tt class="docutils literal"><span c
 <tt class="descclassname">atpy.sqltable.</tt><tt class="descname">read</tt><big>(</big><em>self</em>, <em>dbtype</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.sqltable.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>dbtype</em>: [ &#8216;sqlite&#8217; | &#8216;mysql&#8217; | &#8216;postgres&#8217; ]</dt>
 <dd>The SQL database type</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Optional arguments (only for Table.read() class):</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>table</em>: [ string ]</dt>
 <dd>The name of the table to read from the database (this is only
 required if there are more than one table in the database). This
@@ -178,32 +178,32 @@ using an SQLite database.</dd>
 any valid SQL command provided that the result is a single
 table.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>The remaining arguments depend on the database type:</p>
 <ul>
 <li><p class="first">SQLite:</p>
 <blockquote>
-<p>Arguments are passed to sqlite3.connect(). For a full list of
+<div><p>Arguments are passed to sqlite3.connect(). For a full list of
 available arguments, see the help page for sqlite3.connect(). The
 main arguments are listed below.</p>
 <p>Required arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>dbname</em>: [ string ]</dt>
 <dd><p class="first last">The name of the database file</p>
 </dd>
 </dl>
-</blockquote>
-</blockquote>
+</div></blockquote>
+</div></blockquote>
 </li>
 <li><p class="first">MySQL:</p>
 <blockquote>
-<p>Arguments are passed to MySQLdb.connect(). For a full list of
+<div><p>Arguments are passed to MySQLdb.connect(). For a full list of
 available arguments, see the documentation for MySQLdb. The main
 arguments are listed below.</p>
 <p>Optional arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>host</em>: [ string ]</dt>
 <dd><p class="first last">The host to connect to (default is localhost)</p>
 </dd>
@@ -220,12 +220,12 @@ arguments are listed below.</p>
 <dd><p class="first last">The port to connect to (default is 3306)</p>
 </dd>
 </dl>
-</blockquote>
-</blockquote>
+</div></blockquote>
+</div></blockquote>
 </li>
 <li><p class="first">PostGreSQL:</p>
 <blockquote>
-<p>Arguments are passed to pgdb.connect(). For a full list of
+<div><p>Arguments are passed to pgdb.connect(). For a full list of
 available arguments, see the help page for pgdb.connect(). The
 main arguments are listed below.</p>
 <dl class="docutils">
@@ -242,7 +242,7 @@ main arguments are listed below.</p>
 <dd><p class="first last">The name of the database to connect to (no default)</p>
 </dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </li>
 </ul>
 </dd></dl>
@@ -252,14 +252,14 @@ main arguments are listed below.</p>
 <tt class="descclassname">atpy.sqltable.</tt><tt class="descname">write</tt><big>(</big><em>self</em>, <em>dbtype</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.sqltable.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>dbtype</em>: [ &#8216;sqlite&#8217; | &#8216;mysql&#8217; | &#8216;postgres&#8217; ]</dt>
 <dd>The SQL database type</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Optional arguments (only for Table.read() class):</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>table</em>: [ string ]</dt>
 <dd>The name of the table to read from the database (this is only
 required if there are more than one table in the database). This
@@ -270,32 +270,32 @@ using an SQLite database.</dd>
 any valid SQL command provided that the result is a single
 table.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>The remaining arguments depend on the database type:</p>
 <ul>
 <li><p class="first">SQLite:</p>
 <blockquote>
-<p>Arguments are passed to sqlite3.connect(). For a full list of
+<div><p>Arguments are passed to sqlite3.connect(). For a full list of
 available arguments, see the help page for sqlite3.connect(). The
 main arguments are listed below.</p>
 <p>Required arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>dbname</em>: [ string ]</dt>
 <dd><p class="first last">The name of the database file</p>
 </dd>
 </dl>
-</blockquote>
-</blockquote>
+</div></blockquote>
+</div></blockquote>
 </li>
 <li><p class="first">MySQL:</p>
 <blockquote>
-<p>Arguments are passed to MySQLdb.connect(). For a full list of
+<div><p>Arguments are passed to MySQLdb.connect(). For a full list of
 available arguments, see the documentation for MySQLdb. The main
 arguments are listed below.</p>
 <p>Optional arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>host</em>: [ string ]</dt>
 <dd><p class="first last">The host to connect to (default is localhost)</p>
 </dd>
@@ -312,12 +312,12 @@ arguments are listed below.</p>
 <dd><p class="first last">The port to connect to (default is 3306)</p>
 </dd>
 </dl>
-</blockquote>
-</blockquote>
+</div></blockquote>
+</div></blockquote>
 </li>
 <li><p class="first">PostGreSQL:</p>
 <blockquote>
-<p>Arguments are passed to pgdb.connect(). For a full list of
+<div><p>Arguments are passed to pgdb.connect(). For a full list of
 available arguments, see the help page for pgdb.connect(). The
 main arguments are listed below.</p>
 <dl class="docutils">
@@ -334,7 +334,7 @@ main arguments are listed below.</p>
 <dd><p class="first last">The name of the database to connect to (no default)</p>
 </dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </li>
 </ul>
 </dd></dl>
@@ -344,14 +344,14 @@ main arguments are listed below.</p>
 <tt class="descclassname">atpy.sqltable.</tt><tt class="descname">read_set</tt><big>(</big><em>self</em>, <em>dbtype</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.sqltable.read_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>dbtype</em>: [ &#8216;sqlite&#8217; | &#8216;mysql&#8217; | &#8216;postgres&#8217; ]</dt>
 <dd>The SQL database type</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Optional arguments (only for Table.read() class):</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>table</em>: [ string ]</dt>
 <dd>The name of the table to read from the database (this is only
 required if there are more than one table in the database). This
@@ -362,32 +362,32 @@ using an SQLite database.</dd>
 any valid SQL command provided that the result is a single
 table.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>The remaining arguments depend on the database type:</p>
 <ul>
 <li><p class="first">SQLite:</p>
 <blockquote>
-<p>Arguments are passed to sqlite3.connect(). For a full list of
+<div><p>Arguments are passed to sqlite3.connect(). For a full list of
 available arguments, see the help page for sqlite3.connect(). The
 main arguments are listed below.</p>
 <p>Required arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>dbname</em>: [ string ]</dt>
 <dd><p class="first last">The name of the database file</p>
 </dd>
 </dl>
-</blockquote>
-</blockquote>
+</div></blockquote>
+</div></blockquote>
 </li>
 <li><p class="first">MySQL:</p>
 <blockquote>
-<p>Arguments are passed to MySQLdb.connect(). For a full list of
+<div><p>Arguments are passed to MySQLdb.connect(). For a full list of
 available arguments, see the documentation for MySQLdb. The main
 arguments are listed below.</p>
 <p>Optional arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>host</em>: [ string ]</dt>
 <dd><p class="first last">The host to connect to (default is localhost)</p>
 </dd>
@@ -404,12 +404,12 @@ arguments are listed below.</p>
 <dd><p class="first last">The port to connect to (default is 3306)</p>
 </dd>
 </dl>
-</blockquote>
-</blockquote>
+</div></blockquote>
+</div></blockquote>
 </li>
 <li><p class="first">PostGreSQL:</p>
 <blockquote>
-<p>Arguments are passed to pgdb.connect(). For a full list of
+<div><p>Arguments are passed to pgdb.connect(). For a full list of
 available arguments, see the help page for pgdb.connect(). The
 main arguments are listed below.</p>
 <dl class="docutils">
@@ -426,7 +426,7 @@ main arguments are listed below.</p>
 <dd><p class="first last">The name of the database to connect to (no default)</p>
 </dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </li>
 </ul>
 </dd></dl>
@@ -436,14 +436,14 @@ main arguments are listed below.</p>
 <tt class="descclassname">atpy.sqltable.</tt><tt class="descname">write_set</tt><big>(</big><em>self</em>, <em>dbtype</em>, <em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#atpy.sqltable.write_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>dbtype</em>: [ &#8216;sqlite&#8217; | &#8216;mysql&#8217; | &#8216;postgres&#8217; ]</dt>
 <dd>The SQL database type</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Optional arguments (only for Table.read() class):</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>table</em>: [ string ]</dt>
 <dd>The name of the table to read from the database (this is only
 required if there are more than one table in the database). This
@@ -454,32 +454,32 @@ using an SQLite database.</dd>
 any valid SQL command provided that the result is a single
 table.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>The remaining arguments depend on the database type:</p>
 <ul>
 <li><p class="first">SQLite:</p>
 <blockquote>
-<p>Arguments are passed to sqlite3.connect(). For a full list of
+<div><p>Arguments are passed to sqlite3.connect(). For a full list of
 available arguments, see the help page for sqlite3.connect(). The
 main arguments are listed below.</p>
 <p>Required arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>dbname</em>: [ string ]</dt>
 <dd><p class="first last">The name of the database file</p>
 </dd>
 </dl>
-</blockquote>
-</blockquote>
+</div></blockquote>
+</div></blockquote>
 </li>
 <li><p class="first">MySQL:</p>
 <blockquote>
-<p>Arguments are passed to MySQLdb.connect(). For a full list of
+<div><p>Arguments are passed to MySQLdb.connect(). For a full list of
 available arguments, see the documentation for MySQLdb. The main
 arguments are listed below.</p>
 <p>Optional arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>host</em>: [ string ]</dt>
 <dd><p class="first last">The host to connect to (default is localhost)</p>
 </dd>
@@ -496,12 +496,12 @@ arguments are listed below.</p>
 <dd><p class="first last">The port to connect to (default is 3306)</p>
 </dd>
 </dl>
-</blockquote>
-</blockquote>
+</div></blockquote>
+</div></blockquote>
 </li>
 <li><p class="first">PostGreSQL:</p>
 <blockquote>
-<p>Arguments are passed to pgdb.connect(). For a full list of
+<div><p>Arguments are passed to pgdb.connect(). For a full list of
 available arguments, see the help page for pgdb.connect(). The
 main arguments are listed below.</p>
 <dl class="docutils">
@@ -518,7 +518,7 @@ main arguments are listed below.</p>
 <dd><p class="first last">The name of the database to connect to (no default)</p>
 </dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </li>
 </ul>
 </dd></dl>
@@ -553,7 +553,7 @@ main arguments are listed below.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.6.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

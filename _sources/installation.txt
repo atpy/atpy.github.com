@@ -18,7 +18,7 @@ Below is a list of the optional packages that ATpy depends on to support reading
 * `pyfits <http://www.stsci.edu/resources/software_hardware/pyfits>`_ (FITS
   tables)
 
-* `vo <http://www.stsci.edu/trac/ssb/astrolib>`_ (VO tables)
+* `vo <https://trac6.assembla.com/astrolib>`_ (VO tables)
 
 * `asciitable <http://cxc.harvard.edu/contrib/asciitable/>`_ (ASCII tables)
 

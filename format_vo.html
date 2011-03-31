@@ -100,7 +100,7 @@
 International Virtual Observatory Alliance to store one or more tables.
 It is a format based on the Extensible Markup Language (XML).</p>
 </div>
-<p>VO tables are supported thanks to the <a class="reference external" href="http://www.stsci.edu/trac/ssb/astrolib">vo</a> module. Reading VO tables is straightforward:</p>
+<p>VO tables are supported thanks to the <a class="reference external" href="https://trac6.assembla.com/astrolib">vo</a> module. Reading VO tables is straightforward:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s">&#39;table.vot&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -143,14 +143,14 @@ writing to overwrite a file (the default is <tt class="docutils literal"><span c
 <dd><p>Read a table from a VOT file</p>
 <p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>filename</em>: [ string ]</dt>
 <dd>The VOT file to read the table from</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Optional Keyword Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>tid</em>: [ integer ]</dt>
 <dd>The ID of the table to read from the VO file (this is
 only required if there are more than one table in the VO file)</dd>
@@ -158,7 +158,7 @@ only required if there are more than one table in the VO file)</dd>
 <dd>When <em>pedantic</em> is True, raise an error when the file violates
 the VO Table specification, otherwise issue a warning.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
@@ -167,18 +167,18 @@ the VO Table specification, otherwise issue a warning.</dd>
 <dd><p>Write the table to a VOT file</p>
 <p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>filename</em>: [ string ]</dt>
 <dd>The VOT file to write the table to</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Optional Keyword Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>votype</em>: [ &#8216;ascii&#8217; | &#8216;binary&#8217; ]</dt>
 <dd>Whether to write the table as ASCII or binary</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
@@ -187,19 +187,19 @@ the VO Table specification, otherwise issue a warning.</dd>
 <dd><p>Read all tables from a VOT file</p>
 <p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>filename</em>: [ string ]</dt>
 <dd>The VOT file to read the tables from</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Optional Keyword Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>pedantic</em>: [ True | False ]</dt>
 <dd>When <em>pedantic</em> is True, raise an error when the file violates
 the VO Table specification, otherwise issue a warning.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
@@ -208,18 +208,18 @@ the VO Table specification, otherwise issue a warning.</dd>
 <dd><p>Write all tables to a VOT file</p>
 <p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>filename</em>: [ string ]</dt>
 <dd>The VOT file to write the tables to</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Optional Keyword Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>votype</em>: [ &#8216;ascii&#8217; | &#8216;binary&#8217; ]</dt>
 <dd>Whether to write the tables as ASCII or binary tables</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 </div>
@@ -252,7 +252,7 @@ the VO Table specification, otherwise issue a warning.</dd>
     </div>
     <div class="footer">
         &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.6.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

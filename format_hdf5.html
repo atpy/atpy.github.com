@@ -156,24 +156,24 @@ writing to overwrite a file (the default is <tt class="docutils literal"><span c
 <dd><p>Read a table from an HDF5 file</p>
 <p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>filename</em>: [ string ]</dt>
 <dd><blockquote class="first">
-The HDF5 file to read the table from</blockquote>
+<div>The HDF5 file to read the table from</div></blockquote>
 <p class="last">OR</p>
 </dd>
 <dt><em>file or group handle</em>: [ h5py.highlevel.File | h5py.highlevel.Group ]</dt>
 <dd>The HDF5 file handle or group handle to read the table from</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Optional Keyword Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>table</em>: [ string ]</dt>
 <dd>The name of the table to read from the HDF5 file (this is only
 required if there are more than one table in the file)</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
@@ -182,19 +182,19 @@ required if there are more than one table in the file)</dd>
 <dd><p>Write the table to an HDF5 file</p>
 <p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>filename</em>: [ string ]</dt>
 <dd><blockquote class="first">
-The HDF5 file to write the table to</blockquote>
+<div>The HDF5 file to write the table to</div></blockquote>
 <p class="last">OR</p>
 </dd>
 <dt><em>file or group handle</em>: [ h5py.highlevel.File | h5py.highlevel.Group ]</dt>
 <dd>The HDF5 file handle or group handle to write the table to</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Optional Keyword Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>compression</em>: [ True | False ]</dt>
 <dd>Whether to compress the table inside the HDF5 file</dd>
 <dt><em>group</em>: [ string ]</dt>
@@ -209,7 +209,7 @@ With this option set to False, tables are placed in groups that
 are present in the table name, and the groups are created if
 necessary.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
@@ -218,11 +218,11 @@ necessary.</dd>
 <dd><p>Read all tables from an HDF5 file</p>
 <p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>filename</em>: [ string ]</dt>
 <dd>The HDF5 file to read the tables from</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="function">
@@ -231,14 +231,19 @@ necessary.</dd>
 <dd><p>Write the tables to an HDF5 file</p>
 <p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>filename</em>: [ string ]</dt>
-<dd>The HDF5 file to write the tables to</dd>
+<dd><blockquote class="first">
+<div>The HDF5 file to write the tables to</div></blockquote>
+<p class="last">OR</p>
+</dd>
+<dt><em>file or group handle</em>: [ h5py.highlevel.File | h5py.highlevel.Group ]</dt>
+<dd>The HDF5 file handle or group handle to write the tables to</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Optional Keyword Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>compression</em>: [ True | False ]</dt>
 <dd>Whether to compress the tables inside the HDF5 file</dd>
 <dt><em>group</em>: [ string ]</dt>
@@ -253,7 +258,7 @@ With this option set to False, tables are placed in groups that
 are present in the table name, and the groups are created if
 necessary.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 </div>
@@ -286,7 +291,7 @@ necessary.</dd>
     </div>
     <div class="footer">
         &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.6.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

@@ -101,7 +101,7 @@
 <dd><p>Read in a table set from a file/database.</p>
 <p>Optional Keyword Arguments (independent of table type):</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>verbose</em>: [ True | False ]</dt>
 <dd>Whether to print out warnings when reading (default is True)</dd>
 <dt><em>type</em>: [ string ]</dt>
@@ -109,7 +109,7 @@
 file/database format based on the arguments supplied. The type
 can be overridden by setting this argument.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -118,7 +118,7 @@ can be overridden by setting this argument.</dd>
 <dd><p>Write out a table set to a file/database.</p>
 <p>Optional Keyword Arguments (independent of table type):</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>verbose</em>: [ True | False ]</dt>
 <dd>Whether to print out warnings when writing (default is True)</dd>
 <dt><em>type</em>: [ string ]</dt>
@@ -126,7 +126,7 @@ can be overridden by setting this argument.</dd>
 file/database format based on the arguments supplied. The type
 can be overridden by setting this argument.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 </div>
@@ -138,11 +138,11 @@ can be overridden by setting this argument.</dd>
 <dd><p>Add a comment to the table set</p>
 <p>Required Argument:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>comment</em>: [ string ]</dt>
 <dd>The comment to add to the table</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -151,13 +151,13 @@ can be overridden by setting this argument.</dd>
 <dd><p>Add a keyword/value pair to the table set</p>
 <p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>key</em>: [ string ]</dt>
 <dd>The name of the keyword</dd>
 <dt><em>value</em>: [ string | float | integer | bool ]</dt>
 <dd>The value of the keyword</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -175,14 +175,14 @@ can be overridden by setting this argument.</dd>
 <dd><p>Append a table to the table set</p>
 <p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>table</em>: [ a table instance ]</dt>
 <dd>This can be a table of any type, which will be converted
 to a table of the same type as the parent set (e.g. adding
 a single VOTable to a FITSTableSet will convert the VOTable
 to a FITSTable inside the set)</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 </div>
@@ -211,7 +211,7 @@ to a FITSTable inside the set)</dd>
     </div>
     <div class="footer">
         &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.6.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>

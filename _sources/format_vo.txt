@@ -9,7 +9,7 @@ VO tables
     International Virtual Observatory Alliance to store one or more tables.
     It is a format based on the Extensible Markup Language (XML).
 
-VO tables are supported thanks to the `vo <http://www.stsci.edu/trac/ssb/astrolib>`_ module. Reading VO tables is straightforward::
+VO tables are supported thanks to the `vo <https://trac6.assembla.com/astrolib>`_ module. Reading VO tables is straightforward::
 
   >>> t = atpy.Table('table.vot')
   

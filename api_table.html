@@ -109,7 +109,7 @@
 <dd><p>Read in a table from a file/database.</p>
 <p>Optional Keyword Arguments (independent of table type):</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>verbose</em>: [ True | False ]</dt>
 <dd>Whether to print out warnings when reading (default is True)</dd>
 <dt><em>type</em>: [ string ]</dt>
@@ -117,7 +117,7 @@
 file/database format based on the arguments supplied. The type
 can be overridden by setting this argument.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -126,7 +126,7 @@ can be overridden by setting this argument.</dd>
 <dd><p>Write out a table to a file/database.</p>
 <p>Optional Keyword Arguments (independent of table type):</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>verbose</em>: [ True | False ]</dt>
 <dd>Whether to print out warnings when writing (default is True)</dd>
 <dt><em>type</em>: [ string ]</dt>
@@ -134,7 +134,7 @@ can be overridden by setting this argument.</dd>
 file/database format based on the arguments supplied. The type
 can be overridden by setting this argument.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 </div>
@@ -146,11 +146,11 @@ can be overridden by setting this argument.</dd>
 <dd><p>Add a comment to the table</p>
 <p>Required Argument:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>comment</em>: [ string ]</dt>
 <dd>The comment to add to the table</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -159,13 +159,13 @@ can be overridden by setting this argument.</dd>
 <dd><p>Add a keyword/value pair to the table</p>
 <p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>key</em>: [ string ]</dt>
 <dd>The name of the keyword</dd>
 <dt><em>value</em>: [ string | float | integer | bool ]</dt>
 <dd>The value of the keyword</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -179,20 +179,20 @@ can be overridden by setting this argument.</dd>
 <h2>Column manipulation<a class="headerlink" href="#column-manipulation" title="Permalink to this headline">¶</a></h2>
 <dl class="method">
 <dt id="atpy.Table.add_column">
-<tt class="descclassname">Table.</tt><tt class="descname">add_column</tt><big>(</big><em>name</em>, <em>data</em>, <em>unit=''</em>, <em>null=''</em>, <em>description=''</em>, <em>format=None</em>, <em>dtype=None</em>, <em>before=None</em>, <em>after=None</em>, <em>position=None</em>, <em>mask=None</em>, <em>fill=None</em><big>)</big><a class="headerlink" href="#atpy.Table.add_column" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Table.</tt><tt class="descname">add_column</tt><big>(</big><em>name</em>, <em>data</em>, <em>unit=''</em>, <em>null=''</em>, <em>description=''</em>, <em>format=None</em>, <em>dtype=None</em>, <em>column_header=None</em>, <em>before=None</em>, <em>after=None</em>, <em>position=None</em>, <em>mask=None</em>, <em>fill=None</em><big>)</big><a class="headerlink" href="#atpy.Table.add_column" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a column to the table</p>
 <p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>name</em>: [ string ]</dt>
 <dd>The name of the column to add</dd>
 <dt><em>data</em>: [ numpy array ]</dt>
 <dd>The column data</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Optional Keyword Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>unit</em>: [ string ]</dt>
 <dd>The unit of the values in the column</dd>
 <dt><em>null</em>: [ same type as data ]</dt>
@@ -204,6 +204,15 @@ can be overridden by setting this argument.</dd>
 <dt><em>dtype</em>: [ numpy type ]</dt>
 <dd>Numpy type to convert the data to. This is the equivalent to
 the dtype= argument in numpy.array</dd>
+<dt><em>column_header</em>: [ ColumnHeader ]</dt>
+<dd><p class="first">The metadata from an existing column to copy over. Metadata
+includes the unit, null value, description, format, and dtype.
+For example, to create a column &#8216;b&#8217; with identical metadata to
+column &#8216;a&#8217; in table &#8216;t&#8217;, use:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">column_header</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">a</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd>
 <dt><em>before</em>: [ string ]</dt>
 <dd>Column before which the new column should be inserted</dd>
 <dt><em>after</em>: [ string ]</dt>
@@ -218,27 +227,27 @@ indicating whether or not to mask values.</dd>
 <dd>If masked arrays are used, this value is used as the fill
 value in the numpy masked array.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
 <dt id="atpy.Table.add_empty_column">
-<tt class="descclassname">Table.</tt><tt class="descname">add_empty_column</tt><big>(</big><em>name</em>, <em>dtype</em>, <em>unit=''</em>, <em>null=''</em>, <em>description=''</em>, <em>format=None</em>, <em>shape=None</em>, <em>before=None</em>, <em>after=None</em>, <em>position=None</em><big>)</big><a class="headerlink" href="#atpy.Table.add_empty_column" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Table.</tt><tt class="descname">add_empty_column</tt><big>(</big><em>name</em>, <em>dtype</em>, <em>unit=''</em>, <em>null=''</em>, <em>description=''</em>, <em>format=None</em>, <em>column_header=None</em>, <em>shape=None</em>, <em>before=None</em>, <em>after=None</em>, <em>position=None</em><big>)</big><a class="headerlink" href="#atpy.Table.add_empty_column" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add an empty column to the table. This only works if there
 are already existing columns in the table.</p>
 <p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>name</em>: [ string ]</dt>
 <dd>The name of the column to add</dd>
 <dt><em>dtype</em>: [ numpy type ]</dt>
 <dd>Numpy type of the column. This is the equivalent to
 the dtype= argument in numpy.array</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Optional Keyword Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>unit</em>: [ string ]</dt>
 <dd>The unit of the values in the column</dd>
 <dt><em>null</em>: [ same type as data ]</dt>
@@ -247,6 +256,15 @@ the dtype= argument in numpy.array</dd>
 <dd>A description of the content of the column</dd>
 <dt><em>format</em>: [ string ]</dt>
 <dd>The format to use for ASCII printing</dd>
+<dt><em>column_header</em>: [ ColumnHeader ]</dt>
+<dd><p class="first">The metadata from an existing column to copy over. Metadata
+includes the unit, null value, description, format, and dtype.
+For example, to create a column &#8216;b&#8217; with identical metadata to
+column &#8216;a&#8217; in table &#8216;t&#8217;, use:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">add_column</span><span class="p">(</span><span class="s">&#39;b&#39;</span><span class="p">,</span> <span class="n">column_header</span><span class="o">=</span><span class="n">t</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">a</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd>
 <dt><em>shape</em>: [ tuple ]</dt>
 <dd>Tuple describing the shape of the empty column that is to be
 added. If a one element tuple is specified, it is the number
@@ -260,7 +278,7 @@ number of rows, and the second is the width of the column.</dd>
 <dd>Position at which the new column should be inserted (0 = first
 column)</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -269,11 +287,11 @@ column)</dd>
 <dd><p>Remove several columns from the table</p>
 <p>Required Argument:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>remove_names</em>: [ list of strings ]</dt>
 <dd>A list containing the names of the columns to remove</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -282,12 +300,12 @@ column)</dd>
 <dd><p>Keep only specific columns in the table (remove the others)</p>
 <p>Required Argument:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>keep_names</em>: [ list of strings ]</dt>
 <dd>A list containing the names of the columns to keep.
 All other columns will be removed.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -296,13 +314,13 @@ All other columns will be removed.</dd>
 <dd><p>Rename a column from the table</p>
 <p>Require Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>old_name</em>: [ string ]</dt>
 <dd>The current name of the column.</dd>
 <dt><em>new_name</em>: [ string ]</dt>
 <dd>The new name for the column</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -314,11 +332,11 @@ databases. A primary column cannot contain NULLs and must contain only
 unique quantities.</p>
 <p>Required Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>key</em>: [ string ]</dt>
 <dd>The column to use as a primary key</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 </div>
@@ -331,11 +349,11 @@ unique quantities.</p>
 on the existing table (and does not return a new table).</p>
 <p>Required arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>keys</em>: [ string | list of strings ]</dt>
 <dd>The key(s) to order by</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -344,19 +362,19 @@ on the existing table (and does not return a new table).</p>
 <dd><p>Returns a single row</p>
 <p>Required arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>row_number</em>: [ integer ]</dt>
 <dd>The row number (the first row is 0)</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Optional Keyword Arguments:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>python_types</em>: [ True | False ]</dt>
 <dd>Whether to return the row elements with python (True)
 or numpy (False) types.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -365,15 +383,15 @@ or numpy (False) types.</dd>
 <dd><p>Select specific rows from the table and return a new table instance</p>
 <p>Required Argument:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>row_ids</em>: [ list | np.int array ]</dt>
 <dd>A python list or numpy array specifying which rows to select,
 and in what order.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Returns:</p>
 <blockquote>
-A new table instance, containing only the rows selected</blockquote>
+<div>A new table instance, containing only the rows selected</div></blockquote>
 </dd></dl>
 
 <dl class="method">
@@ -382,14 +400,14 @@ A new table instance, containing only the rows selected</blockquote>
 <dd><p>Select matching rows from the table and return a new table instance</p>
 <p>Required Argument:</p>
 <blockquote>
-<dl class="docutils">
+<div><dl class="docutils">
 <dt><em>mask</em>: [ np.bool array ]</dt>
 <dd>A boolean array with the same length as the table.</dd>
 </dl>
-</blockquote>
+</div></blockquote>
 <p>Returns:</p>
 <blockquote>
-A new table instance, containing only the rows selected</blockquote>
+<div>A new table instance, containing only the rows selected</div></blockquote>
 </dd></dl>
 
 </div>
@@ -421,7 +439,7 @@ A new table instance, containing only the rows selected</blockquote>
     </div>
     <div class="footer">
         &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.6.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
 </html>
