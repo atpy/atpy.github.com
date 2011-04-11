@@ -16,6 +16,7 @@ The following pages describe the file formats currently supported, and format-sp
   format_ipac.rst
   format_ascii.rst
   format_sql.rst
+  format_online.rst
   
 Unless stated otherwise below, all table types support the following types:
 
