@@ -22,7 +22,10 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="ATpy v0.9.4 documentation" href="index.html" /> 
+    <link rel="top" title="ATpy v0.9.4 documentation" href="index.html" />
+    <link rel="up" title="Supported Formats" href="formats.html" />
+    <link rel="next" title="Full API for Table class" href="api_table.html" />
+    <link rel="prev" title="SQL databases" href="format_sql.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,7 +37,14 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="index.html">ATpy v0.9.4 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="api_table.html" title="Full API for Table class"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="format_sql.html" title="SQL databases"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">ATpy v0.9.4 documentation</a> &raquo;</li>
+          <li><a href="formats.html" accesskey="U">Supported Formats</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -52,6 +62,12 @@
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="format_sql.html"
+                        title="previous chapter">SQL databases</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="api_table.html"
+                        title="next chapter">Full API for Table class</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/format_online.txt"
@@ -80,14 +96,14 @@
             
   <div class="section" id="online-queries">
 <span id="format-hdf5"></span><h1>Online queries<a class="headerlink" href="#online-queries" title="Permalink to this headline">¶</a></h1>
-<p>It is possible to query online databases and automatically return the results
-as a <tt class="docutils literal"><span class="pre">Table</span></tt> instance. There are several mechanisms for accessing online
-catalogs:</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">The features described on this page require the latest version of
 the <a class="reference external" href="https://github.com/atpy/atpy/tree/vo">vo branch</a> of ATpy.</p>
 </div>
+<p>It is possible to query online databases and automatically return the results
+as a <tt class="docutils literal"><span class="pre">Table</span></tt> instance. There are several mechanisms for accessing online
+catalogs:</p>
 <div class="section" id="virtual-observatory">
 <h2>Virtual Observatory<a class="headerlink" href="#virtual-observatory" title="Permalink to this headline">¶</a></h2>
 <p>An interface to the virtual observatory is provided via the <a class="reference external" href="https://trac6.assembla.com/astrolib">vo</a> module. To list the catalogs
@@ -162,8 +178,8 @@ result.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The following functions should not be called directly - the arguments
-should be passed to <tt class="docutils literal"><span class="pre">Table()/Table.read()</span></tt>, <tt class="docutils literal"><span class="pre">Table.write()</span></tt>,
-<tt class="docutils literal"><span class="pre">TableSet()/TableSet.read()</span></tt>, and <tt class="docutils literal"><span class="pre">TableSet.write()</span></tt> respectively.</p>
+should be passed to <tt class="docutils literal"><span class="pre">Table()/Table.read()</span></tt> using either
+<tt class="docutils literal"><span class="pre">type=vo_conesearch</span></tt> or <tt class="docutils literal"><span class="pre">type=irsa</span></tt>.</p>
 </div>
 <dl class="function">
 <dt id="atpy.vo_conesearch.read">
@@ -280,7 +296,14 @@ polygon to search in. Required if spatial is &#8216;Polygon&#8217;</dd>
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li><a href="index.html">ATpy v0.9.4 documentation</a> &raquo;</li> 
+        <li class="right" >
+          <a href="api_table.html" title="Full API for Table class"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="format_sql.html" title="SQL databases"
+             >previous</a> |</li>
+        <li><a href="index.html">ATpy v0.9.4 documentation</a> &raquo;</li>
+          <li><a href="formats.html" >Supported Formats</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

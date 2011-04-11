@@ -4,12 +4,12 @@
 Online queries
 ==============
 
+.. warning:: The features described on this page require the latest version of
+             the `vo branch <https://github.com/atpy/atpy/tree/vo>`_ of ATpy.
+
 It is possible to query online databases and automatically return the results
 as a ``Table`` instance. There are several mechanisms for accessing online
 catalogs:
-
-.. warning:: The features described on this page require the latest version of
-             the `vo branch <https://github.com/atpy/atpy/tree/vo>`_ of ATpy.
 
 Virtual Observatory
 -------------------
@@ -89,8 +89,8 @@ Full API for advanced users
 
 .. note ::
     The following functions should not be called directly - the arguments
-    should be passed to ``Table()/Table.read()``, ``Table.write()``,
-    ``TableSet()/TableSet.read()``, and ``TableSet.write()`` respectively.
+    should be passed to ``Table()/Table.read()`` using either
+    ``type=vo_conesearch`` or ``type=irsa``.
     
 .. autofunction:: atpy.vo_conesearch.read
 .. autofunction:: atpy.irsa_service.read
