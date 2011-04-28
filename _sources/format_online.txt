@@ -28,7 +28,7 @@ available, use the ``list_catalogs()`` method from ``atpy.vo_conesearch``::
 A specific catalog can then be queried with a conesearch by specifying a
 catalog, and the coordinates and radius (in degrees) to search::
 
-  >>> t = atpy.Table(catalog='USNO-B1', ra=233.112, dec=23.432, radius=0.3)
+  >>> t = atpy.Table(catalog='USNO-B1', ra=233.112, dec=23.432, radius=0.3, type='vo_conesearch')
   
 How long this query takes will depend on the speed of your network, the load
 on the server being queried, and the number of rows in the result. For
