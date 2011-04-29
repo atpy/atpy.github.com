@@ -4,9 +4,6 @@
 Online queries
 ==============
 
-.. warning:: The features described on this page require the latest version of
-             the `vo branch <https://github.com/atpy/atpy/tree/vo>`_ of ATpy.
-
 It is possible to query online databases and automatically return the results
 as a ``Table`` instance. There are several mechanisms for accessing online
 catalogs:
