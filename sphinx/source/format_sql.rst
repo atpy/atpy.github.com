@@ -31,25 +31,25 @@ To read in all the tables in a database, simply use the ``TableSet`` class, e.g:
 
 or
 
-  >>> t = atpy.TableSet('mysql', user='monty', password='spam', \
-                        database='measurements')
+  >>> t = atpy.TableSet('mysql', user='monty', passwd='spam', \
+                        db='measurements')
 
 It is possible to retrieve only a subset of a table, or the result of any standard SQL query, using the ``query`` argument. For example, the following will retrieve all entries where the ``quality`` variable is positive::
 
-  >>> t = atpy.Table('mysql', user='monty', password='spam', \
-                     database='measurements', table='velocities', \
+  >>> t = atpy.Table('mysql', user='monty', passwd='spam', \
+                     db='measurements', table='velocities', \
                      query='SELECT * FROM velocities WHERE quality > 0;' )
                    
 Any valid SQL command should work, including commands used to merge different tables.
 
-Writing tables or table sets to databases is simple, and is done through the ``write`` method. As before, databsae parameters may need to be specified, e.g.::
+Writing tables or table sets to databases is simple, and is done through the ``write`` method. As before, database parameters may need to be specified, e.g.::
 
   >>> t.write('sqlite', 'mydatabase.db')
   
 or
 
-  >>> t.write('mysql', user='monty', password='spam', \
-              database='measurements')
+  >>> t.write('mysql', user='monty', passwd='spam', \
+              db='measurements')
 
 .. note:: 
     As for file formats, the ``verbose`` argument can be specified to
