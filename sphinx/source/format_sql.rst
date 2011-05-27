@@ -22,7 +22,7 @@ For MySQL databases, standard MySQL parameters can be specified. These include `
 
 For example, to read a table called ``velocities`` from a MySQL database called ``measurements``, with a user ``monty`` and password ``spam``, one would use::
 
-  >>> t = atpy.Table('mysql', user='monty', passwd='spam', \
+  >>> t = atpy.Table('mysql', user='monty', passwd='spam',
                      db='measurements', table='velocities')
 
 To read in all the tables in a database, simply use the ``TableSet`` class, e.g::
@@ -31,13 +31,13 @@ To read in all the tables in a database, simply use the ``TableSet`` class, e.g:
 
 or
 
-  >>> t = atpy.TableSet('mysql', user='monty', passwd='spam', \
+  >>> t = atpy.TableSet('mysql', user='monty', passwd='spam',
                         db='measurements')
 
 It is possible to retrieve only a subset of a table, or the result of any standard SQL query, using the ``query`` argument. For example, the following will retrieve all entries where the ``quality`` variable is positive::
 
-  >>> t = atpy.Table('mysql', user='monty', passwd='spam', \
-                     db='measurements', table='velocities', \
+  >>> t = atpy.Table('mysql', user='monty', passwd='spam',
+                     db='measurements', table='velocities',
                      query='SELECT * FROM velocities WHERE quality > 0;' )
                    
 Any valid SQL command should work, including commands used to merge different tables.
@@ -48,7 +48,7 @@ Writing tables or table sets to databases is simple, and is done through the ``w
   
 or
 
-  >>> t.write('mysql', user='monty', passwd='spam', \
+  >>> t.write('mysql', user='monty', passwd='spam',
               db='measurements')
 
 .. note:: 

@@ -111,7 +111,7 @@ PostGreSQL.</p>
 </div>
 <p>For MySQL databases, standard MySQL parameters can be specified. These include <tt class="docutils literal"><span class="pre">user</span></tt>, <tt class="docutils literal"><span class="pre">passwd</span></tt>, <tt class="docutils literal"><span class="pre">db</span></tt> (the database name), <tt class="docutils literal"><span class="pre">host</span></tt>, and <tt class="docutils literal"><span class="pre">port</span></tt>. For PostGreSQL databases, standard PostGreSQL parameters can be specified. These include <tt class="docutils literal"><span class="pre">user</span></tt>, <tt class="docutils literal"><span class="pre">password</span></tt>, <tt class="docutils literal"><span class="pre">database</span></tt>, and <tt class="docutils literal"><span class="pre">host</span></tt>.</p>
 <p>For example, to read a table called <tt class="docutils literal"><span class="pre">velocities</span></tt> from a MySQL database called <tt class="docutils literal"><span class="pre">measurements</span></tt>, with a user <tt class="docutils literal"><span class="pre">monty</span></tt> and password <tt class="docutils literal"><span class="pre">spam</span></tt>, one would use:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s">&#39;mysql&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">&#39;monty&#39;</span><span class="p">,</span> <span class="n">passwd</span><span class="o">=</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> \
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s">&#39;mysql&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">&#39;monty&#39;</span><span class="p">,</span> <span class="n">passwd</span><span class="o">=</span><span class="s">&#39;spam&#39;</span><span class="p">,</span>
 <span class="go">                   db=&#39;measurements&#39;, table=&#39;velocities&#39;)</span>
 </pre></div>
 </div>
@@ -120,24 +120,24 @@ PostGreSQL.</p>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">TableSet</span><span class="p">(</span><span class="s">&#39;mysql&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">&#39;monty&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> \
-<span class="go">                      database=&#39;measurements&#39;)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">TableSet</span><span class="p">(</span><span class="s">&#39;mysql&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">&#39;monty&#39;</span><span class="p">,</span> <span class="n">passwd</span><span class="o">=</span><span class="s">&#39;spam&#39;</span><span class="p">,</span>
+<span class="go">                      db=&#39;measurements&#39;)</span>
 </pre></div>
 </div>
 <p>It is possible to retrieve only a subset of a table, or the result of any standard SQL query, using the <tt class="docutils literal"><span class="pre">query</span></tt> argument. For example, the following will retrieve all entries where the <tt class="docutils literal"><span class="pre">quality</span></tt> variable is positive:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s">&#39;mysql&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">&#39;monty&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> \
-<span class="go">                   database=&#39;measurements&#39;, table=&#39;velocities&#39;, \</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s">&#39;mysql&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">&#39;monty&#39;</span><span class="p">,</span> <span class="n">passwd</span><span class="o">=</span><span class="s">&#39;spam&#39;</span><span class="p">,</span>
+<span class="go">                   db=&#39;measurements&#39;, table=&#39;velocities&#39;,</span>
 <span class="go">                   query=&#39;SELECT * FROM velocities WHERE quality &gt; 0;&#39; )</span>
 </pre></div>
 </div>
 <p>Any valid SQL command should work, including commands used to merge different tables.</p>
-<p>Writing tables or table sets to databases is simple, and is done through the <tt class="docutils literal"><span class="pre">write</span></tt> method. As before, databsae parameters may need to be specified, e.g.:</p>
+<p>Writing tables or table sets to databases is simple, and is done through the <tt class="docutils literal"><span class="pre">write</span></tt> method. As before, database parameters may need to be specified, e.g.:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;sqlite&#39;</span><span class="p">,</span> <span class="s">&#39;mydatabase.db&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>or</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;mysql&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">&#39;monty&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> \
-<span class="go">            database=&#39;measurements&#39;)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;mysql&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">&#39;monty&#39;</span><span class="p">,</span> <span class="n">passwd</span><span class="o">=</span><span class="s">&#39;spam&#39;</span><span class="p">,</span>
+<span class="go">            db=&#39;measurements&#39;)</span>
 </pre></div>
 </div>
 <div class="admonition note">
