@@ -2,7 +2,7 @@
 ATpy - Astronomical Tables in Python 
 ====================================
 
-`GitHub <https://github.com/atpy/atpy>`_ - `Download latest stable version <https://github.com/downloads/atpy/atpy/ATpy-0.9.5.tar.gz>`_ 
+`GitHub <https://github.com/atpy/atpy>`_ - `Download latest stable version <https://github.com/downloads/atpy/atpy/ATpy-0.9.5.1.tar.gz>`_ 
 
 `Announcement Mailing List <http://groups.google.com/group/atpy-announce>`_ - `Twitter <http://twitter.com/astropython/>`_ - `Discussion Group <http://groups.google.com/group/atpy-users>`_
 

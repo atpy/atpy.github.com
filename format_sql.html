@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>SQL databases &mdash; ATpy v0.9.5 documentation</title>
+    <title>SQL databases &mdash; ATpy v0.9.5.1 documentation</title>
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.9.5',
+        VERSION:     '0.9.5.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="ATpy v0.9.5 documentation" href="index.html" />
+    <link rel="top" title="ATpy v0.9.5.1 documentation" href="index.html" />
     <link rel="up" title="Supported Formats" href="formats.html" />
     <link rel="next" title="Online queries" href="format_online.html" />
     <link rel="prev" title="ASCII tables" href="format_ascii.html" /> 
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="format_ascii.html" title="ASCII tables"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">ATpy v0.9.5 documentation</a> &raquo;</li>
+        <li><a href="index.html">ATpy v0.9.5.1 documentation</a> &raquo;</li>
           <li><a href="formats.html" accesskey="U">Supported Formats</a> &raquo;</li> 
       </ul>
     </div>
@@ -109,10 +109,10 @@ PostGreSQL.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s">&#39;sqlite&#39;</span><span class="p">,</span> <span class="s">&#39;mydatabase.db&#39;</span><span class="p">,</span> <span class="n">table</span><span class="o">=</span><span class="s">&#39;observations&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For MySQL databases, standard MySQL parameters can be specified. These include <tt class="docutils literal"><span class="pre">user</span></tt>, <tt class="docutils literal"><span class="pre">passwd</span></tt>, <tt class="docutils literal"><span class="pre">db</span></tt> (the database name), <tt class="docutils literal"><span class="pre">host</span></tt>, and <tt class="docutils literal"><span class="pre">port</span></tt>.</p>
-<p>For PostGreSQL databases, standard PostGreSQL parameters can be specified. These include <tt class="docutils literal"><span class="pre">user</span></tt>, <tt class="docutils literal"><span class="pre">password</span></tt>, <tt class="docutils literal"><span class="pre">database</span></tt>, and <tt class="docutils literal"><span class="pre">host</span></tt>. For example, to read a table called <tt class="docutils literal"><span class="pre">velocities</span></tt> from a MySQL database called <tt class="docutils literal"><span class="pre">measurements</span></tt>, with a user <tt class="docutils literal"><span class="pre">monty</span></tt> and password <tt class="docutils literal"><span class="pre">spam</span></tt>, one would use:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s">&#39;mysql&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">&#39;monty&#39;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> \
-<span class="go">                   database=&#39;measurements&#39;, table=&#39;velocities&#39;)</span>
+<p>For MySQL databases, standard MySQL parameters can be specified. These include <tt class="docutils literal"><span class="pre">user</span></tt>, <tt class="docutils literal"><span class="pre">passwd</span></tt>, <tt class="docutils literal"><span class="pre">db</span></tt> (the database name), <tt class="docutils literal"><span class="pre">host</span></tt>, and <tt class="docutils literal"><span class="pre">port</span></tt>. For PostGreSQL databases, standard PostGreSQL parameters can be specified. These include <tt class="docutils literal"><span class="pre">user</span></tt>, <tt class="docutils literal"><span class="pre">password</span></tt>, <tt class="docutils literal"><span class="pre">database</span></tt>, and <tt class="docutils literal"><span class="pre">host</span></tt>.</p>
+<p>For example, to read a table called <tt class="docutils literal"><span class="pre">velocities</span></tt> from a MySQL database called <tt class="docutils literal"><span class="pre">measurements</span></tt>, with a user <tt class="docutils literal"><span class="pre">monty</span></tt> and password <tt class="docutils literal"><span class="pre">spam</span></tt>, one would use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">atpy</span><span class="o">.</span><span class="n">Table</span><span class="p">(</span><span class="s">&#39;mysql&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">&#39;monty&#39;</span><span class="p">,</span> <span class="n">passwd</span><span class="o">=</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> \
+<span class="go">                   db=&#39;measurements&#39;, table=&#39;velocities&#39;)</span>
 </pre></div>
 </div>
 <p>To read in all the tables in a database, simply use the <tt class="docutils literal"><span class="pre">TableSet</span></tt> class, e.g:</p>
@@ -547,7 +547,7 @@ main arguments are listed below.</p>
         <li class="right" >
           <a href="format_ascii.html" title="ASCII tables"
              >previous</a> |</li>
-        <li><a href="index.html">ATpy v0.9.5 documentation</a> &raquo;</li>
+        <li><a href="index.html">ATpy v0.9.5.1 documentation</a> &raquo;</li>
           <li><a href="formats.html" >Supported Formats</a> &raquo;</li> 
       </ul>
     </div>

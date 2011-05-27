@@ -18,12 +18,12 @@ If more than one table is present in the file, the table name can be specified::
 
   >>> t = atpy.Table('sqlite', 'mydatabase.db', table='observations')
 
-For MySQL databases, standard MySQL parameters can be specified. These include ``user``, ``passwd``, ``db`` (the database name), ``host``, and ``port``.
+For MySQL databases, standard MySQL parameters can be specified. These include ``user``, ``passwd``, ``db`` (the database name), ``host``, and ``port``. For PostGreSQL databases, standard PostGreSQL parameters can be specified. These include ``user``, ``password``, ``database``, and ``host``.
 
-For PostGreSQL databases, standard PostGreSQL parameters can be specified. These include ``user``, ``password``, ``database``, and ``host``. For example, to read a table called ``velocities`` from a MySQL database called ``measurements``, with a user ``monty`` and password ``spam``, one would use::
+For example, to read a table called ``velocities`` from a MySQL database called ``measurements``, with a user ``monty`` and password ``spam``, one would use::
 
-  >>> t = atpy.Table('mysql', user='monty', password='spam', \
-                     database='measurements', table='velocities')
+  >>> t = atpy.Table('mysql', user='monty', passwd='spam', \
+                     db='measurements', table='velocities')
 
 To read in all the tables in a database, simply use the ``TableSet`` class, e.g::
 
