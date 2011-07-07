@@ -25,8 +25,6 @@ The `type=` argument is optional for these formats, if they have appropriate fil
 
 ATpy also allows full access to asciitable. If the ``type='ascii'`` argument is specified in ``Table()``, all arguments are passed to ``asciitable.read``, and the result is automatically stored in the ATpy ``Table`` instance. For more information on the arguments available in ``asciitable.read``, see `here <http://cxc.harvard.edu/contrib/asciitable/#basic-usage-with-read>`_.
   
-At the moment, ``asciitable`` only supports reading in tables, not writing.
-
 .. note:: 
     As for all file formats, the ``verbose`` argument can be specified to
     control whether warning messages are shown when reading (the default is
@@ -43,4 +41,5 @@ Full API for advanced users
 .. autofunction:: atpy.asciitables.read_daophot
 .. autofunction:: atpy.asciitables.read_rdb
 .. autofunction:: atpy.asciitables.read_ascii
+.. autofunction:: atpy.asciitables.write_ascii
 
