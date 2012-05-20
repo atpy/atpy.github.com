@@ -3,17 +3,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>FITS tables &mdash; ATpy v0.9.5.3 documentation</title>
+    <title>FITS tables &mdash; ATpy 0.9.6 documentation</title>
+    
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '0.9.5.3',
+        VERSION:     '0.9.6',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="ATpy v0.9.5.3 documentation" href="index.html" />
+    <link rel="top" title="ATpy 0.9.6 documentation" href="index.html" />
     <link rel="up" title="Supported Formats" href="formats.html" />
     <link rel="next" title="VO tables" href="format_vo.html" />
     <link rel="prev" title="Supported Formats" href="formats.html" /> 
@@ -43,7 +46,7 @@
         <li class="right" >
           <a href="formats.html" title="Supported Formats"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">ATpy v0.9.5.3 documentation</a> &raquo;</li>
+        <li><a href="index.html">ATpy 0.9.6 documentation</a> &raquo;</li>
           <li><a href="formats.html" accesskey="U">Supported Formats</a> &raquo;</li> 
       </ul>
     </div>
@@ -75,7 +78,7 @@
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" size="18" />
+      <input type="text" name="q" />
       <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -143,7 +146,7 @@ writing to overwrite a file (the default is <tt class="docutils literal"><span c
 </div>
 <dl class="function">
 <dt id="atpy.fitstable.read">
-<tt class="descclassname">atpy.fitstable.</tt><tt class="descname">read</tt><big>(</big><em>self</em>, <em>filename</em>, <em>hdu=None</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#atpy.fitstable.read" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">atpy.fitstable.</tt><tt class="descname">read</tt><big>(</big><em>self</em>, <em>filename</em>, <em>hdu=None</em>, <em>memmap=False</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#atpy.fitstable.read" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read a table from a FITS file</p>
 <p>Required Arguments:</p>
 <blockquote>
@@ -158,6 +161,8 @@ writing to overwrite a file (the default is <tt class="docutils literal"><span c
 <dt><em>hdu</em>: [ integer ]</dt>
 <dd>The HDU to read from the FITS file (this is only required
 if there are more than one table in the FITS file)</dd>
+<dt><em>memmap</em>: [ bool ]</dt>
+<dd>Whether PyFITS should use memory mapping</dd>
 </dl>
 </div></blockquote>
 </dd></dl>
@@ -184,13 +189,20 @@ if there are more than one table in the FITS file)</dd>
 
 <dl class="function">
 <dt id="atpy.fitstable.read_set">
-<tt class="descclassname">atpy.fitstable.</tt><tt class="descname">read_set</tt><big>(</big><em>self</em>, <em>filename</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#atpy.fitstable.read_set" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">atpy.fitstable.</tt><tt class="descname">read_set</tt><big>(</big><em>self</em>, <em>filename</em>, <em>memmap=False</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#atpy.fitstable.read_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read all tables from a FITS file</p>
 <p>Required Arguments:</p>
 <blockquote>
 <div><dl class="docutils">
 <dt><em>filename</em>: [ string ]</dt>
 <dd>The FITS file to read the tables from</dd>
+</dl>
+</div></blockquote>
+<p>Optional Keyword Arguments:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><em>memmap</em>: [ bool ]</dt>
+<dd>Whether PyFITS should use memory mapping</dd>
 </dl>
 </div></blockquote>
 </dd></dl>
@@ -239,13 +251,13 @@ if there are more than one table in the FITS file)</dd>
         <li class="right" >
           <a href="formats.html" title="Supported Formats"
              >previous</a> |</li>
-        <li><a href="index.html">ATpy v0.9.5.3 documentation</a> &raquo;</li>
+        <li><a href="index.html">ATpy 0.9.6 documentation</a> &raquo;</li>
           <li><a href="formats.html" >Supported Formats</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2009, Eli Bressert and Thomas Robitaille.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
 </html>

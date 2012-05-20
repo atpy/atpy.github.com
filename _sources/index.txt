@@ -2,7 +2,7 @@
 ATpy - Astronomical Tables in Python 
 ====================================
 
-`GitHub <https://github.com/atpy/atpy>`_ - `Download latest stable version <https://github.com/downloads/atpy/atpy/ATpy-0.9.5.1.tar.gz>`_ 
+`GitHub <https://github.com/atpy/atpy>`_ - `Download latest stable version <https://github.com/downloads/atpy/atpy/ATpy-0.9.6.tar.gz>`_ 
 
 `Announcement Mailing List <http://groups.google.com/group/atpy-announce>`_ - `Twitter <http://twitter.com/astropython/>`_ - `Discussion Group <http://groups.google.com/group/atpy-users>`_
 
@@ -45,7 +45,11 @@ write a data file from FITS format to VO, HDF5, IPAC, and SQLite formats::
     tbl.some_column[3] = 4.5
     tbl.remove_column('some_other_column')
 
-This is only a small fraction of ATpy's functionality. We strongly recommend that users read through the documentation, which is available below. For a quick introduction, we recommend the :ref:`tables` and :ref:`data` sections. For information about format-specific features, see :ref:`formats`.
+This is only a small fraction of ATpy's functionality. We strongly
+recommend that users read through the documentation, which is available
+below. For a quick introduction, we recommend the :ref:`tables` and
+:ref:`data` sections. For information about format-specific features, see
+:ref:`formats`.
 
 Documentation
 -------------
