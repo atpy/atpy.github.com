@@ -69,6 +69,11 @@ Any arguments given to ``Table`` are passed on to the ``read`` method, so the ab
 
   >>> t = Table()
   >>> t.read('example.xml')
+  
+As of 0.9.6, it is now possible to specify URLs starting with ``http://``
+or ``ftp://`` and the file will automatically be downloaded. Furthermore,
+it is possible to specify files compressed in gzip or bzip format for all
+I/O formats.
 
 Reading data from a database
 ----------------------------
